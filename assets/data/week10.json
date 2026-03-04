@@ -4,122 +4,240 @@
   "youtube": "#",
   "words": [
     {
-      "hanzi": "那个",
-      "pinyin": "nàge",
+      "hanzi": "社会",
+      "pinyin": "shèhuì",
       "meanings": [
-        "that one",
-        "that"
+        "society"
       ]
     },
     {
-      "hanzi": "这位",
-      "pinyin": "zhè wèi",
+      "hanzi": "法律",
+      "pinyin": "fǎlǜ",
       "meanings": [
-        "this person (polite)"
+        "law"
       ]
     },
     {
-      "hanzi": "那位",
-      "pinyin": "nà wèi",
+      "hanzi": "权利",
+      "pinyin": "quánlì",
       "meanings": [
-        "that person (polite)"
+        "right",
+        "privilege"
       ]
     },
     {
-      "hanzi": "它的",
-      "pinyin": "tā de",
+      "hanzi": "义务",
+      "pinyin": "yìwù",
       "meanings": [
-        "its"
+        "obligation"
       ]
     },
     {
-      "hanzi": "行不行",
-      "pinyin": "xíng bu xíng",
+      "hanzi": "规定",
+      "pinyin": "guīdìng",
       "meanings": [
-        "okay or not",
-        "will it work"
+        "regulation",
+        "rule"
       ]
     },
     {
-      "hanzi": "好不好",
-      "pinyin": "hǎo bu hǎo",
+      "hanzi": "安全",
+      "pinyin": "ānquán",
       "meanings": [
-        "good or not",
-        "okay"
+        "safety"
       ]
     },
     {
-      "hanzi": "要不要",
-      "pinyin": "yào bu yào",
+      "hanzi": "和平",
+      "pinyin": "hépíng",
       "meanings": [
-        "want or not",
-        "should we"
+        "peace"
       ]
     },
     {
-      "hanzi": "一点点",
-      "pinyin": "yìdiǎndiǎn",
+      "hanzi": "战争",
+      "pinyin": "zhànzhēng",
       "meanings": [
-        "a tiny bit"
+        "war"
       ]
     },
     {
-      "hanzi": "几乎",
-      "pinyin": "jīhū",
+      "hanzi": "技术",
+      "pinyin": "jìshù",
       "meanings": [
-        "almost",
-        "nearly"
+        "technology"
       ]
     },
     {
-      "hanzi": "大约",
-      "pinyin": "dàyuē",
+      "hanzi": "科学",
+      "pinyin": "kēxué",
       "meanings": [
-        "about",
-        "approximately"
+        "science"
       ]
     },
     {
-      "hanzi": "左右",
-      "pinyin": "zuǒyòu",
+      "hanzi": "网络",
+      "pinyin": "wǎngluò",
       "meanings": [
-        "around",
-        "approximately"
+        "internet"
       ]
     },
     {
-      "hanzi": "下个月",
-      "pinyin": "xià ge yuè",
+      "hanzi": "信息",
+      "pinyin": "xìnxī",
       "meanings": [
-        "next month"
+        "information"
       ]
     },
     {
-      "hanzi": "年",
-      "pinyin": "nián",
+      "hanzi": "现代",
+      "pinyin": "xiàndài",
       "meanings": [
-        "year"
+        "modern"
       ]
     },
     {
-      "hanzi": "今年",
-      "pinyin": "jīnnián",
+      "hanzi": "传统",
+      "pinyin": "chuántǒng",
       "meanings": [
-        "this year"
+        "tradition"
       ]
     },
     {
-      "hanzi": "给",
-      "pinyin": "gěi",
+      "hanzi": "艺术",
+      "pinyin": "yìshù",
       "meanings": [
-        "to give"
+        "art"
       ]
     },
     {
-      "hanzi": "帮",
-      "pinyin": "bāng",
+      "hanzi": "文学",
+      "pinyin": "wénxué",
       "meanings": [
-        "to help"
+        "literature"
+      ]
+    },
+    {
+      "hanzi": "小说",
+      "pinyin": "xiǎoshuō",
+      "meanings": [
+        "novel"
+      ]
+    },
+    {
+      "hanzi": "作者",
+      "pinyin": "zuòzhě",
+      "meanings": [
+        "author"
+      ]
+    },
+    {
+      "hanzi": "内容",
+      "pinyin": "nèiróng",
+      "meanings": [
+        "content"
+      ]
+    },
+    {
+      "hanzi": "情节",
+      "pinyin": "qíngjié",
+      "meanings": [
+        "plot"
+      ]
+    },
+    {
+      "hanzi": "翻译",
+      "pinyin": "fānyì",
+      "meanings": [
+        "translate",
+        "translator"
+      ]
+    },
+    {
+      "hanzi": "表达",
+      "pinyin": "biǎodá",
+      "meanings": [
+        "to express"
+      ]
+    },
+    {
+      "hanzi": "描述",
+      "pinyin": "miáoshù",
+      "meanings": [
+        "to describe"
+      ]
+    },
+    {
+      "hanzi": "讨论",
+      "pinyin": "tǎolùn",
+      "meanings": [
+        "to discuss"
+      ]
+    },
+    {
+      "hanzi": "争论",
+      "pinyin": "zhēnglùn",
+      "meanings": [
+        "to argue"
+      ]
+    },
+    {
+      "hanzi": "商量",
+      "pinyin": "shāngliang",
+      "meanings": [
+        "to consult",
+        "discuss"
+      ]
+    },
+    {
+      "hanzi": "建议",
+      "pinyin": "jiànyì",
+      "meanings": [
+        "to suggest",
+        "advice"
+      ]
+    },
+    {
+      "hanzi": "表扬",
+      "pinyin": "biǎoyáng",
+      "meanings": [
+        "to praise"
+      ]
+    },
+    {
+      "hanzi": "指",
+      "pinyin": "zhǐ",
+      "meanings": [
+        "to point at"
+      ]
+    },
+    {
+      "hanzi": "甚至",
+      "pinyin": "shènzhì",
+      "meanings": [
+        "even (to the extent of)"
+      ]
+    },
+    {
+      "hanzi": "连...也/都",
+      "pinyin": "lián...yě/dōu",
+      "meanings": [
+        "even... (connector)"
+      ]
+    },
+    {
+      "hanzi": "被",
+      "pinyin": "bèi",
+      "meanings": [
+        "by (passive marker)"
+      ]
+    },
+    {
+      "hanzi": "使",
+      "pinyin": "shǐ",
+      "meanings": [
+        "to make",
+        "cause"
       ]
     },
     {
@@ -127,250 +245,123 @@
       "pinyin": "ràng",
       "meanings": [
         "to let",
-        "to allow",
-        "to make"
+        "allow"
       ]
     },
     {
-      "hanzi": "请",
-      "pinyin": "qǐng",
+      "hanzi": "叫",
+      "pinyin": "jiào",
       "meanings": [
-        "to invite",
-        "to request",
-        "please"
+        "to order",
+        "ask"
       ]
     },
     {
-      "hanzi": "允许",
-      "pinyin": "yǔnxǔ",
+      "hanzi": "虽然",
+      "pinyin": "suīrán",
       "meanings": [
-        "allow",
-        "permit"
+        "although"
       ]
     },
     {
-      "hanzi": "不许",
-      "pinyin": "bù xǔ",
+      "hanzi": "却",
+      "pinyin": "què",
       "meanings": [
-        "must not",
-        "not allowed"
+        "but",
+        "yet"
       ]
     },
     {
-      "hanzi": "禁止",
-      "pinyin": "jìnzhǐ",
+      "hanzi": "然而",
+      "pinyin": "rán'ér",
       "meanings": [
-        "forbid",
-        "prohibit"
+        "however"
       ]
     },
     {
-      "hanzi": "行",
-      "pinyin": "xíng",
+      "hanzi": "否则",
+      "pinyin": "fǒuzé",
       "meanings": [
-        "okay",
-        "works",
-        "can do"
+        "otherwise"
       ]
     },
     {
-      "hanzi": "丈夫",
-      "pinyin": "zhàngfu",
+      "hanzi": "省",
+      "pinyin": "shěng",
       "meanings": [
-        "husband"
+        "province",
+        "to save"
       ]
     },
     {
-      "hanzi": "妻子",
-      "pinyin": "qīzi",
+      "hanzi": "区",
+      "pinyin": "qū",
       "meanings": [
-        "wife"
+        "district"
       ]
     },
     {
-      "hanzi": "男人",
-      "pinyin": "nánrén",
+      "hanzi": "农村",
+      "pinyin": "nóngcūn",
       "meanings": [
-        "man"
+        "countryside"
       ]
     },
     {
-      "hanzi": "女人",
-      "pinyin": "nǚrén",
+      "hanzi": "地址",
+      "pinyin": "dìzhǐ",
       "meanings": [
-        "woman"
+        "address"
       ]
     },
     {
-      "hanzi": "男朋友",
-      "pinyin": "nánpéngyou",
+      "hanzi": "位置",
+      "pinyin": "wèizhì",
       "meanings": [
-        "boyfriend"
+        "position",
+        "location"
       ]
     },
     {
-      "hanzi": "机场",
-      "pinyin": "jīchǎng",
+      "hanzi": "周围",
+      "pinyin": "zhōuwéi",
       "meanings": [
-        "airport"
+        "surroundings"
       ]
     },
     {
-      "hanzi": "车站",
-      "pinyin": "chēzhàn",
+      "hanzi": "距离",
+      "pinyin": "jùlí",
       "meanings": [
-        "station"
+        "distance"
       ]
     },
     {
-      "hanzi": "站",
-      "pinyin": "zhàn",
+      "hanzi": "公里",
+      "pinyin": "gōnglǐ",
       "meanings": [
-        "station",
-        "stop"
+        "kilometer"
       ]
     },
     {
-      "hanzi": "票",
-      "pinyin": "piào",
+      "hanzi": "面积",
+      "pinyin": "miànjī",
       "meanings": [
-        "ticket"
+        "area"
       ]
     },
     {
-      "hanzi": "筷子",
-      "pinyin": "kuàizi",
+      "hanzi": "各种各样",
+      "pinyin": "gèzhǒng gèyàng",
       "meanings": [
-        "chopsticks"
+        "all kinds of"
       ]
     },
     {
-      "hanzi": "勺子",
-      "pinyin": "sháozi",
+      "hanzi": "丰富多彩",
+      "pinyin": "fēngfù duōcǎi",
       "meanings": [
-        "spoon"
-      ]
-    },
-    {
-      "hanzi": "刀",
-      "pinyin": "dāo",
-      "meanings": [
-        "knife"
-      ]
-    },
-    {
-      "hanzi": "叉子",
-      "pinyin": "chāzi",
-      "meanings": [
-        "fork"
-      ]
-    },
-    {
-      "hanzi": "糖",
-      "pinyin": "táng",
-      "meanings": [
-        "sugar"
-      ]
-    },
-    {
-      "hanzi": "油",
-      "pinyin": "yóu",
-      "meanings": [
-        "oil"
-      ]
-    },
-    {
-      "hanzi": "醋",
-      "pinyin": "cù",
-      "meanings": [
-        "vinegar"
-      ]
-    },
-    {
-      "hanzi": "酱油",
-      "pinyin": "jiàngyóu",
-      "meanings": [
-        "soy sauce"
-      ]
-    },
-    {
-      "hanzi": "辣椒",
-      "pinyin": "làjiāo",
-      "meanings": [
-        "chili pepper"
-      ]
-    },
-    {
-      "hanzi": "有用",
-      "pinyin": "yǒuyòng",
-      "meanings": [
-        "useful"
-      ]
-    },
-    {
-      "hanzi": "方便",
-      "pinyin": "fāngbiàn",
-      "meanings": [
-        "convenient"
-      ]
-    },
-    {
-      "hanzi": "麻烦",
-      "pinyin": "máfan",
-      "meanings": [
-        "troublesome",
-        "annoying"
-      ]
-    },
-    {
-      "hanzi": "安全",
-      "pinyin": "ānquán",
-      "meanings": [
-        "safe"
-      ]
-    },
-    {
-      "hanzi": "危险",
-      "pinyin": "wēixiǎn",
-      "meanings": [
-        "dangerous"
-      ]
-    },
-    {
-      "hanzi": "一起",
-      "pinyin": "yìqǐ",
-      "meanings": [
-        "together"
-      ]
-    },
-    {
-      "hanzi": "从",
-      "pinyin": "cóng",
-      "meanings": [
-        "from"
-      ]
-    },
-    {
-      "hanzi": "向",
-      "pinyin": "xiàng",
-      "meanings": [
-        "toward",
-        "to"
-      ]
-    },
-    {
-      "hanzi": "往",
-      "pinyin": "wǎng",
-      "meanings": [
-        "toward"
-      ]
-    },
-    {
-      "hanzi": "离",
-      "pinyin": "lí",
-      "meanings": [
-        "away from",
-        "from (distance)"
+        "rich and varied"
       ]
     }
   ]

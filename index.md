@@ -13,6 +13,12 @@ A simple companion site for your weekly YouTube vocab playlist.
 - Reading study with hover popups
 
 <div class="grid">
+  <a class="card week-card special-card" href="{{ '/all/' | relative_url }}">
+    <div class="week-badge">All Weeks</div>
+    <div class="week-title">All Weeks Stories</div>
+    <div class="week-sub">Stories using vocab from every week</div>
+  </a>
+
   {% for i in (1..12) %}
     <a class="card week-card" href="{{ '/week/' | append: i | append: '/' | relative_url }}">
       <div class="week-badge">Week {{ i }}</div>

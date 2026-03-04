@@ -8,7 +8,6 @@
   --border: rgba(255,255,255,0.12);
   --shadow: 0 10px 30px rgba(0,0,0,0.25);
   --accent: #7aa2ff;
-  --accent2: #58e3c5;
   --danger: #ff6b6b;
   --ok: #4ee59a;
 
@@ -28,7 +27,6 @@ html[data-theme="light"]{
   --border: rgba(10,20,40,0.10);
   --shadow: 0 10px 30px rgba(10,20,40,0.10);
   --accent: #2d62ff;
-  --accent2: #0fbf95;
   --danger: #d93535;
   --ok: #0fa96a;
 }
@@ -84,6 +82,7 @@ html[data-theme="light"] .site-header{
   display:flex;
   align-items:center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 .nav a{
   color: var(--text);
@@ -167,6 +166,15 @@ h2{ font-size: 1.2rem; margin: 0 0 12px; }
   margin-top: 4px;
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+/* Make the special card stand out a bit */
+.special-card{
+  border-color: rgba(88,227,197,0.40);
+}
+.special-card .week-badge{
+  background: rgba(88,227,197,0.14);
+  border-color: rgba(88,227,197,0.28);
 }
 
 .btn{
@@ -317,6 +325,14 @@ html[data-theme="light"] input[type="number"]{
   font-weight: 900;
 }
 
+.reading-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .reading-text{
   margin-top: 10px;
   padding: 14px;
@@ -325,4 +341,20 @@ html[data-theme="light"] input[type="number"]{
   background: rgba(0,0,0,0.08);
 }
 html[data-theme="light"] .reading-text{ background: rgba(10,20,40,0.03); }
-.reading-text p{ margin: 10px 0; font-size: 1.1rem; }
+
+.read-line{
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.read-line:last-child{ border-bottom: none; }
+
+.read-line .zh{
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+.read-line .en{
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.98rem;
+  font-weight: 600;
+}

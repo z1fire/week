@@ -4,371 +4,356 @@
   "youtube": "#",
   "words": [
     {
-      "hanzi": "我们的",
-      "pinyin": "wǒmen de",
+      "hanzi": "植物",
+      "pinyin": "zhíwù",
       "meanings": [
-        "our",
-        "ours"
+        "plant"
       ]
     },
     {
-      "hanzi": "你们的",
-      "pinyin": "nǐmen de",
+      "hanzi": "动物",
+      "pinyin": "dòngwù",
       "meanings": [
-        "your (plural)",
-        "yours"
+        "animal"
       ]
     },
     {
-      "hanzi": "他们的",
-      "pinyin": "tāmen de",
+      "hanzi": "老虎",
+      "pinyin": "lǎohǔ",
       "meanings": [
-        "their",
-        "theirs"
+        "tiger"
       ]
     },
     {
-      "hanzi": "自己的",
-      "pinyin": "zìjǐ de",
+      "hanzi": "熊猫",
+      "pinyin": "xióngmāo",
       "meanings": [
-        "one’s own"
+        "panda"
       ]
     },
     {
-      "hanzi": "能不能",
-      "pinyin": "néng bu néng",
+      "hanzi": "猴子",
+      "pinyin": "hóuzi",
       "meanings": [
-        "can or can’t"
+        "monkey"
       ]
     },
     {
-      "hanzi": "可不可以",
-      "pinyin": "kě bu kěyǐ",
+      "hanzi": "蛇",
+      "pinyin": "shé",
       "meanings": [
-        "may or may not",
-        "is it okay"
+        "snake"
       ]
     },
     {
-      "hanzi": "会不会",
-      "pinyin": "huì bu huì",
+      "hanzi": "马",
+      "pinyin": "mǎ",
       "meanings": [
-        "will or won’t",
-        "is it likely"
+        "horse"
       ]
     },
     {
-      "hanzi": "有没有人",
-      "pinyin": "yǒu méi yǒu rén",
+      "hanzi": "鸟",
+      "pinyin": "niǎo",
       "meanings": [
-        "is there anyone"
+        "bird"
+      ]
+    },
+    {
+      "hanzi": "鱼",
+      "pinyin": "yú",
+      "meanings": [
+        "fish"
+      ]
+    },
+    {
+      "hanzi": "翅膀",
+      "pinyin": "chìbǎng",
+      "meanings": [
+        "wing"
+      ]
+    },
+    {
+      "hanzi": "海洋",
+      "pinyin": "hǎiyáng",
+      "meanings": [
+        "ocean"
+      ]
+    },
+    {
+      "hanzi": "森林",
+      "pinyin": "sēnlín",
+      "meanings": [
+        "forest"
+      ]
+    },
+    {
+      "hanzi": "地球",
+      "pinyin": "dìqiú",
+      "meanings": [
+        "Earth"
+      ]
+    },
+    {
+      "hanzi": "环境",
+      "pinyin": "huánjìng",
+      "meanings": [
+        "environment"
+      ]
+    },
+    {
+      "hanzi": "污染",
+      "pinyin": "wūrǎn",
+      "meanings": [
+        "pollution"
+      ]
+    },
+    {
+      "hanzi": "气候",
+      "pinyin": "qìhòu",
+      "meanings": [
+        "climate"
+      ]
+    },
+    {
+      "hanzi": "温度",
+      "pinyin": "wēndù",
+      "meanings": [
+        "temperature"
+      ]
+    },
+    {
+      "hanzi": "甚至",
+      "pinyin": "shènzhì",
+      "meanings": [
+        "even (to the extent)"
+      ]
+    },
+    {
+      "hanzi": "估计",
+      "pinyin": "gūjì",
+      "meanings": [
+        "to estimate"
+      ]
+    },
+    {
+      "hanzi": "或许",
+      "pinyin": "huòxǔ",
+      "meanings": [
+        "perhaps"
+      ]
+    },
+    {
+      "hanzi": "显然",
+      "pinyin": "xiǎnrán",
+      "meanings": [
+        "obviously"
+      ]
+    },
+    {
+      "hanzi": "也许",
+      "pinyin": "yěxǔ",
+      "meanings": [
+        "maybe"
+      ]
+    },
+    {
+      "hanzi": "到底",
+      "pinyin": "dàodǐ",
+      "meanings": [
+        "in the end"
+      ]
+    },
+    {
+      "hanzi": "毕竟",
+      "pinyin": "bìjìng",
+      "meanings": [
+        "after all"
+      ]
+    },
+    {
+      "hanzi": "尤其",
+      "pinyin": "yóuqí",
+      "meanings": [
+        "especially"
+      ]
+    },
+    {
+      "hanzi": "甚至",
+      "pinyin": "shènzhì",
+      "meanings": [
+        "even"
+      ]
+    },
+    {
+      "hanzi": "此外",
+      "pinyin": "cǐwài",
+      "meanings": [
+        "besides",
+        "in addition"
+      ]
+    },
+    {
+      "hanzi": "总之",
+      "pinyin": "zǒngzhī",
+      "meanings": [
+        "in short"
+      ]
+    },
+    {
+      "hanzi": "可见",
+      "pinyin": "kějiàn",
+      "meanings": [
+        "it is clear that"
+      ]
+    },
+    {
+      "hanzi": "幸亏",
+      "pinyin": "xìngkuī",
+      "meanings": [
+        "fortunately"
+      ]
+    },
+    {
+      "hanzi": "倒是",
+      "pinyin": "dàoshì",
+      "meanings": [
+        "actually",
+        "contrary to expectations"
+      ]
+    },
+    {
+      "hanzi": "反正",
+      "pinyin": "fǎnzhèng",
+      "meanings": [
+        "anyway"
+      ]
+    },
+    {
+      "hanzi": "万一",
+      "pinyin": "wànyī",
+      "meanings": [
+        "just in case"
+      ]
+    },
+    {
+      "hanzi": "否则",
+      "pinyin": "fǒuzé",
+      "meanings": [
+        "otherwise"
+      ]
+    },
+    {
+      "hanzi": "哪怕",
+      "pinyin": "nǎpà",
+      "meanings": [
+        "even if"
+      ]
+    },
+    {
+      "hanzi": "既然",
+      "pinyin": "jìrán",
+      "meanings": [
+        "since"
+      ]
+    },
+    {
+      "hanzi": "于是",
+      "pinyin": "yúshì",
+      "meanings": [
+        "so",
+        "then"
+      ]
+    },
+    {
+      "hanzi": "因此",
+      "pinyin": "yīncǐ",
+      "meanings": [
+        "therefore"
+      ]
+    },
+    {
+      "hanzi": "不得不",
+      "pinyin": "bùdébù",
+      "meanings": [
+        "have to"
+      ]
+    },
+    {
+      "hanzi": "不可能",
+      "pinyin": "bù kěnéng",
+      "meanings": [
+        "impossible"
+      ]
+    },
+    {
+      "hanzi": "没办法",
+      "pinyin": "méi bànfǎ",
+      "meanings": [
+        "no way"
       ]
     },
     {
       "hanzi": "差不多",
       "pinyin": "chàbuduō",
       "meanings": [
-        "about the same",
-        "roughly"
+        "almost"
       ]
     },
     {
-      "hanzi": "至少",
-      "pinyin": "zhìshǎo",
+      "hanzi": "不仅",
+      "pinyin": "bùjǐn",
       "meanings": [
-        "at least"
+        "not only"
       ]
     },
     {
-      "hanzi": "最多",
-      "pinyin": "zuìduō",
+      "hanzi": "即使",
+      "pinyin": "jíshǐ",
       "meanings": [
-        "at most",
-        "maximum"
+        "even though"
       ]
     },
     {
-      "hanzi": "一共",
-      "pinyin": "yígòng",
+      "hanzi": "既然",
+      "pinyin": "jìrán",
       "meanings": [
-        "altogether",
-        "in total"
+        "now that"
       ]
     },
     {
-      "hanzi": "去年",
-      "pinyin": "qùnián",
+      "hanzi": "只要",
+      "pinyin": "zhǐyào",
       "meanings": [
-        "last year"
+        "as long as"
       ]
     },
     {
-      "hanzi": "明年",
-      "pinyin": "míngnián",
+      "hanzi": "只有",
+      "pinyin": "zhǐyǒu",
       "meanings": [
-        "next year"
+        "only"
       ]
     },
     {
-      "hanzi": "时候",
-      "pinyin": "shíhou",
+      "hanzi": "除非",
+      "pinyin": "chúfēi",
       "meanings": [
-        "time",
-        "moment",
-        "when"
+        "unless"
       ]
     },
     {
-      "hanzi": "时间",
-      "pinyin": "shíjiān",
+      "hanzi": "由于",
+      "pinyin": "yóuyú",
       "meanings": [
-        "time"
+        "because of"
       ]
     },
     {
-      "hanzi": "喜欢",
-      "pinyin": "xǐhuan",
+      "hanzi": "所以",
+      "pinyin": "suǒyǐ",
       "meanings": [
-        "to like"
-      ]
-    },
-    {
-      "hanzi": "爱",
-      "pinyin": "ài",
-      "meanings": [
-        "to love"
-      ]
-    },
-    {
-      "hanzi": "睡",
-      "pinyin": "shuì",
-      "meanings": [
-        "to sleep"
-      ]
-    },
-    {
-      "hanzi": "起",
-      "pinyin": "qǐ",
-      "meanings": [
-        "to get up",
-        "to rise"
-      ]
-    },
-    {
-      "hanzi": "不行",
-      "pinyin": "bù xíng",
-      "meanings": [
-        "not okay",
-        "won’t work"
-      ]
-    },
-    {
-      "hanzi": "来得及",
-      "pinyin": "láidejí",
-      "meanings": [
-        "have time to (make it)"
-      ]
-    },
-    {
-      "hanzi": "来不及",
-      "pinyin": "láibují",
-      "meanings": [
-        "not have time to"
-      ]
-    },
-    {
-      "hanzi": "只好",
-      "pinyin": "zhǐhǎo",
-      "meanings": [
-        "have no choice but"
-      ]
-    },
-    {
-      "hanzi": "女朋友",
-      "pinyin": "nǚpéngyou",
-      "meanings": [
-        "girlfriend"
-      ]
-    },
-    {
-      "hanzi": "陌生人",
-      "pinyin": "mòshēngrén",
-      "meanings": [
-        "stranger"
-      ]
-    },
-    {
-      "hanzi": "阿姨",
-      "pinyin": "āyí",
-      "meanings": [
-        "auntie",
-        "Mrs. (polite)"
-      ]
-    },
-    {
-      "hanzi": "叔叔",
-      "pinyin": "shūshu",
-      "meanings": [
-        "uncle",
-        "Mr. (polite)"
-      ]
-    },
-    {
-      "hanzi": "地图",
-      "pinyin": "dìtú",
-      "meanings": [
-        "map"
-      ]
-    },
-    {
-      "hanzi": "路口",
-      "pinyin": "lùkǒu",
-      "meanings": [
-        "intersection"
-      ]
-    },
-    {
-      "hanzi": "桥",
-      "pinyin": "qiáo",
-      "meanings": [
-        "bridge"
-      ]
-    },
-    {
-      "hanzi": "公园",
-      "pinyin": "gōngyuán",
-      "meanings": [
-        "park"
-      ]
-    },
-    {
-      "hanzi": "毛巾",
-      "pinyin": "máojīn",
-      "meanings": [
-        "towel"
-      ]
-    },
-    {
-      "hanzi": "牙刷",
-      "pinyin": "yáshuā",
-      "meanings": [
-        "toothbrush"
-      ]
-    },
-    {
-      "hanzi": "牙膏",
-      "pinyin": "yágāo",
-      "meanings": [
-        "toothpaste"
-      ]
-    },
-    {
-      "hanzi": "纸巾",
-      "pinyin": "zhǐjīn",
-      "meanings": [
-        "tissue",
-        "napkin"
-      ]
-    },
-    {
-      "hanzi": "米粉",
-      "pinyin": "mǐfěn",
-      "meanings": [
-        "rice noodles"
-      ]
-    },
-    {
-      "hanzi": "火锅",
-      "pinyin": "huǒguō",
-      "meanings": [
-        "hot pot"
-      ]
-    },
-    {
-      "hanzi": "早餐",
-      "pinyin": "zǎocān",
-      "meanings": [
-        "breakfast"
-      ]
-    },
-    {
-      "hanzi": "午餐",
-      "pinyin": "wǔcān",
-      "meanings": [
-        "lunch"
-      ]
-    },
-    {
-      "hanzi": "晚餐",
-      "pinyin": "wǎncān",
-      "meanings": [
-        "dinner"
-      ]
-    },
-    {
-      "hanzi": "容易",
-      "pinyin": "róngyì",
-      "meanings": [
-        "easy"
-      ]
-    },
-    {
-      "hanzi": "难",
-      "pinyin": "nán",
-      "meanings": [
-        "difficult"
-      ]
-    },
-    {
-      "hanzi": "开心",
-      "pinyin": "kāixīn",
-      "meanings": [
-        "happy"
-      ]
-    },
-    {
-      "hanzi": "高兴",
-      "pinyin": "gāoxìng",
-      "meanings": [
-        "glad",
-        "happy"
-      ]
-    },
-    {
-      "hanzi": "生气",
-      "pinyin": "shēngqì",
-      "meanings": [
-        "angry"
-      ]
-    },
-    {
-      "hanzi": "比",
-      "pinyin": "bǐ",
-      "meanings": [
-        "than",
-        "compared with"
-      ]
-    },
-    {
-      "hanzi": "关于",
-      "pinyin": "guānyú",
-      "meanings": [
-        "about",
-        "regarding"
-      ]
-    },
-    {
-      "hanzi": "为了",
-      "pinyin": "wèile",
-      "meanings": [
-        "for the sake of"
-      ]
-    },
-    {
-      "hanzi": "个",
-      "pinyin": "ge",
-      "meanings": [
-        "(measure word) general classifier"
+        "so"
       ]
     }
   ]

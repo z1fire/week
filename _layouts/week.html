@@ -68,8 +68,18 @@ layout: default
 </section>
 
 <section class="card">
-  <h2>Reading Study</h2>
-  <p class="muted small">Hover over the Chinese to see pinyin + meaning.</p>
+  <div class="reading-head">
+    <div>
+      <h2 style="margin:0;">Reading Study</h2>
+      <p class="muted small" style="margin:6px 0 0;">Hover over the Chinese to see pinyin + meaning.</p>
+    </div>
+
+    <label id="englishToggleWrap" class="check" style="margin:0;">
+      <input id="toggleEnglish" type="checkbox" />
+      Show English translations
+    </label>
+  </div>
+
   <div id="readingText" class="reading-text"></div>
 </section>
 

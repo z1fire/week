@@ -4,379 +4,356 @@
   "youtube": "#",
   "words": [
     {
-      "hanzi": "这样",
-      "pinyin": "zhèyàng",
+      "hanzi": "皮肤",
+      "pinyin": "pífū",
       "meanings": [
-        "like this",
-        "this way"
+        "skin"
       ]
     },
     {
-      "hanzi": "那样",
-      "pinyin": "nàyàng",
+      "hanzi": "鼻子",
+      "pinyin": "bízi",
       "meanings": [
-        "like that",
-        "that way"
+        "nose"
       ]
     },
     {
-      "hanzi": "这么",
-      "pinyin": "zhème",
+      "hanzi": "嘴",
+      "pinyin": "zuǐ",
       "meanings": [
-        "so",
-        "this much"
+        "mouth"
       ]
     },
     {
-      "hanzi": "那么",
-      "pinyin": "nàme",
+      "hanzi": "牙齿",
+      "pinyin": "yáchǐ",
       "meanings": [
-        "so",
-        "that much"
+        "tooth"
       ]
     },
     {
-      "hanzi": "怎么会",
-      "pinyin": "zěnme huì",
+      "hanzi": "胳膊",
+      "pinyin": "gēbo",
       "meanings": [
-        "how could it be",
-        "how come"
+        "arm"
       ]
     },
     {
-      "hanzi": "是不是",
-      "pinyin": "shì bu shì",
+      "hanzi": "腿",
+      "pinyin": "tuǐ",
       "meanings": [
-        "is it",
-        "whether"
+        "leg"
       ]
     },
     {
-      "hanzi": "对不对",
-      "pinyin": "duì bu duì",
+      "hanzi": "脚",
+      "pinyin": "jiǎo",
       "meanings": [
-        "right or not"
+        "foot"
       ]
     },
     {
-      "hanzi": "大量",
-      "pinyin": "dàliàng",
+      "hanzi": "个子",
+      "pinyin": "gèzi",
       "meanings": [
-        "a large amount"
+        "stature",
+        "height"
       ]
     },
     {
-      "hanzi": "多数",
-      "pinyin": "duōshù",
+      "hanzi": "胖",
+      "pinyin": "pàng",
       "meanings": [
-        "most",
-        "majority"
+        "fat"
       ]
     },
     {
-      "hanzi": "大多数",
-      "pinyin": "dàduōshù",
+      "hanzi": "瘦",
+      "pinyin": "shòu",
       "meanings": [
-        "the vast majority"
+        "thin"
       ]
     },
     {
-      "hanzi": "少数",
-      "pinyin": "shǎoshù",
+      "hanzi": "矮",
+      "pinyin": "ǎi",
       "meanings": [
-        "minority",
-        "a few"
+        "short (height)"
       ]
     },
     {
-      "hanzi": "一些",
-      "pinyin": "yìxiē",
+      "hanzi": "长",
+      "pinyin": "zhǎng",
       "meanings": [
-        "some",
-        "a number of"
+        "to grow"
       ]
     },
     {
-      "hanzi": "月",
-      "pinyin": "yuè",
+      "hanzi": "洗澡",
+      "pinyin": "xǐzǎo",
       "meanings": [
-        "month"
+        "take a bath"
       ]
     },
     {
-      "hanzi": "本月",
-      "pinyin": "běnyuè",
+      "hanzi": "刷牙",
+      "pinyin": "shuāyá",
       "meanings": [
-        "this month"
+        "brush teeth"
       ]
     },
     {
-      "hanzi": "上个月",
-      "pinyin": "shàng ge yuè",
+      "hanzi": "头发",
+      "pinyin": "tóufa",
       "meanings": [
-        "last month"
+        "hair"
       ]
     },
     {
-      "hanzi": "卖",
-      "pinyin": "mài",
+      "hanzi": "镜子",
+      "pinyin": "jìngzi",
       "meanings": [
-        "to sell"
+        "mirror"
       ]
     },
     {
-      "hanzi": "带",
-      "pinyin": "dài",
+      "hanzi": "梳子",
+      "pinyin": "shūzi",
       "meanings": [
-        "to bring",
-        "to take",
-        "to wear"
+        "comb"
       ]
     },
     {
-      "hanzi": "拿",
-      "pinyin": "ná",
+      "hanzi": "打扫",
+      "pinyin": "dǎsǎo",
       "meanings": [
-        "to take",
-        "to hold"
+        "to clean up"
       ]
     },
     {
-      "hanzi": "放",
-      "pinyin": "fàng",
+      "hanzi": "收拾",
+      "pinyin": "shōushi",
       "meanings": [
-        "to put",
-        "to place"
+        "to tidy up"
       ]
     },
     {
-      "hanzi": "可能",
-      "pinyin": "kěnéng",
+      "hanzi": "垃圾桶",
+      "pinyin": "lājītǒng",
       "meanings": [
-        "might",
-        "possible"
+        "trash can"
       ]
     },
     {
-      "hanzi": "不可能",
-      "pinyin": "bù kěnéng",
+      "hanzi": "脏",
+      "pinyin": "zāng",
       "meanings": [
-        "impossible",
-        "can’t be"
+        "dirty"
       ]
     },
     {
-      "hanzi": "一定",
-      "pinyin": "yídìng",
+      "hanzi": "破",
+      "pinyin": "pò",
       "meanings": [
-        "certainly",
-        "must (strong likelihood)"
+        "broken"
       ]
     },
     {
-      "hanzi": "肯定",
-      "pinyin": "kěndìng",
+      "hanzi": "乱",
+      "pinyin": "luàn",
       "meanings": [
-        "definitely",
-        "for sure"
+        "messy"
       ]
     },
     {
-      "hanzi": "当然",
-      "pinyin": "dāngrán",
+      "hanzi": "主意",
+      "pinyin": "zhǔyi",
       "meanings": [
-        "of course"
+        "idea"
       ]
     },
     {
-      "hanzi": "领导",
-      "pinyin": "lǐngdǎo",
+      "hanzi": "办法",
+      "pinyin": "bànfǎ",
       "meanings": [
-        "leader",
-        "supervisor"
+        "method"
       ]
     },
     {
-      "hanzi": "先生",
-      "pinyin": "xiānsheng",
+      "hanzi": "计划",
+      "pinyin": "jìhuà",
       "meanings": [
-        "Mr.",
-        "sir"
+        "plan"
       ]
     },
     {
-      "hanzi": "女士",
-      "pinyin": "nǚshì",
+      "hanzi": "任务",
+      "pinyin": "rènwu",
       "meanings": [
-        "Ms.",
-        "lady"
+        "task"
       ]
     },
     {
-      "hanzi": "太太",
-      "pinyin": "tàitai",
+      "hanzi": "压力",
+      "pinyin": "yālì",
       "meanings": [
-        "wife",
-        "Mrs."
+        "pressure"
       ]
     },
     {
-      "hanzi": "公交车",
-      "pinyin": "gōngjiāochē",
+      "hanzi": "成功",
+      "pinyin": "chénggōng",
       "meanings": [
-        "bus"
+        "success"
       ]
     },
     {
-      "hanzi": "地铁",
-      "pinyin": "dìtiě",
+      "hanzi": "失败",
+      "pinyin": "shībài",
       "meanings": [
-        "subway",
-        "metro"
+        "failure"
       ]
     },
     {
-      "hanzi": "火车",
-      "pinyin": "huǒchē",
+      "hanzi": "赢",
+      "pinyin": "yíng",
       "meanings": [
-        "train"
+        "to win"
       ]
     },
     {
-      "hanzi": "飞机",
-      "pinyin": "fēijī",
+      "hanzi": "输",
+      "pinyin": "shū",
       "meanings": [
-        "airplane"
+        "to lose"
       ]
     },
     {
-      "hanzi": "水杯",
-      "pinyin": "shuǐbēi",
+      "hanzi": "表扬",
+      "pinyin": "biǎoyáng",
       "meanings": [
-        "water cup",
-        "tumbler"
+        "to praise"
       ]
     },
     {
-      "hanzi": "瓶子",
-      "pinyin": "píngzi",
+      "hanzi": "批评",
+      "pinyin": "pīpíng",
       "meanings": [
-        "bottle"
+        "to criticize"
       ]
     },
     {
-      "hanzi": "盘子",
-      "pinyin": "pánzi",
+      "hanzi": "怀疑",
+      "pinyin": "huáiyí",
       "meanings": [
-        "plate"
+        "to doubt"
       ]
     },
     {
-      "hanzi": "碗",
-      "pinyin": "wǎn",
+      "hanzi": "羡慕",
+      "pinyin": "xiànmù",
       "meanings": [
-        "bowl"
+        "to admire",
+        "envy"
       ]
     },
     {
-      "hanzi": "鸡蛋",
-      "pinyin": "jīdàn",
+      "hanzi": "后悔",
+      "pinyin": "hòuhuǐ",
       "meanings": [
-        "egg"
+        "to regret"
       ]
     },
     {
-      "hanzi": "豆腐",
-      "pinyin": "dòufu",
+      "hanzi": "难受",
+      "pinyin": "nánshòu",
       "meanings": [
-        "tofu"
+        "feel unwell",
+        "sad"
       ]
     },
     {
-      "hanzi": "米",
-      "pinyin": "mǐ",
+      "hanzi": "吃惊",
+      "pinyin": "chījīng",
       "meanings": [
-        "rice (grain)"
+        "surprised"
       ]
     },
     {
-      "hanzi": "面",
-      "pinyin": "miàn",
+      "hanzi": "兴奋",
+      "pinyin": "xīngfèn",
       "meanings": [
-        "noodles/flour (context)"
+        "excited"
       ]
     },
     {
-      "hanzi": "盐",
-      "pinyin": "yán",
+      "hanzi": "骄傲",
+      "pinyin": "jiāo'ào",
       "meanings": [
-        "salt"
+        "proud"
       ]
     },
     {
-      "hanzi": "对",
-      "pinyin": "duì",
+      "hanzi": "害羞",
+      "pinyin": "hàixiū",
       "meanings": [
-        "correct",
-        "right"
+        "shy"
       ]
     },
     {
-      "hanzi": "错",
-      "pinyin": "cuò",
+      "hanzi": "得意",
+      "pinyin": "déyì",
       "meanings": [
-        "wrong",
-        "incorrect"
+        "complacent"
       ]
     },
     {
-      "hanzi": "简单",
-      "pinyin": "jiǎndān",
+      "hanzi": "可怜",
+      "pinyin": "kělián",
       "meanings": [
-        "simple"
+        "pitiful"
       ]
     },
     {
-      "hanzi": "复杂",
-      "pinyin": "fùzá",
+      "hanzi": "轻松",
+      "pinyin": "qīngsōng",
       "meanings": [
-        "complex"
+        "relaxed"
       ]
     },
     {
-      "hanzi": "重要",
-      "pinyin": "zhòngyào",
+      "hanzi": "勇敢",
+      "pinyin": "yǒnggǎn",
       "meanings": [
-        "important"
+        "brave"
       ]
     },
     {
-      "hanzi": "很",
-      "pinyin": "hěn",
+      "hanzi": "笨",
+      "pinyin": "bèn",
       "meanings": [
-        "very"
+        "stupid"
       ]
     },
     {
-      "hanzi": "太",
-      "pinyin": "tài",
+      "hanzi": "诚实",
+      "pinyin": "chéngshí",
       "meanings": [
-        "too",
-        "very"
+        "honest"
       ]
     },
     {
-      "hanzi": "更",
-      "pinyin": "gèng",
+      "hanzi": "马虎",
+      "pinyin": "mǎhu",
       "meanings": [
-        "even more"
+        "careless"
       ]
     },
     {
-      "hanzi": "最",
-      "pinyin": "zuì",
+      "hanzi": "粗心",
+      "pinyin": "cūxīn",
       "meanings": [
-        "most"
+        "careless"
       ]
     }
   ]

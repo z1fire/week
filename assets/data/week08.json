@@ -4,370 +4,362 @@
   "youtube": "#",
   "words": [
     {
-      "hanzi": "那儿",
-      "pinyin": "nàr",
+      "hanzi": "申请",
+      "pinyin": "shēnqǐng",
       "meanings": [
-        "there (colloquial)"
+        "to apply for"
       ]
     },
     {
-      "hanzi": "这边",
-      "pinyin": "zhèbiān",
+      "hanzi": "安排",
+      "pinyin": "ānpái",
       "meanings": [
-        "over here",
-        "this side"
+        "to arrange"
       ]
     },
     {
-      "hanzi": "那边",
-      "pinyin": "nàbiān",
+      "hanzi": "陪",
+      "pinyin": "péi",
       "meanings": [
-        "over there",
-        "that side"
+        "to accompany"
       ]
     },
     {
-      "hanzi": "多快",
-      "pinyin": "duō kuài",
+      "hanzi": "推迟",
+      "pinyin": "tuīchí",
       "meanings": [
-        "how fast"
+        "to postpone"
       ]
     },
     {
-      "hanzi": "多慢",
-      "pinyin": "duō màn",
+      "hanzi": "提前",
+      "pinyin": "tíqián",
       "meanings": [
-        "how slow"
+        "to advance",
+        "ahead"
       ]
     },
     {
-      "hanzi": "怎么办",
-      "pinyin": "zěnme bàn",
+      "hanzi": "放弃",
+      "pinyin": "fàngqì",
       "meanings": [
-        "what should (we) do"
+        "to give up"
       ]
     },
     {
-      "hanzi": "为啥",
-      "pinyin": "wèishá",
+      "hanzi": "超过",
+      "pinyin": "chāoguò",
       "meanings": [
-        "why (colloquial)"
+        "to surpass"
       ]
     },
     {
-      "hanzi": "各",
-      "pinyin": "gè",
+      "hanzi": "吸引",
+      "pinyin": "xīyǐn",
       "meanings": [
-        "each",
-        "every"
+        "to attract"
       ]
     },
     {
-      "hanzi": "任何",
-      "pinyin": "rènhé",
+      "hanzi": "骗",
+      "pinyin": "piàn",
       "meanings": [
-        "any"
+        "to cheat",
+        "deceive"
       ]
     },
     {
-      "hanzi": "许多",
-      "pinyin": "xǔduō",
+      "hanzi": "响",
+      "pinyin": "xiǎng",
       "meanings": [
-        "many",
-        "a great many"
+        "to ring",
+        "loud"
       ]
     },
     {
-      "hanzi": "不少",
-      "pinyin": "bùshǎo",
+      "hanzi": "刚才",
+      "pinyin": "gāngcái",
       "meanings": [
-        "quite a few",
-        "not few"
+        "just now"
       ]
     },
     {
-      "hanzi": "周末",
-      "pinyin": "zhōumò",
+      "hanzi": "到处",
+      "pinyin": "dàochù",
       "meanings": [
-        "weekend"
+        "everywhere"
       ]
     },
     {
-      "hanzi": "上周",
-      "pinyin": "shàngzhōu",
+      "hanzi": "刚才",
+      "pinyin": "gāngcái",
       "meanings": [
-        "last week"
+        "just now"
       ]
     },
     {
-      "hanzi": "这周",
-      "pinyin": "zhè zhōu",
+      "hanzi": "偶尔",
+      "pinyin": "ǒu'ěr",
       "meanings": [
-        "this week"
+        "occasionally"
       ]
     },
     {
-      "hanzi": "下周",
-      "pinyin": "xiàzhōu",
+      "hanzi": "渐渐",
+      "pinyin": "jiànjiàn",
       "meanings": [
-        "next week"
+        "gradually"
       ]
     },
     {
-      "hanzi": "教",
-      "pinyin": "jiāo",
+      "hanzi": "肯定",
+      "pinyin": "kěndìng",
       "meanings": [
-        "to teach"
+        "definitely"
       ]
     },
     {
-      "hanzi": "写",
-      "pinyin": "xiě",
+      "hanzi": "也许",
+      "pinyin": "yěxǔ",
       "meanings": [
-        "to write"
+        "perhaps"
       ]
     },
     {
-      "hanzi": "读",
-      "pinyin": "dú",
+      "hanzi": "大约",
+      "pinyin": "dàyuē",
       "meanings": [
-        "to read"
+        "approximately"
       ]
     },
     {
-      "hanzi": "决定",
-      "pinyin": "juédìng",
+      "hanzi": "至少",
+      "pinyin": "zhìshǎo",
       "meanings": [
-        "decide to"
+        "at least"
       ]
     },
     {
-      "hanzi": "选择",
-      "pinyin": "xuǎnzé",
+      "hanzi": "甚至",
+      "pinyin": "shènzhì",
       "meanings": [
-        "choose to"
+        "even (to the extent)"
       ]
     },
     {
-      "hanzi": "试",
-      "pinyin": "shì",
+      "hanzi": "尽管",
+      "pinyin": "jǐnguǎn",
       "meanings": [
-        "try to"
+        "even though"
       ]
     },
     {
-      "hanzi": "试试",
-      "pinyin": "shìshi",
+      "hanzi": "不管",
+      "pinyin": "bùguǎn",
       "meanings": [
-        "give it a try"
+        "regardless of"
       ]
     },
     {
-      "hanzi": "客人",
-      "pinyin": "kèrén",
+      "hanzi": "反而",
+      "pinyin": "fǎn'ér",
       "meanings": [
-        "guest",
-        "visitor"
+        "on the contrary"
       ]
     },
     {
-      "hanzi": "服务员",
-      "pinyin": "fúwùyuán",
+      "hanzi": "难免",
+      "pinyin": "nánmiǎn",
       "meanings": [
-        "server",
-        "attendant"
+        "unavoidable"
       ]
     },
     {
-      "hanzi": "司机",
-      "pinyin": "sījī",
+      "hanzi": "也许",
+      "pinyin": "yěxǔ",
       "meanings": [
-        "driver"
+        "maybe"
       ]
     },
     {
-      "hanzi": "警察",
-      "pinyin": "jǐngchá",
+      "hanzi": "原来",
+      "pinyin": "yuánlái",
       "meanings": [
-        "police officer"
+        "originally"
       ]
     },
     {
-      "hanzi": "律师",
-      "pinyin": "lǜshī",
+      "hanzi": "本来",
+      "pinyin": "běnlái",
       "meanings": [
-        "lawyer"
+        "originally",
+        "at first"
       ]
     },
     {
-      "hanzi": "楼上",
-      "pinyin": "lóushàng",
+      "hanzi": "果然",
+      "pinyin": "guǒrán",
       "meanings": [
-        "upstairs"
+        "as expected"
       ]
     },
     {
-      "hanzi": "楼下",
-      "pinyin": "lóuxià",
+      "hanzi": "竟然",
+      "pinyin": "jìngrán",
       "meanings": [
-        "downstairs"
+        "unexpectedly"
       ]
     },
     {
-      "hanzi": "车",
-      "pinyin": "chē",
+      "hanzi": "恐怕",
+      "pinyin": "kǒngpà",
       "meanings": [
-        "car",
-        "vehicle"
+        "afraid that..."
       ]
     },
     {
-      "hanzi": "出租车",
-      "pinyin": "chūzūchē",
+      "hanzi": "往往",
+      "pinyin": "wǎngwǎng",
       "meanings": [
-        "taxi"
+        "often",
+        "usually"
       ]
     },
     {
-      "hanzi": "帽子",
-      "pinyin": "màozi",
+      "hanzi": "专门",
+      "pinyin": "zhuānmén",
       "meanings": [
-        "hat"
+        "specialized"
       ]
     },
     {
-      "hanzi": "眼镜",
-      "pinyin": "yǎnjìng",
+      "hanzi": "共同",
+      "pinyin": "gòngtóng",
       "meanings": [
-        "glasses"
+        "common",
+        "joint"
       ]
     },
     {
-      "hanzi": "手表",
-      "pinyin": "shǒubiǎo",
+      "hanzi": "各种",
+      "pinyin": "gèzhǒng",
       "meanings": [
-        "watch"
+        "various"
       ]
     },
     {
-      "hanzi": "杯子",
-      "pinyin": "bēizi",
+      "hanzi": "普遍",
+      "pinyin": "pǔbiàn",
       "meanings": [
-        "cup",
-        "glass"
+        "universal"
       ]
     },
     {
-      "hanzi": "牛肉",
-      "pinyin": "niúròu",
+      "hanzi": "偶尔",
+      "pinyin": "ǒu'ěr",
       "meanings": [
-        "beef"
+        "once in a while"
       ]
     },
     {
-      "hanzi": "猪肉",
-      "pinyin": "zhūròu",
+      "hanzi": "平时",
+      "pinyin": "píngshí",
       "meanings": [
-        "pork"
+        "ordinarily"
       ]
     },
     {
-      "hanzi": "鸡肉",
-      "pinyin": "jīròu",
+      "hanzi": "按时",
+      "pinyin": "ànshí",
       "meanings": [
-        "chicken"
+        "on time"
       ]
     },
     {
-      "hanzi": "鱼",
-      "pinyin": "yú",
+      "hanzi": "来不及",
+      "pinyin": "láibují",
       "meanings": [
-        "fish"
+        "too late to"
       ]
     },
     {
-      "hanzi": "虾",
-      "pinyin": "xiā",
+      "hanzi": "来得及",
+      "pinyin": "láidejí",
       "meanings": [
-        "shrimp"
+        "there is still time"
       ]
     },
     {
-      "hanzi": "忙",
-      "pinyin": "máng",
+      "hanzi": "尽管",
+      "pinyin": "jǐnguǎn",
       "meanings": [
-        "busy"
+        "although"
       ]
     },
     {
-      "hanzi": "空",
-      "pinyin": "kōng",
+      "hanzi": "千万",
+      "pinyin": "qiānwàn",
       "meanings": [
-        "free",
-        "empty"
+        "must",
+        "by all means"
       ]
     },
     {
-      "hanzi": "累",
-      "pinyin": "lèi",
+      "hanzi": "由于",
+      "pinyin": "yóuyú",
       "meanings": [
-        "tired"
+        "due to"
       ]
     },
     {
-      "hanzi": "饿",
-      "pinyin": "è",
-      "meanings": [
-        "hungry"
-      ]
-    },
-    {
-      "hanzi": "渴",
-      "pinyin": "kě",
-      "meanings": [
-        "thirsty"
-      ]
-    },
-    {
-      "hanzi": "还是",
-      "pinyin": "háishi",
-      "meanings": [
-        "or (in questions)",
-        "still"
-      ]
-    },
-    {
-      "hanzi": "就",
-      "pinyin": "jiù",
-      "meanings": [
-        "then",
-        "right away",
-        "only"
-      ]
-    },
-    {
-      "hanzi": "才",
-      "pinyin": "cái",
-      "meanings": [
-        "only then",
-        "just"
-      ]
-    },
-    {
-      "hanzi": "只",
-      "pinyin": "zhǐ",
-      "meanings": [
-        "only",
-        "just"
-      ]
-    },
-    {
-      "hanzi": "又",
-      "pinyin": "yòu",
+      "hanzi": "重新",
+      "pinyin": "chóngxīn",
       "meanings": [
         "again",
-        "also",
-        "(and) then"
+        "anew"
+      ]
+    },
+    {
+      "hanzi": "挺",
+      "pinyin": "tǐng",
+      "meanings": [
+        "quite",
+        "very"
+      ]
+    },
+    {
+      "hanzi": "受不了",
+      "pinyin": "shòubuliǎo",
+      "meanings": [
+        "cannot stand it"
+      ]
+    },
+    {
+      "hanzi": "来之不易",
+      "pinyin": "láizhībùyì",
+      "meanings": [
+        "hard-earned"
+      ]
+    },
+    {
+      "hanzi": "不仅如此",
+      "pinyin": "bùjǐnrúcǐ",
+      "meanings": [
+        "not only that"
+      ]
+    },
+    {
+      "hanzi": "原来如此",
+      "pinyin": "yuánláirúcǐ",
+      "meanings": [
+        "so that's how it is"
+      ]
+    },
+    {
+      "hanzi": "马马虎虎",
+      "pinyin": "mǎmǎhūhū",
+      "meanings": [
+        "so-so"
       ]
     }
   ]

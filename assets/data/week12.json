@@ -4,372 +4,359 @@
   "youtube": "#",
   "words": [
     {
-      "hanzi": "其他",
-      "pinyin": "qítā",
+      "hanzi": "梦想",
+      "pinyin": "mèngxiǎng",
       "meanings": [
-        "other",
-        "others"
+        "dream"
       ]
     },
     {
-      "hanzi": "另外",
-      "pinyin": "lìngwài",
+      "hanzi": "目标",
+      "pinyin": "mùbiāo",
       "meanings": [
-        "another",
-        "additionally"
+        "goal",
+        "target"
       ]
     },
     {
-      "hanzi": "这次",
-      "pinyin": "zhè cì",
+      "hanzi": "努力",
+      "pinyin": "nǔlì",
       "meanings": [
-        "this time"
+        "make an effort"
       ]
     },
     {
-      "hanzi": "那次",
-      "pinyin": "nà cì",
+      "hanzi": "坚持",
+      "pinyin": "jiānchí",
       "meanings": [
-        "that time"
+        "to persevere"
       ]
     },
     {
-      "hanzi": "有没有空",
-      "pinyin": "yǒu méi yǒu kòng",
+      "hanzi": "放弃",
+      "pinyin": "fàngqì",
       "meanings": [
-        "are you free"
+        "to abandon"
       ]
     },
     {
-      "hanzi": "哪一种",
-      "pinyin": "nǎ yì zhǒng",
+      "hanzi": "成功",
+      "pinyin": "chénggōng",
       "meanings": [
-        "which kind"
+        "to succeed"
       ]
     },
     {
-      "hanzi": "多少次",
-      "pinyin": "duōshao cì",
+      "hanzi": "克服",
+      "pinyin": "kèfú",
       "meanings": [
-        "how many times"
+        "to overcome"
       ]
     },
     {
-      "hanzi": "几岁",
-      "pinyin": "jǐ suì",
+      "hanzi": "困难",
+      "pinyin": "kùnnan",
       "meanings": [
-        "how old (age)"
+        "difficulty"
       ]
     },
     {
-      "hanzi": "总共",
-      "pinyin": "zǒnggòng",
+      "hanzi": "勇气",
+      "pinyin": "yǒngqì",
       "meanings": [
-        "altogether",
-        "total"
+        "courage"
       ]
     },
     {
-      "hanzi": "百分之",
-      "pinyin": "bǎifēn zhī",
+      "hanzi": "自信",
+      "pinyin": "zìxìn",
       "meanings": [
-        "percent"
+        "self-confidence"
       ]
     },
     {
-      "hanzi": "够",
-      "pinyin": "gòu",
+      "hanzi": "不仅如此",
+      "pinyin": "bùjǐn rúcǐ",
       "meanings": [
-        "enough"
+        "not only that"
       ]
     },
     {
-      "hanzi": "不够",
-      "pinyin": "bú gòu",
+      "hanzi": "无论如何",
+      "pinyin": "wúlùn rúhé",
       "meanings": [
-        "not enough"
+        "no matter what"
       ]
     },
     {
-      "hanzi": "小时",
-      "pinyin": "xiǎoshí",
+      "hanzi": "一步步",
+      "pinyin": "yíbùbù",
       "meanings": [
-        "hour"
+        "step by step"
       ]
     },
     {
-      "hanzi": "分钟",
-      "pinyin": "fēnzhōng",
+      "hanzi": "总有一天",
+      "pinyin": "zǒng yǒu yì tiān",
       "meanings": [
-        "minute"
+        "someday"
       ]
     },
     {
-      "hanzi": "秒",
-      "pinyin": "miǎo",
+      "hanzi": "实现",
+      "pinyin": "shíxiàn",
       "meanings": [
-        "second"
+        "to realize",
+        "achieve"
       ]
     },
     {
-      "hanzi": "季节",
-      "pinyin": "jìjié",
+      "hanzi": "价值",
+      "pinyin": "jiàzhí",
       "meanings": [
-        "season"
+        "value"
       ]
     },
     {
-      "hanzi": "工作",
-      "pinyin": "gōngzuò",
+      "hanzi": "人生",
+      "pinyin": "rénshēng",
       "meanings": [
-        "to work"
+        "life (career)"
       ]
     },
     {
-      "hanzi": "休息",
-      "pinyin": "xiūxi",
+      "hanzi": "社会",
+      "pinyin": "shèhuì",
       "meanings": [
-        "to rest"
+        "society"
       ]
     },
     {
-      "hanzi": "玩",
-      "pinyin": "wán",
+      "hanzi": "奉献",
+      "pinyin": "fèngxiàn",
       "meanings": [
-        "to play",
-        "to have fun"
+        "to dedicate"
       ]
     },
     {
-      "hanzi": "住",
-      "pinyin": "zhù",
+      "hanzi": "幸福",
+      "pinyin": "xìngfú",
       "meanings": [
-        "to live",
-        "to stay"
+        "happiness"
       ]
     },
     {
-      "hanzi": "只能",
-      "pinyin": "zhǐ néng",
+      "hanzi": "健康",
+      "pinyin": "jiànkāng",
       "meanings": [
-        "can only",
-        "have no option but"
+        "health",
+        "healthy"
       ]
     },
     {
-      "hanzi": "不得不",
-      "pinyin": "bùdé bù",
+      "hanzi": "平安",
+      "pinyin": "píng'ān",
       "meanings": [
-        "have to",
-        "cannot avoid"
+        "safe and sound"
       ]
     },
     {
-      "hanzi": "值得",
-      "pinyin": "zhídé",
+      "hanzi": "友谊",
+      "pinyin": "yǒuyì",
       "meanings": [
-        "be worth (doing)"
+        "friendship"
       ]
     },
     {
-      "hanzi": "赶紧",
-      "pinyin": "gǎnjǐn",
+      "hanzi": "尊重",
+      "pinyin": "zūnzhòng",
       "meanings": [
-        "hurry up",
-        "quickly (imperative)"
+        "to respect"
       ]
     },
     {
-      "hanzi": "婴儿",
-      "pinyin": "yīng'ér",
+      "hanzi": "理解",
+      "pinyin": "lǐjiě",
       "meanings": [
-        "baby",
-        "infant"
+        "to understand"
       ]
     },
     {
-      "hanzi": "老人",
-      "pinyin": "lǎorén",
+      "hanzi": "支持",
+      "pinyin": "zhīchí",
       "meanings": [
-        "elderly person"
+        "to support"
       ]
     },
     {
-      "hanzi": "年轻人",
-      "pinyin": "niánqīngrén",
+      "hanzi": "帮助",
+      "pinyin": "bāngzhù",
       "meanings": [
-        "young person",
-        "youth"
+        "to help"
       ]
     },
     {
-      "hanzi": "孩子们",
-      "pinyin": "háizimen",
+      "hanzi": "分享",
+      "pinyin": "fēnxiǎng",
       "meanings": [
-        "kids",
-        "children (plural)"
+        "to share"
       ]
     },
     {
-      "hanzi": "商场",
-      "pinyin": "shāngchǎng",
+      "hanzi": "交流",
+      "pinyin": "jiāoliú",
       "meanings": [
-        "mall"
+        "to exchange",
+        "communicate"
       ]
     },
     {
-      "hanzi": "宾馆",
-      "pinyin": "bīnguǎn",
+      "hanzi": "合作",
+      "pinyin": "hézuò",
       "meanings": [
-        "hotel (common)"
+        "to cooperate"
       ]
     },
     {
-      "hanzi": "附近",
-      "pinyin": "fùjìn",
+      "hanzi": "竞争",
+      "pinyin": "jìngzhēng",
       "meanings": [
-        "nearby"
+        "to compete"
       ]
     },
     {
-      "hanzi": "邮局",
-      "pinyin": "yóujú",
+      "hanzi": "公平",
+      "pinyin": "gōngpíng",
       "meanings": [
-        "post office"
+        "fair"
       ]
     },
     {
-      "hanzi": "垃圾",
-      "pinyin": "lājī",
+      "hanzi": "法律",
+      "pinyin": "fǎlǜ",
       "meanings": [
-        "trash",
-        "garbage"
+        "law"
       ]
     },
     {
-      "hanzi": "垃圾桶",
-      "pinyin": "lājītǒng",
+      "hanzi": "正义",
+      "pinyin": "zhèngyì",
       "meanings": [
-        "trash can"
+        "justice"
       ]
     },
     {
-      "hanzi": "礼物",
-      "pinyin": "lǐwù",
+      "hanzi": "自由",
+      "pinyin": "zìyóu",
       "meanings": [
-        "gift"
+        "freedom"
       ]
     },
     {
-      "hanzi": "发票",
-      "pinyin": "fāpiào",
+      "hanzi": "责任",
+      "pinyin": "zérèn",
       "meanings": [
-        "receipt",
-        "invoice"
+        "responsibility"
       ]
     },
     {
-      "hanzi": "点心",
-      "pinyin": "diǎnxin",
+      "hanzi": "未来",
+      "pinyin": "wèilái",
       "meanings": [
-        "snacks",
-        "dim sum"
+        "future"
       ]
     },
     {
-      "hanzi": "零食",
-      "pinyin": "língshí",
+      "hanzi": "希望",
+      "pinyin": "xīwàng",
       "meanings": [
-        "snacks"
+        "hope"
       ]
     },
     {
-      "hanzi": "口味",
-      "pinyin": "kǒuwèi",
+      "hanzi": "相信",
+      "pinyin": "xiāngxìn",
       "meanings": [
-        "taste",
-        "flavor"
+        "to believe"
       ]
     },
     {
-      "hanzi": "菜单",
-      "pinyin": "càidān",
+      "hanzi": "明天",
+      "pinyin": "míngtiān",
       "meanings": [
-        "menu"
+        "tomorrow (future)"
       ]
     },
     {
-      "hanzi": "饱",
-      "pinyin": "bǎo",
+      "hanzi": "努力",
+      "pinyin": "nǔlì",
       "meanings": [
-        "full (not hungry)"
+        "hard-working"
       ]
     },
     {
-      "hanzi": "紧张",
-      "pinyin": "jǐnzhāng",
+      "hanzi": "成功",
+      "pinyin": "chénggōng",
       "meanings": [
-        "nervous",
-        "tense"
+        "successful"
       ]
     },
     {
-      "hanzi": "担心",
-      "pinyin": "dānxīn",
+      "hanzi": "光荣",
+      "pinyin": "guāngróng",
       "meanings": [
-        "worried"
+        "glory"
       ]
     },
     {
-      "hanzi": "清楚",
-      "pinyin": "qīngchu",
+      "hanzi": "伟大",
+      "pinyin": "wěidà",
       "meanings": [
-        "clear",
-        "clearly"
+        "great"
       ]
     },
     {
-      "hanzi": "特别",
-      "pinyin": "tèbié",
+      "hanzi": "美丽",
+      "pinyin": "měilì",
       "meanings": [
-        "special",
-        "especially"
+        "beautiful"
       ]
     },
     {
-      "hanzi": "一般",
-      "pinyin": "yìbān",
+      "hanzi": "精彩",
+      "pinyin": "jīngcǎi",
       "meanings": [
-        "ordinary",
-        "general"
+        "wonderful"
       ]
     },
     {
-      "hanzi": "件",
-      "pinyin": "jiàn",
+      "hanzi": "快乐",
+      "pinyin": "kuàilè",
       "meanings": [
-        "(measure word) item (clothes/matter)"
+        "happy"
       ]
     },
     {
-      "hanzi": "本",
-      "pinyin": "běn",
+      "hanzi": "加油",
+      "pinyin": "jiāyóu",
       "meanings": [
-        "(measure word) book"
+        "keep it up",
+        "go for it"
       ]
     },
     {
-      "hanzi": "张",
-      "pinyin": "zhāng",
+      "hanzi": "结束",
+      "pinyin": "jiéshù",
       "meanings": [
-        "(measure word) flat things (paper/table)"
+        "to finish",
+        "end"
       ]
     },
     {
-      "hanzi": "位",
-      "pinyin": "wèi",
+      "hanzi": "祝贺",
+      "pinyin": "zhùhè",
       "meanings": [
-        "(measure word) polite for people"
+        "congratulations"
       ]
     }
   ]

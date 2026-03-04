@@ -4,91 +4,18 @@
   "youtube": "#",
   "words": [
     {
-      "hanzi": "本人",
-      "pinyin": "běnrén",
+      "hanzi": "刚才",
+      "pinyin": "gāngcái",
       "meanings": [
-        "oneself",
-        "I/me (formal)"
+        "just now"
       ]
     },
     {
-      "hanzi": "彼此",
-      "pinyin": "bǐcǐ",
+      "hanzi": "以后",
+      "pinyin": "yǐhòu",
       "meanings": [
-        "each other"
-      ]
-    },
-    {
-      "hanzi": "互相",
-      "pinyin": "hùxiāng",
-      "meanings": [
-        "each other",
-        "mutually"
-      ]
-    },
-    {
-      "hanzi": "几个",
-      "pinyin": "jǐ ge",
-      "meanings": [
-        "how many (items)"
-      ]
-    },
-    {
-      "hanzi": "多少钱",
-      "pinyin": "duōshao qián",
-      "meanings": [
-        "how much money",
-        "how much does it cost"
-      ]
-    },
-    {
-      "hanzi": "几号",
-      "pinyin": "jǐ hào",
-      "meanings": [
-        "what date (day of month)"
-      ]
-    },
-    {
-      "hanzi": "几月",
-      "pinyin": "jǐ yuè",
-      "meanings": [
-        "what month"
-      ]
-    },
-    {
-      "hanzi": "千",
-      "pinyin": "qiān",
-      "meanings": [
-        "thousand"
-      ]
-    },
-    {
-      "hanzi": "万",
-      "pinyin": "wàn",
-      "meanings": [
-        "ten thousand"
-      ]
-    },
-    {
-      "hanzi": "亿",
-      "pinyin": "yì",
-      "meanings": [
-        "hundred million"
-      ]
-    },
-    {
-      "hanzi": "第一",
-      "pinyin": "dìyī",
-      "meanings": [
-        "first"
-      ]
-    },
-    {
-      "hanzi": "先",
-      "pinyin": "xiān",
-      "meanings": [
-        "first",
-        "beforehand"
+        "after",
+        "later"
       ]
     },
     {
@@ -96,277 +23,342 @@
       "pinyin": "yǐqián",
       "meanings": [
         "before",
-        "previously"
+        "ago"
       ]
     },
     {
-      "hanzi": "上午",
-      "pinyin": "shàngwǔ",
+      "hanzi": "最后",
+      "pinyin": "zuìhòu",
       "meanings": [
-        "before noon"
+        "final",
+        "last"
       ]
     },
     {
-      "hanzi": "中午",
-      "pinyin": "zhōngwǔ",
+      "hanzi": "决定",
+      "pinyin": "juédìng",
       "meanings": [
-        "noon"
+        "to decide"
       ]
     },
     {
-      "hanzi": "告诉",
-      "pinyin": "gàosu",
+      "hanzi": "选择",
+      "pinyin": "xuǎnzé",
       "meanings": [
-        "to tell",
-        "to inform"
+        "to choose"
       ]
     },
     {
-      "hanzi": "问",
-      "pinyin": "wèn",
+      "hanzi": "发现",
+      "pinyin": "fāxiàn",
       "meanings": [
-        "to ask"
+        "to discover"
       ]
     },
     {
-      "hanzi": "回答",
-      "pinyin": "huídá",
+      "hanzi": "相信",
+      "pinyin": "xiāngxìn",
       "meanings": [
-        "to answer",
-        "to reply"
+        "to believe"
       ]
     },
     {
-      "hanzi": "不必",
-      "pinyin": "bú bì",
+      "hanzi": "认为",
+      "pinyin": "rènwéi",
       "meanings": [
-        "no need to"
+        "to think",
+        "consider"
       ]
     },
     {
-      "hanzi": "可以先",
-      "pinyin": "kěyǐ xiān",
+      "hanzi": "明白",
+      "pinyin": "míngbai",
       "meanings": [
-        "can first… (common phrase)"
+        "to understand"
       ]
     },
     {
-      "hanzi": "最好",
-      "pinyin": "zuìhǎo",
+      "hanzi": "记得",
+      "pinyin": "jìde",
       "meanings": [
-        "had better",
-        "best to"
+        "to remember"
       ]
     },
     {
-      "hanzi": "希望",
-      "pinyin": "xīwàng",
+      "hanzi": "忘记",
+      "pinyin": "wàngjì",
       "meanings": [
-        "hope (to)"
+        "to forget"
       ]
     },
     {
-      "hanzi": "爷爷",
-      "pinyin": "yéye",
+      "hanzi": "注意",
+      "pinyin": "zhùyì",
       "meanings": [
-        "grandpa (paternal)"
+        "pay attention"
       ]
     },
     {
-      "hanzi": "奶奶",
-      "pinyin": "nǎinai",
+      "hanzi": "打算",
+      "pinyin": "dǎsuàn",
       "meanings": [
-        "grandma (paternal)"
+        "to plan"
       ]
     },
     {
-      "hanzi": "外公",
-      "pinyin": "wàigōng",
+      "hanzi": "努力",
+      "pinyin": "nǔlì",
       "meanings": [
-        "grandpa (maternal)"
+        "hardworking"
       ]
     },
     {
-      "hanzi": "外婆",
-      "pinyin": "wàipó",
+      "hanzi": "聪明",
+      "pinyin": "cōngming",
       "meanings": [
-        "grandma (maternal)"
+        "smart"
       ]
     },
     {
-      "hanzi": "办公室",
-      "pinyin": "bàngōngshì",
+      "hanzi": "热情",
+      "pinyin": "rèqíng",
       "meanings": [
-        "office"
+        "enthusiastic"
       ]
     },
     {
-      "hanzi": "医院",
-      "pinyin": "yīyuàn",
+      "hanzi": "认真",
+      "pinyin": "rènzhēn",
       "meanings": [
-        "hospital"
+        "serious",
+        "earnest"
       ]
     },
     {
-      "hanzi": "银行",
-      "pinyin": "yínháng",
+      "hanzi": "安静",
+      "pinyin": "ānjìng",
       "meanings": [
-        "bank"
+        "quiet"
       ]
     },
     {
-      "hanzi": "超市",
-      "pinyin": "chāoshì",
+      "hanzi": "干净",
+      "pinyin": "gānjìng",
       "meanings": [
-        "supermarket"
+        "clean"
       ]
     },
     {
-      "hanzi": "市场",
-      "pinyin": "shìchǎng",
+      "hanzi": "饿",
+      "pinyin": "è",
       "meanings": [
-        "market"
+        "hungry"
       ]
     },
     {
-      "hanzi": "耳机",
-      "pinyin": "ěrjī",
+      "hanzi": "渴",
+      "pinyin": "kě",
       "meanings": [
-        "earphones",
-        "headset"
+        "thirsty"
       ]
     },
     {
-      "hanzi": "电池",
-      "pinyin": "diànchí",
+      "hanzi": "饱",
+      "pinyin": "bǎo",
       "meanings": [
-        "battery"
+        "full (eating)"
       ]
     },
     {
-      "hanzi": "包",
-      "pinyin": "bāo",
+      "hanzi": "舒服",
+      "pinyin": "shūfu",
       "meanings": [
-        "bag"
+        "comfortable"
       ]
     },
     {
-      "hanzi": "袋子",
-      "pinyin": "dàizi",
+      "hanzi": "满意",
+      "pinyin": "mǎnyì",
       "meanings": [
-        "bag",
-        "sack"
+        "satisfied"
       ]
     },
     {
-      "hanzi": "钥匙",
-      "pinyin": "yàoshi",
+      "hanzi": "习惯",
+      "pinyin": "xíguàn",
       "meanings": [
-        "key"
+        "habit",
+        "used to"
       ]
     },
     {
-      "hanzi": "面条",
-      "pinyin": "miàntiáo",
+      "hanzi": "变化",
+      "pinyin": "biànhuà",
       "meanings": [
-        "noodles"
+        "change"
       ]
     },
     {
-      "hanzi": "面包",
-      "pinyin": "miànbāo",
+      "hanzi": "提高",
+      "pinyin": "tígāo",
       "meanings": [
-        "bread"
+        "to improve"
       ]
     },
     {
-      "hanzi": "包子",
-      "pinyin": "bāozi",
+      "hanzi": "水平",
+      "pinyin": "shuǐpíng",
       "meanings": [
-        "steamed bun"
+        "level",
+        "standard"
       ]
     },
     {
-      "hanzi": "饺子",
-      "pinyin": "jiǎozi",
+      "hanzi": "机会",
+      "pinyin": "jīhuì",
       "meanings": [
-        "dumplings"
+        "opportunity"
       ]
     },
     {
-      "hanzi": "粥",
-      "pinyin": "zhōu",
+      "hanzi": "环境",
+      "pinyin": "huánjìng",
       "meanings": [
-        "porridge",
-        "congee"
+        "environment"
       ]
     },
     {
-      "hanzi": "高",
-      "pinyin": "gāo",
+      "hanzi": "影响",
+      "pinyin": "yǐngxiǎng",
       "meanings": [
-        "tall",
-        "high"
+        "influence"
       ]
     },
     {
-      "hanzi": "矮",
-      "pinyin": "ǎi",
+      "hanzi": "关系",
+      "pinyin": "guānxì",
       "meanings": [
-        "short (height)"
+        "relationship"
       ]
     },
     {
-      "hanzi": "长",
-      "pinyin": "cháng",
+      "hanzi": "照顾",
+      "pinyin": "zhàogù",
       "meanings": [
-        "long"
+        "look after"
       ]
     },
     {
-      "hanzi": "短",
-      "pinyin": "duǎn",
+      "hanzi": "帮忙",
+      "pinyin": "bāngmáng",
       "meanings": [
-        "short (length)"
+        "to help"
       ]
     },
     {
-      "hanzi": "快",
-      "pinyin": "kuài",
+      "hanzi": "关心",
+      "pinyin": "guānxīn",
       "meanings": [
-        "fast"
+        "care about"
       ]
     },
     {
-      "hanzi": "跟",
-      "pinyin": "gēn",
+      "hanzi": "放心",
+      "pinyin": "fàngxīn",
       "meanings": [
-        "with",
-        "and",
-        "to follow (coverb)"
+        "rest assured"
       ]
     },
     {
-      "hanzi": "或",
-      "pinyin": "huò",
+      "hanzi": "担心",
+      "pinyin": "dānxīn",
       "meanings": [
-        "or"
+        "to worry"
       ]
     },
     {
-      "hanzi": "或者",
-      "pinyin": "huòzhě",
+      "hanzi": "生气",
+      "pinyin": "shēngqì",
       "meanings": [
-        "or",
-        "either"
+        "angry"
       ]
     },
     {
-      "hanzi": "但是",
-      "pinyin": "dànshì",
+      "hanzi": "害怕",
+      "pinyin": "hàipà",
       "meanings": [
-        "but",
-        "however"
+        "afraid"
+      ]
+    },
+    {
+      "hanzi": "难过",
+      "pinyin": "nánguò",
+      "meanings": [
+        "sad"
+      ]
+    },
+    {
+      "hanzi": "舒服",
+      "pinyin": "shūfu",
+      "meanings": [
+        "comfortable"
+      ]
+    },
+    {
+      "hanzi": "着急",
+      "pinyin": "zháojí",
+      "meanings": [
+        "anxious"
+      ]
+    },
+    {
+      "hanzi": "小心",
+      "pinyin": "xiǎoxīn",
+      "meanings": [
+        "careful"
+      ]
+    },
+    {
+      "hanzi": "特别",
+      "pinyin": "tèbié",
+      "meanings": [
+        "especially"
+      ]
+    },
+    {
+      "hanzi": "总是",
+      "pinyin": "zǒngshì",
+      "meanings": [
+        "always"
+      ]
+    },
+    {
+      "hanzi": "终于",
+      "pinyin": "zhōngyú",
+      "meanings": [
+        "finally"
+      ]
+    },
+    {
+      "hanzi": "突然",
+      "pinyin": "tūrán",
+      "meanings": [
+        "suddenly"
+      ]
+    },
+    {
+      "hanzi": "其实",
+      "pinyin": "qíshí",
+      "meanings": [
+        "actually"
+      ]
+    },
+    {
+      "hanzi": "一般",
+      "pinyin": "yìbān",
+      "meanings": [
+        "usually",
+        "general"
       ]
     }
   ]
