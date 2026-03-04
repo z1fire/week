@@ -2,18 +2,20 @@
 layout: default
 ---
 
-<h1 id="weekTitle">Week {{ page.week }}</h1>
+<div class="page-head">
+  <div>
+    <h1 id="weekTitle">Week {{ page.week }}</h1>
+    <p class="muted">Pick a worksheet, choose how many questions, then start.</p>
+  </div>
+  <a id="youtubeLink" class="btn" href="#" target="_blank" rel="noopener">YouTube link (add later)</a>
+</div>
 
-<p class="meta">
-  <a id="youtubeLink" href="#" target="_blank" rel="noopener">YouTube video</a>
-</p>
-
-<section class="worksheet">
+<section class="card">
   <h2>Worksheets</h2>
 
   <div class="controls">
     <label>
-      Quiz:
+      Quiz
       <select id="quizType">
         <option value="pinyin">Match Pinyin → 汉字</option>
         <option value="meaning">Match Meaning → 汉字</option>
@@ -21,74 +23,55 @@ layout: default
     </label>
 
     <label>
-      Questions:
+      Questions
       <select id="questionMode">
         <option value="all">All 50</option>
         <option value="random">Random N</option>
       </select>
     </label>
 
-    <label id="randomCountWrap" style="display:none;">
-      N:
+    <label id="randomCountWrap" class="inline" style="display:none;">
+      N
       <input id="randomCount" type="number" min="1" max="50" value="20" />
     </label>
 
-    <label class="checkbox">
+    <label class="check">
       <input id="includePrev" type="checkbox" />
       Include previous weeks as distractors
     </label>
 
-    <button id="startQuiz" type="button">Start</button>
+    <button id="startQuiz" class="btn" type="button">Start</button>
   </div>
 
   <div id="quizArea" class="quiz-area" hidden>
-    <div class="progress">
-      <span id="progressText"></span>
-      <span id="scoreText"></span>
+    <div class="quiz-top">
+      <div class="pill" id="progressText"></div>
+      <div class="pill" id="scoreText"></div>
     </div>
 
     <div class="prompt" id="prompt"></div>
     <div class="options" id="options"></div>
     <div class="feedback" id="feedback"></div>
 
-    <div class="nav">
-      <button id="nextBtn" type="button" disabled>Next</button>
-      <button id="restartBtn" type="button">Restart</button>
+    <div class="nav-row">
+      <button id="nextBtn" class="btn" type="button" disabled>Next</button>
+      <button id="restartBtn" class="btn ghost" type="button">Restart</button>
     </div>
   </div>
 </section>
 
-<section class="studylist">
-  <h2>Study List</h2>
-  <div id="studyTableWrap"></div>
+<section class="card">
+  <details open>
+    <summary class="summary">Study List (50 words)</summary>
+    <div id="studyTableWrap" class="mt"></div>
+  </details>
 </section>
 
-<section class="reading">
+<section class="card">
   <h2>Reading Study</h2>
+  <p class="muted small">Hover over the Chinese to see pinyin + meaning.</p>
   <div id="readingText" class="reading-text"></div>
 </section>
-
-<style>
-  .week-list { list-style: none; padding: 0; }
-  .week-list li { margin: 8px 0; }
-
-  .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 12px 0; }
-  .controls label { display: inline-flex; gap: 8px; align-items: center; }
-  .controls .checkbox { gap: 8px; }
-
-  .quiz-area { border: 1px solid #eee; padding: 16px; border-radius: 12px; }
-  .prompt { font-size: 1.4rem; margin: 12px 0; }
-  .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
-  .option { padding: 10px; border-radius: 10px; border: 1px solid #ddd; background: #fff; cursor: pointer; }
-  .option:disabled { opacity: 0.7; cursor: not-allowed; }
-  .feedback { margin-top: 10px; font-weight: 600; }
-  .nav { display: flex; gap: 10px; margin-top: 12px; }
-
-  .study-table { width: 100%; border-collapse: collapse; }
-  .study-table th, .study-table td { border-bottom: 1px solid #eee; padding: 8px; text-align: left; }
-  .study-table .hanzi { font-size: 1.2rem; }
-  .reading-text p { margin: 10px 0; }
-</style>
 
 <script>
   window.STUDY = {

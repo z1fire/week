@@ -1,14 +1,25 @@
 ---
 layout: default
-title: "Mandarin Study Companion"
+title: "Home"
 ---
 
-# Mandarin Study Companion (12 Weeks)
+# Mandarin Study Companion
 
-Pick a week to study that week’s 50 words.
+A simple companion site for your weekly YouTube vocab playlist.
 
-<ul class="week-list">
+- 12 weeks
+- 50 words per week
+- Worksheets: **Pinyin → 汉字** and **Meaning → 汉字**
+- Reading study with hover popups
+
+<div class="grid">
   {% for i in (1..12) %}
-    <li><a href="{{ '/week/' | append: i | append: '/' | relative_url }}">Week {{ i }}</a></li>
+    <a class="card week-card" href="{{ '/week/' | append: i | append: '/' | relative_url }}">
+      <div class="week-badge">Week {{ i }}</div>
+      <div class="week-title">Study + Worksheets</div>
+      <div class="week-sub">50 words · quizzes · reading</div>
+    </a>
   {% endfor %}
-</ul>
+</div>
+
+<p class="muted small">Tip: start with Week 1, then optionally enable “Include previous weeks” for harder distractors.</p>

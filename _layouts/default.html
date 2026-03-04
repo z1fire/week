@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} · {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav class="nav">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/week/1/' | relative_url }}">Start</a>
+        <button id="themeToggle" class="btn ghost" type="button" aria-label="Toggle theme">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small class="muted">{{ site.description }}</small>
+      <small class="muted">Built on GitHub Pages</small>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const key = "mandarin_theme";
+      const root = document.documentElement;
+      const btn = document.getElementById("themeToggle");
+
+      function setTheme(t){
+        root.setAttribute("data-theme", t);
+        if(btn) btn.textContent = (t === "dark") ? "☀️" : "🌙";
+        localStorage.setItem(key, t);
+      }
+
+      const saved = localStorage.getItem(key);
+      if(saved) setTheme(saved);
+
+      if(btn){
+        btn.addEventListener("click", function(){
+          const cur = root.getAttribute("data-theme") || "light";
+          setTheme(cur === "light" ? "dark" : "light");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

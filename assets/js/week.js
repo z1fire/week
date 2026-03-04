@@ -51,10 +51,8 @@
   function makeQuestions(words, type, count) {
     const picked = (count === "all") ? [...words] : sample(words, count);
     return picked.map(w => {
-      if (type === "pinyin") {
-        return { prompt: w.pinyin, correct: w.hanzi, word: w };
-      }
-      // meaning quiz: pick one meaning at random
+      if (type === "pinyin") return { prompt: w.pinyin, correct: w.hanzi, word: w };
+
       const meanings = Array.isArray(w.meanings) ? w.meanings : [String(w.meanings || "")];
       const meaning = meanings[Math.floor(Math.random() * meanings.length)] || "";
       return { prompt: meaning, correct: w.hanzi, word: w };
@@ -76,25 +74,19 @@
   }
 
   async function loadPrevWeeksWords(week, baseurl) {
-    const weeks = [];
-    for (let w = 1; w < week; w++) weeks.push(w);
-
     const all = [];
-    for (const w of weeks) {
+    for (let w = 1; w < week; w++) {
       const p = pad2(w);
       const dataUrl = `${baseurl}/assets/data/week${p}.json`;
       try {
         const d = await fetchJson(dataUrl);
         if (Array.isArray(d.words)) all.push(...d.words);
-      } catch {
-        // ignore missing weeks
-      }
+      } catch {}
     }
     return all;
   }
 
   function renderReading(text) {
-    // Turn blank-line separated blocks into paragraphs
     const blocks = text
       .replace(/\r\n/g, "\n")
       .split(/\n\s*\n/g)
@@ -110,7 +102,6 @@
     }
   }
 
-  // --- Quiz state ---
   let WORDS = [];
   let DISTRACTOR_POOL = [];
   let QUESTIONS = [];
@@ -152,6 +143,14 @@
     const chosen = btn.getAttribute("data-choice");
     const isCorrect = chosen === correct;
 
+    // mark buttons
+    $("options").querySelectorAll("button").forEach(b => {
+      const c = b.getAttribute("data-choice");
+      if (c === correct) b.classList.add("correct");
+      if (!isCorrect && b === btn) b.classList.add("wrong");
+      b.disabled = true;
+    });
+
     if (isCorrect) {
       score += 1;
       $("feedback").textContent = "✅ Correct";
@@ -159,8 +158,6 @@
       $("feedback").textContent = `❌ Incorrect — correct answer: ${correct}`;
     }
 
-    // disable all options
-    $("options").querySelectorAll("button").forEach(b => b.disabled = true);
     $("nextBtn").disabled = false;
     $("scoreText").textContent = `Score: ${score}`;
   }
@@ -198,22 +195,24 @@
     showQuestion();
   }
 
-  // --- Init ---
   document.addEventListener("DOMContentLoaded", async () => {
     const { week, baseurl } = window.STUDY;
 
-    // show/hide random N
     $("questionMode").addEventListener("change", () => {
-      $("randomCountWrap").style.display = $("questionMode").value === "random" ? "inline-flex" : "none";
+      $("randomCountWrap").style.display = $("questionMode").value === "random" ? "flex" : "none";
     });
 
-    // load data + reading
     try {
       const { data, readingText } = await loadWeekData(week, baseurl);
 
       $("weekTitle").textContent = data.title ? data.title : `Week ${week}`;
-      $("youtubeLink").href = data.youtube || "#";
-      $("youtubeLink").style.display = data.youtube ? "inline" : "none";
+
+      // youtube link placeholder
+      const yt = data.youtube || "#";
+      $("youtubeLink").href = yt;
+      if (yt === "#") {
+        $("youtubeLink").setAttribute("aria-disabled", "true");
+      }
 
       WORDS = Array.isArray(data.words) ? data.words : [];
       $("studyTableWrap").innerHTML = buildStudyTable(WORDS);

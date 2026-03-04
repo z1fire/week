@@ -1,0 +1,6 @@
+title: "Mandarin Study Companion"
+description: "Weekly vocab + worksheets + reading with hover pinyin/meaning."
+url: "https://z1fire.github.io"
+baseurl: "/mandarin"
+
+markdown: kramdown
