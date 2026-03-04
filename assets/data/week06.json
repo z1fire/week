@@ -1,0 +1,372 @@
+{
+  "week": 6,
+  "title": "Week 6",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "别人",
+      "pinyin": "biérén",
+      "meanings": [
+        "other people",
+        "someone else"
+      ]
+    },
+    {
+      "hanzi": "大家",
+      "pinyin": "dàjiā",
+      "meanings": [
+        "everyone",
+        "everybody"
+      ]
+    },
+    {
+      "hanzi": "人家",
+      "pinyin": "rénjiā",
+      "meanings": [
+        "they",
+        "other people (colloquial)"
+      ]
+    },
+    {
+      "hanzi": "几年",
+      "pinyin": "jǐ nián",
+      "meanings": [
+        "how many years"
+      ]
+    },
+    {
+      "hanzi": "几天",
+      "pinyin": "jǐ tiān",
+      "meanings": [
+        "how many days"
+      ]
+    },
+    {
+      "hanzi": "几次",
+      "pinyin": "jǐ cì",
+      "meanings": [
+        "how many times"
+      ]
+    },
+    {
+      "hanzi": "多大",
+      "pinyin": "duō dà",
+      "meanings": [
+        "how old",
+        "how big"
+      ]
+    },
+    {
+      "hanzi": "第二",
+      "pinyin": "dì'èr",
+      "meanings": [
+        "second"
+      ]
+    },
+    {
+      "hanzi": "第三",
+      "pinyin": "dìsān",
+      "meanings": [
+        "third"
+      ]
+    },
+    {
+      "hanzi": "一半",
+      "pinyin": "yí bàn",
+      "meanings": [
+        "half"
+      ]
+    },
+    {
+      "hanzi": "半",
+      "pinyin": "bàn",
+      "meanings": [
+        "half (unit)"
+      ]
+    },
+    {
+      "hanzi": "下午",
+      "pinyin": "xiàwǔ",
+      "meanings": [
+        "afternoon"
+      ]
+    },
+    {
+      "hanzi": "夜里",
+      "pinyin": "yèlǐ",
+      "meanings": [
+        "at night"
+      ]
+    },
+    {
+      "hanzi": "今天晚上",
+      "pinyin": "jīntiān wǎnshang",
+      "meanings": [
+        "tonight"
+      ]
+    },
+    {
+      "hanzi": "明天早上",
+      "pinyin": "míngtiān zǎoshang",
+      "meanings": [
+        "tomorrow morning"
+      ]
+    },
+    {
+      "hanzi": "想",
+      "pinyin": "xiǎng",
+      "meanings": [
+        "to think",
+        "to want",
+        "to miss"
+      ]
+    },
+    {
+      "hanzi": "知道",
+      "pinyin": "zhīdào",
+      "meanings": [
+        "to know (a fact)"
+      ]
+    },
+    {
+      "hanzi": "认识",
+      "pinyin": "rènshi",
+      "meanings": [
+        "to know (a person)",
+        "to recognize"
+      ]
+    },
+    {
+      "hanzi": "愿意",
+      "pinyin": "yuànyì",
+      "meanings": [
+        "be willing to"
+      ]
+    },
+    {
+      "hanzi": "不愿意",
+      "pinyin": "bú yuànyì",
+      "meanings": [
+        "be unwilling to"
+      ]
+    },
+    {
+      "hanzi": "肯",
+      "pinyin": "kěn",
+      "meanings": [
+        "be willing to"
+      ]
+    },
+    {
+      "hanzi": "不肯",
+      "pinyin": "bù kěn",
+      "meanings": [
+        "be unwilling to",
+        "refuse to"
+      ]
+    },
+    {
+      "hanzi": "同事",
+      "pinyin": "tóngshì",
+      "meanings": [
+        "coworker"
+      ]
+    },
+    {
+      "hanzi": "邻居",
+      "pinyin": "línjū",
+      "meanings": [
+        "neighbor"
+      ]
+    },
+    {
+      "hanzi": "医生",
+      "pinyin": "yīshēng",
+      "meanings": [
+        "doctor"
+      ]
+    },
+    {
+      "hanzi": "护士",
+      "pinyin": "hùshi",
+      "meanings": [
+        "nurse"
+      ]
+    },
+    {
+      "hanzi": "饭店",
+      "pinyin": "fàndiàn",
+      "meanings": [
+        "restaurant",
+        "hotel"
+      ]
+    },
+    {
+      "hanzi": "酒店",
+      "pinyin": "jiǔdiàn",
+      "meanings": [
+        "hotel"
+      ]
+    },
+    {
+      "hanzi": "街",
+      "pinyin": "jiē",
+      "meanings": [
+        "street"
+      ]
+    },
+    {
+      "hanzi": "路",
+      "pinyin": "lù",
+      "meanings": [
+        "road"
+      ]
+    },
+    {
+      "hanzi": "地方",
+      "pinyin": "dìfang",
+      "meanings": [
+        "place"
+      ]
+    },
+    {
+      "hanzi": "钱包",
+      "pinyin": "qiánbāo",
+      "meanings": [
+        "wallet"
+      ]
+    },
+    {
+      "hanzi": "证件",
+      "pinyin": "zhèngjiàn",
+      "meanings": [
+        "ID documents"
+      ]
+    },
+    {
+      "hanzi": "身份证",
+      "pinyin": "shēnfènzhèng",
+      "meanings": [
+        "ID card"
+      ]
+    },
+    {
+      "hanzi": "护照",
+      "pinyin": "hùzhào",
+      "meanings": [
+        "passport"
+      ]
+    },
+    {
+      "hanzi": "伞",
+      "pinyin": "sǎn",
+      "meanings": [
+        "umbrella"
+      ]
+    },
+    {
+      "hanzi": "汤",
+      "pinyin": "tāng",
+      "meanings": [
+        "soup"
+      ]
+    },
+    {
+      "hanzi": "菜",
+      "pinyin": "cài",
+      "meanings": [
+        "dish",
+        "vegetables"
+      ]
+    },
+    {
+      "hanzi": "蔬菜",
+      "pinyin": "shūcài",
+      "meanings": [
+        "vegetables"
+      ]
+    },
+    {
+      "hanzi": "水果",
+      "pinyin": "shuǐguǒ",
+      "meanings": [
+        "fruit"
+      ]
+    },
+    {
+      "hanzi": "苹果",
+      "pinyin": "píngguǒ",
+      "meanings": [
+        "apple"
+      ]
+    },
+    {
+      "hanzi": "慢",
+      "pinyin": "màn",
+      "meanings": [
+        "slow"
+      ]
+    },
+    {
+      "hanzi": "热",
+      "pinyin": "rè",
+      "meanings": [
+        "hot"
+      ]
+    },
+    {
+      "hanzi": "冷",
+      "pinyin": "lěng",
+      "meanings": [
+        "cold"
+      ]
+    },
+    {
+      "hanzi": "暖和",
+      "pinyin": "nuǎnhuo",
+      "meanings": [
+        "warm (weather/feeling)"
+      ]
+    },
+    {
+      "hanzi": "漂亮",
+      "pinyin": "piàoliang",
+      "meanings": [
+        "pretty",
+        "beautiful"
+      ]
+    },
+    {
+      "hanzi": "可是",
+      "pinyin": "kěshì",
+      "meanings": [
+        "but",
+        "however"
+      ]
+    },
+    {
+      "hanzi": "不过",
+      "pinyin": "búguò",
+      "meanings": [
+        "however",
+        "but",
+        "only"
+      ]
+    },
+    {
+      "hanzi": "因为",
+      "pinyin": "yīnwèi",
+      "meanings": [
+        "because"
+      ]
+    },
+    {
+      "hanzi": "所以",
+      "pinyin": "suǒyǐ",
+      "meanings": [
+        "so",
+        "therefore"
+      ]
+    }
+  ]
+}

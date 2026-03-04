@@ -1,0 +1,375 @@
+{
+  "week": 11,
+  "title": "Week 11",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "我们的",
+      "pinyin": "wǒmen de",
+      "meanings": [
+        "our",
+        "ours"
+      ]
+    },
+    {
+      "hanzi": "你们的",
+      "pinyin": "nǐmen de",
+      "meanings": [
+        "your (plural)",
+        "yours"
+      ]
+    },
+    {
+      "hanzi": "他们的",
+      "pinyin": "tāmen de",
+      "meanings": [
+        "their",
+        "theirs"
+      ]
+    },
+    {
+      "hanzi": "自己的",
+      "pinyin": "zìjǐ de",
+      "meanings": [
+        "one’s own"
+      ]
+    },
+    {
+      "hanzi": "能不能",
+      "pinyin": "néng bu néng",
+      "meanings": [
+        "can or can’t"
+      ]
+    },
+    {
+      "hanzi": "可不可以",
+      "pinyin": "kě bu kěyǐ",
+      "meanings": [
+        "may or may not",
+        "is it okay"
+      ]
+    },
+    {
+      "hanzi": "会不会",
+      "pinyin": "huì bu huì",
+      "meanings": [
+        "will or won’t",
+        "is it likely"
+      ]
+    },
+    {
+      "hanzi": "有没有人",
+      "pinyin": "yǒu méi yǒu rén",
+      "meanings": [
+        "is there anyone"
+      ]
+    },
+    {
+      "hanzi": "差不多",
+      "pinyin": "chàbuduō",
+      "meanings": [
+        "about the same",
+        "roughly"
+      ]
+    },
+    {
+      "hanzi": "至少",
+      "pinyin": "zhìshǎo",
+      "meanings": [
+        "at least"
+      ]
+    },
+    {
+      "hanzi": "最多",
+      "pinyin": "zuìduō",
+      "meanings": [
+        "at most",
+        "maximum"
+      ]
+    },
+    {
+      "hanzi": "一共",
+      "pinyin": "yígòng",
+      "meanings": [
+        "altogether",
+        "in total"
+      ]
+    },
+    {
+      "hanzi": "去年",
+      "pinyin": "qùnián",
+      "meanings": [
+        "last year"
+      ]
+    },
+    {
+      "hanzi": "明年",
+      "pinyin": "míngnián",
+      "meanings": [
+        "next year"
+      ]
+    },
+    {
+      "hanzi": "时候",
+      "pinyin": "shíhou",
+      "meanings": [
+        "time",
+        "moment",
+        "when"
+      ]
+    },
+    {
+      "hanzi": "时间",
+      "pinyin": "shíjiān",
+      "meanings": [
+        "time"
+      ]
+    },
+    {
+      "hanzi": "喜欢",
+      "pinyin": "xǐhuan",
+      "meanings": [
+        "to like"
+      ]
+    },
+    {
+      "hanzi": "爱",
+      "pinyin": "ài",
+      "meanings": [
+        "to love"
+      ]
+    },
+    {
+      "hanzi": "睡",
+      "pinyin": "shuì",
+      "meanings": [
+        "to sleep"
+      ]
+    },
+    {
+      "hanzi": "起",
+      "pinyin": "qǐ",
+      "meanings": [
+        "to get up",
+        "to rise"
+      ]
+    },
+    {
+      "hanzi": "不行",
+      "pinyin": "bù xíng",
+      "meanings": [
+        "not okay",
+        "won’t work"
+      ]
+    },
+    {
+      "hanzi": "来得及",
+      "pinyin": "láidejí",
+      "meanings": [
+        "have time to (make it)"
+      ]
+    },
+    {
+      "hanzi": "来不及",
+      "pinyin": "láibují",
+      "meanings": [
+        "not have time to"
+      ]
+    },
+    {
+      "hanzi": "只好",
+      "pinyin": "zhǐhǎo",
+      "meanings": [
+        "have no choice but"
+      ]
+    },
+    {
+      "hanzi": "女朋友",
+      "pinyin": "nǚpéngyou",
+      "meanings": [
+        "girlfriend"
+      ]
+    },
+    {
+      "hanzi": "陌生人",
+      "pinyin": "mòshēngrén",
+      "meanings": [
+        "stranger"
+      ]
+    },
+    {
+      "hanzi": "阿姨",
+      "pinyin": "āyí",
+      "meanings": [
+        "auntie",
+        "Mrs. (polite)"
+      ]
+    },
+    {
+      "hanzi": "叔叔",
+      "pinyin": "shūshu",
+      "meanings": [
+        "uncle",
+        "Mr. (polite)"
+      ]
+    },
+    {
+      "hanzi": "地图",
+      "pinyin": "dìtú",
+      "meanings": [
+        "map"
+      ]
+    },
+    {
+      "hanzi": "路口",
+      "pinyin": "lùkǒu",
+      "meanings": [
+        "intersection"
+      ]
+    },
+    {
+      "hanzi": "桥",
+      "pinyin": "qiáo",
+      "meanings": [
+        "bridge"
+      ]
+    },
+    {
+      "hanzi": "公园",
+      "pinyin": "gōngyuán",
+      "meanings": [
+        "park"
+      ]
+    },
+    {
+      "hanzi": "毛巾",
+      "pinyin": "máojīn",
+      "meanings": [
+        "towel"
+      ]
+    },
+    {
+      "hanzi": "牙刷",
+      "pinyin": "yáshuā",
+      "meanings": [
+        "toothbrush"
+      ]
+    },
+    {
+      "hanzi": "牙膏",
+      "pinyin": "yágāo",
+      "meanings": [
+        "toothpaste"
+      ]
+    },
+    {
+      "hanzi": "纸巾",
+      "pinyin": "zhǐjīn",
+      "meanings": [
+        "tissue",
+        "napkin"
+      ]
+    },
+    {
+      "hanzi": "米粉",
+      "pinyin": "mǐfěn",
+      "meanings": [
+        "rice noodles"
+      ]
+    },
+    {
+      "hanzi": "火锅",
+      "pinyin": "huǒguō",
+      "meanings": [
+        "hot pot"
+      ]
+    },
+    {
+      "hanzi": "早餐",
+      "pinyin": "zǎocān",
+      "meanings": [
+        "breakfast"
+      ]
+    },
+    {
+      "hanzi": "午餐",
+      "pinyin": "wǔcān",
+      "meanings": [
+        "lunch"
+      ]
+    },
+    {
+      "hanzi": "晚餐",
+      "pinyin": "wǎncān",
+      "meanings": [
+        "dinner"
+      ]
+    },
+    {
+      "hanzi": "容易",
+      "pinyin": "róngyì",
+      "meanings": [
+        "easy"
+      ]
+    },
+    {
+      "hanzi": "难",
+      "pinyin": "nán",
+      "meanings": [
+        "difficult"
+      ]
+    },
+    {
+      "hanzi": "开心",
+      "pinyin": "kāixīn",
+      "meanings": [
+        "happy"
+      ]
+    },
+    {
+      "hanzi": "高兴",
+      "pinyin": "gāoxìng",
+      "meanings": [
+        "glad",
+        "happy"
+      ]
+    },
+    {
+      "hanzi": "生气",
+      "pinyin": "shēngqì",
+      "meanings": [
+        "angry"
+      ]
+    },
+    {
+      "hanzi": "比",
+      "pinyin": "bǐ",
+      "meanings": [
+        "than",
+        "compared with"
+      ]
+    },
+    {
+      "hanzi": "关于",
+      "pinyin": "guānyú",
+      "meanings": [
+        "about",
+        "regarding"
+      ]
+    },
+    {
+      "hanzi": "为了",
+      "pinyin": "wèile",
+      "meanings": [
+        "for the sake of"
+      ]
+    },
+    {
+      "hanzi": "个",
+      "pinyin": "ge",
+      "meanings": [
+        "(measure word) general classifier"
+      ]
+    }
+  ]
+}

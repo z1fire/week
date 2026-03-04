@@ -1,0 +1,375 @@
+{
+  "week": 3,
+  "title": "Week 3",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "它",
+      "pinyin": "tā",
+      "meanings": [
+        "it"
+      ]
+    },
+    {
+      "hanzi": "您",
+      "pinyin": "nín",
+      "meanings": [
+        "you (polite)"
+      ]
+    },
+    {
+      "hanzi": "你们",
+      "pinyin": "nǐmen",
+      "meanings": [
+        "you (plural)"
+      ]
+    },
+    {
+      "hanzi": "谁的",
+      "pinyin": "shéi de",
+      "meanings": [
+        "whose"
+      ]
+    },
+    {
+      "hanzi": "什么样",
+      "pinyin": "shénme yàng",
+      "meanings": [
+        "what kind",
+        "what like"
+      ]
+    },
+    {
+      "hanzi": "哪",
+      "pinyin": "nǎ",
+      "meanings": [
+        "which",
+        "where (in compounds)"
+      ]
+    },
+    {
+      "hanzi": "哪些",
+      "pinyin": "nǎxiē",
+      "meanings": [
+        "which ones"
+      ]
+    },
+    {
+      "hanzi": "零",
+      "pinyin": "líng",
+      "meanings": [
+        "zero"
+      ]
+    },
+    {
+      "hanzi": "五",
+      "pinyin": "wǔ",
+      "meanings": [
+        "five"
+      ]
+    },
+    {
+      "hanzi": "六",
+      "pinyin": "liù",
+      "meanings": [
+        "six"
+      ]
+    },
+    {
+      "hanzi": "七",
+      "pinyin": "qī",
+      "meanings": [
+        "seven"
+      ]
+    },
+    {
+      "hanzi": "目前",
+      "pinyin": "mùqián",
+      "meanings": [
+        "at present",
+        "currently"
+      ]
+    },
+    {
+      "hanzi": "前天",
+      "pinyin": "qiántiān",
+      "meanings": [
+        "the day before yesterday"
+      ]
+    },
+    {
+      "hanzi": "后天",
+      "pinyin": "hòutiān",
+      "meanings": [
+        "the day after tomorrow"
+      ]
+    },
+    {
+      "hanzi": "刚刚",
+      "pinyin": "gānggāng",
+      "meanings": [
+        "just now (very recent)"
+      ]
+    },
+    {
+      "hanzi": "回",
+      "pinyin": "huí",
+      "meanings": [
+        "to return",
+        "to go back"
+      ]
+    },
+    {
+      "hanzi": "走",
+      "pinyin": "zǒu",
+      "meanings": [
+        "to walk",
+        "to leave"
+      ]
+    },
+    {
+      "hanzi": "到",
+      "pinyin": "dào",
+      "meanings": [
+        "to arrive",
+        "to reach"
+      ]
+    },
+    {
+      "hanzi": "不会",
+      "pinyin": "bú huì",
+      "meanings": [
+        "won’t",
+        "don’t know how to"
+      ]
+    },
+    {
+      "hanzi": "不能",
+      "pinyin": "bù néng",
+      "meanings": [
+        "can’t",
+        "unable to"
+      ]
+    },
+    {
+      "hanzi": "能够",
+      "pinyin": "nénggòu",
+      "meanings": [
+        "can",
+        "be capable of"
+      ]
+    },
+    {
+      "hanzi": "不可以",
+      "pinyin": "bù kěyǐ",
+      "meanings": [
+        "may not",
+        "not allowed"
+      ]
+    },
+    {
+      "hanzi": "父母",
+      "pinyin": "fùmǔ",
+      "meanings": [
+        "parents"
+      ]
+    },
+    {
+      "hanzi": "孩子",
+      "pinyin": "háizi",
+      "meanings": [
+        "child",
+        "kid"
+      ]
+    },
+    {
+      "hanzi": "儿子",
+      "pinyin": "érzi",
+      "meanings": [
+        "son"
+      ]
+    },
+    {
+      "hanzi": "女儿",
+      "pinyin": "nǚ'ér",
+      "meanings": [
+        "daughter"
+      ]
+    },
+    {
+      "hanzi": "房子",
+      "pinyin": "fángzi",
+      "meanings": [
+        "house",
+        "home"
+      ]
+    },
+    {
+      "hanzi": "门",
+      "pinyin": "mén",
+      "meanings": [
+        "door"
+      ]
+    },
+    {
+      "hanzi": "窗户",
+      "pinyin": "chuānghu",
+      "meanings": [
+        "window"
+      ]
+    },
+    {
+      "hanzi": "桌子",
+      "pinyin": "zhuōzi",
+      "meanings": [
+        "table"
+      ]
+    },
+    {
+      "hanzi": "椅子",
+      "pinyin": "yǐzi",
+      "meanings": [
+        "chair"
+      ]
+    },
+    {
+      "hanzi": "银行卡",
+      "pinyin": "yínhángkǎ",
+      "meanings": [
+        "bank card"
+      ]
+    },
+    {
+      "hanzi": "信用卡",
+      "pinyin": "xìnyòngkǎ",
+      "meanings": [
+        "credit card"
+      ]
+    },
+    {
+      "hanzi": "电视",
+      "pinyin": "diànshì",
+      "meanings": [
+        "TV"
+      ]
+    },
+    {
+      "hanzi": "网络",
+      "pinyin": "wǎngluò",
+      "meanings": [
+        "internet",
+        "network"
+      ]
+    },
+    {
+      "hanzi": "密码",
+      "pinyin": "mìmǎ",
+      "meanings": [
+        "password"
+      ]
+    },
+    {
+      "hanzi": "水",
+      "pinyin": "shuǐ",
+      "meanings": [
+        "water"
+      ]
+    },
+    {
+      "hanzi": "茶",
+      "pinyin": "chá",
+      "meanings": [
+        "tea"
+      ]
+    },
+    {
+      "hanzi": "咖啡",
+      "pinyin": "kāfēi",
+      "meanings": [
+        "coffee"
+      ]
+    },
+    {
+      "hanzi": "牛奶",
+      "pinyin": "niúnǎi",
+      "meanings": [
+        "milk"
+      ]
+    },
+    {
+      "hanzi": "果汁",
+      "pinyin": "guǒzhī",
+      "meanings": [
+        "juice"
+      ]
+    },
+    {
+      "hanzi": "好",
+      "pinyin": "hǎo",
+      "meanings": [
+        "good"
+      ]
+    },
+    {
+      "hanzi": "坏",
+      "pinyin": "huài",
+      "meanings": [
+        "bad"
+      ]
+    },
+    {
+      "hanzi": "大",
+      "pinyin": "dà",
+      "meanings": [
+        "big"
+      ]
+    },
+    {
+      "hanzi": "小",
+      "pinyin": "xiǎo",
+      "meanings": [
+        "small"
+      ]
+    },
+    {
+      "hanzi": "多",
+      "pinyin": "duō",
+      "meanings": [
+        "many",
+        "much"
+      ]
+    },
+    {
+      "hanzi": "吧",
+      "pinyin": "ba",
+      "meanings": [
+        "(particle) suggestion",
+        "softening"
+      ]
+    },
+    {
+      "hanzi": "啊",
+      "pinyin": "a",
+      "meanings": [
+        "(particle) exclamation",
+        "softening"
+      ]
+    },
+    {
+      "hanzi": "呀",
+      "pinyin": "ya",
+      "meanings": [
+        "(particle) exclamation",
+        "softening"
+      ]
+    },
+    {
+      "hanzi": "过",
+      "pinyin": "guò",
+      "meanings": [
+        "(particle) have done before",
+        "experience"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "week": 10,
+  "title": "Week 10",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "那个",
+      "pinyin": "nàge",
+      "meanings": [
+        "that one",
+        "that"
+      ]
+    },
+    {
+      "hanzi": "这位",
+      "pinyin": "zhè wèi",
+      "meanings": [
+        "this person (polite)"
+      ]
+    },
+    {
+      "hanzi": "那位",
+      "pinyin": "nà wèi",
+      "meanings": [
+        "that person (polite)"
+      ]
+    },
+    {
+      "hanzi": "它的",
+      "pinyin": "tā de",
+      "meanings": [
+        "its"
+      ]
+    },
+    {
+      "hanzi": "行不行",
+      "pinyin": "xíng bu xíng",
+      "meanings": [
+        "okay or not",
+        "will it work"
+      ]
+    },
+    {
+      "hanzi": "好不好",
+      "pinyin": "hǎo bu hǎo",
+      "meanings": [
+        "good or not",
+        "okay"
+      ]
+    },
+    {
+      "hanzi": "要不要",
+      "pinyin": "yào bu yào",
+      "meanings": [
+        "want or not",
+        "should we"
+      ]
+    },
+    {
+      "hanzi": "一点点",
+      "pinyin": "yìdiǎndiǎn",
+      "meanings": [
+        "a tiny bit"
+      ]
+    },
+    {
+      "hanzi": "几乎",
+      "pinyin": "jīhū",
+      "meanings": [
+        "almost",
+        "nearly"
+      ]
+    },
+    {
+      "hanzi": "大约",
+      "pinyin": "dàyuē",
+      "meanings": [
+        "about",
+        "approximately"
+      ]
+    },
+    {
+      "hanzi": "左右",
+      "pinyin": "zuǒyòu",
+      "meanings": [
+        "around",
+        "approximately"
+      ]
+    },
+    {
+      "hanzi": "下个月",
+      "pinyin": "xià ge yuè",
+      "meanings": [
+        "next month"
+      ]
+    },
+    {
+      "hanzi": "年",
+      "pinyin": "nián",
+      "meanings": [
+        "year"
+      ]
+    },
+    {
+      "hanzi": "今年",
+      "pinyin": "jīnnián",
+      "meanings": [
+        "this year"
+      ]
+    },
+    {
+      "hanzi": "给",
+      "pinyin": "gěi",
+      "meanings": [
+        "to give"
+      ]
+    },
+    {
+      "hanzi": "帮",
+      "pinyin": "bāng",
+      "meanings": [
+        "to help"
+      ]
+    },
+    {
+      "hanzi": "让",
+      "pinyin": "ràng",
+      "meanings": [
+        "to let",
+        "to allow",
+        "to make"
+      ]
+    },
+    {
+      "hanzi": "请",
+      "pinyin": "qǐng",
+      "meanings": [
+        "to invite",
+        "to request",
+        "please"
+      ]
+    },
+    {
+      "hanzi": "允许",
+      "pinyin": "yǔnxǔ",
+      "meanings": [
+        "allow",
+        "permit"
+      ]
+    },
+    {
+      "hanzi": "不许",
+      "pinyin": "bù xǔ",
+      "meanings": [
+        "must not",
+        "not allowed"
+      ]
+    },
+    {
+      "hanzi": "禁止",
+      "pinyin": "jìnzhǐ",
+      "meanings": [
+        "forbid",
+        "prohibit"
+      ]
+    },
+    {
+      "hanzi": "行",
+      "pinyin": "xíng",
+      "meanings": [
+        "okay",
+        "works",
+        "can do"
+      ]
+    },
+    {
+      "hanzi": "丈夫",
+      "pinyin": "zhàngfu",
+      "meanings": [
+        "husband"
+      ]
+    },
+    {
+      "hanzi": "妻子",
+      "pinyin": "qīzi",
+      "meanings": [
+        "wife"
+      ]
+    },
+    {
+      "hanzi": "男人",
+      "pinyin": "nánrén",
+      "meanings": [
+        "man"
+      ]
+    },
+    {
+      "hanzi": "女人",
+      "pinyin": "nǚrén",
+      "meanings": [
+        "woman"
+      ]
+    },
+    {
+      "hanzi": "男朋友",
+      "pinyin": "nánpéngyou",
+      "meanings": [
+        "boyfriend"
+      ]
+    },
+    {
+      "hanzi": "机场",
+      "pinyin": "jīchǎng",
+      "meanings": [
+        "airport"
+      ]
+    },
+    {
+      "hanzi": "车站",
+      "pinyin": "chēzhàn",
+      "meanings": [
+        "station"
+      ]
+    },
+    {
+      "hanzi": "站",
+      "pinyin": "zhàn",
+      "meanings": [
+        "station",
+        "stop"
+      ]
+    },
+    {
+      "hanzi": "票",
+      "pinyin": "piào",
+      "meanings": [
+        "ticket"
+      ]
+    },
+    {
+      "hanzi": "筷子",
+      "pinyin": "kuàizi",
+      "meanings": [
+        "chopsticks"
+      ]
+    },
+    {
+      "hanzi": "勺子",
+      "pinyin": "sháozi",
+      "meanings": [
+        "spoon"
+      ]
+    },
+    {
+      "hanzi": "刀",
+      "pinyin": "dāo",
+      "meanings": [
+        "knife"
+      ]
+    },
+    {
+      "hanzi": "叉子",
+      "pinyin": "chāzi",
+      "meanings": [
+        "fork"
+      ]
+    },
+    {
+      "hanzi": "糖",
+      "pinyin": "táng",
+      "meanings": [
+        "sugar"
+      ]
+    },
+    {
+      "hanzi": "油",
+      "pinyin": "yóu",
+      "meanings": [
+        "oil"
+      ]
+    },
+    {
+      "hanzi": "醋",
+      "pinyin": "cù",
+      "meanings": [
+        "vinegar"
+      ]
+    },
+    {
+      "hanzi": "酱油",
+      "pinyin": "jiàngyóu",
+      "meanings": [
+        "soy sauce"
+      ]
+    },
+    {
+      "hanzi": "辣椒",
+      "pinyin": "làjiāo",
+      "meanings": [
+        "chili pepper"
+      ]
+    },
+    {
+      "hanzi": "有用",
+      "pinyin": "yǒuyòng",
+      "meanings": [
+        "useful"
+      ]
+    },
+    {
+      "hanzi": "方便",
+      "pinyin": "fāngbiàn",
+      "meanings": [
+        "convenient"
+      ]
+    },
+    {
+      "hanzi": "麻烦",
+      "pinyin": "máfan",
+      "meanings": [
+        "troublesome",
+        "annoying"
+      ]
+    },
+    {
+      "hanzi": "安全",
+      "pinyin": "ānquán",
+      "meanings": [
+        "safe"
+      ]
+    },
+    {
+      "hanzi": "危险",
+      "pinyin": "wēixiǎn",
+      "meanings": [
+        "dangerous"
+      ]
+    },
+    {
+      "hanzi": "一起",
+      "pinyin": "yìqǐ",
+      "meanings": [
+        "together"
+      ]
+    },
+    {
+      "hanzi": "从",
+      "pinyin": "cóng",
+      "meanings": [
+        "from"
+      ]
+    },
+    {
+      "hanzi": "向",
+      "pinyin": "xiàng",
+      "meanings": [
+        "toward",
+        "to"
+      ]
+    },
+    {
+      "hanzi": "往",
+      "pinyin": "wǎng",
+      "meanings": [
+        "toward"
+      ]
+    },
+    {
+      "hanzi": "离",
+      "pinyin": "lí",
+      "meanings": [
+        "away from",
+        "from (distance)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+{
+  "week": 2,
+  "title": "Week 2",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "我的",
+      "pinyin": "wǒ de",
+      "meanings": [
+        "my",
+        "mine"
+      ]
+    },
+    {
+      "hanzi": "你的",
+      "pinyin": "nǐ de",
+      "meanings": [
+        "your",
+        "yours"
+      ]
+    },
+    {
+      "hanzi": "他的",
+      "pinyin": "tā de",
+      "meanings": [
+        "his"
+      ]
+    },
+    {
+      "hanzi": "她的",
+      "pinyin": "tā de",
+      "meanings": [
+        "her",
+        "hers"
+      ]
+    },
+    {
+      "hanzi": "咱们",
+      "pinyin": "zánmen",
+      "meanings": [
+        "we",
+        "us (including listener)"
+      ]
+    },
+    {
+      "hanzi": "自己",
+      "pinyin": "zìjǐ",
+      "meanings": [
+        "self",
+        "oneself"
+      ]
+    },
+    {
+      "hanzi": "这些",
+      "pinyin": "zhèxiē",
+      "meanings": [
+        "these"
+      ]
+    },
+    {
+      "hanzi": "那些",
+      "pinyin": "nàxiē",
+      "meanings": [
+        "those"
+      ]
+    },
+    {
+      "hanzi": "什么时候",
+      "pinyin": "shénme shíhou",
+      "meanings": [
+        "when"
+      ]
+    },
+    {
+      "hanzi": "几点",
+      "pinyin": "jǐ diǎn",
+      "meanings": [
+        "what time (o’clock)"
+      ]
+    },
+    {
+      "hanzi": "多少",
+      "pinyin": "duōshao",
+      "meanings": [
+        "how many",
+        "how much"
+      ]
+    },
+    {
+      "hanzi": "怎么样",
+      "pinyin": "zěnme yàng",
+      "meanings": [
+        "how is it",
+        "what do you think"
+      ]
+    },
+    {
+      "hanzi": "怎么了",
+      "pinyin": "zěnme le",
+      "meanings": [
+        "what’s wrong",
+        "what happened"
+      ]
+    },
+    {
+      "hanzi": "有没有",
+      "pinyin": "yǒu méi yǒu",
+      "meanings": [
+        "have/there is or not"
+      ]
+    },
+    {
+      "hanzi": "二",
+      "pinyin": "èr",
+      "meanings": [
+        "two"
+      ]
+    },
+    {
+      "hanzi": "三",
+      "pinyin": "sān",
+      "meanings": [
+        "three"
+      ]
+    },
+    {
+      "hanzi": "四",
+      "pinyin": "sì",
+      "meanings": [
+        "four"
+      ]
+    },
+    {
+      "hanzi": "每",
+      "pinyin": "měi",
+      "meanings": [
+        "each",
+        "every"
+      ]
+    },
+    {
+      "hanzi": "刚才",
+      "pinyin": "gāngcái",
+      "meanings": [
+        "just now"
+      ]
+    },
+    {
+      "hanzi": "已经",
+      "pinyin": "yǐjīng",
+      "meanings": [
+        "already"
+      ]
+    },
+    {
+      "hanzi": "后来",
+      "pinyin": "hòulái",
+      "meanings": [
+        "later on",
+        "afterwards"
+      ]
+    },
+    {
+      "hanzi": "以后",
+      "pinyin": "yǐhòu",
+      "meanings": [
+        "afterwards",
+        "later",
+        "in the future"
+      ]
+    },
+    {
+      "hanzi": "早上",
+      "pinyin": "zǎoshang",
+      "meanings": [
+        "morning"
+      ]
+    },
+    {
+      "hanzi": "晚上",
+      "pinyin": "wǎnshang",
+      "meanings": [
+        "evening",
+        "night"
+      ]
+    },
+    {
+      "hanzi": "听",
+      "pinyin": "tīng",
+      "meanings": [
+        "to listen",
+        "to hear"
+      ]
+    },
+    {
+      "hanzi": "喝",
+      "pinyin": "hē",
+      "meanings": [
+        "to drink"
+      ]
+    },
+    {
+      "hanzi": "买",
+      "pinyin": "mǎi",
+      "meanings": [
+        "to buy"
+      ]
+    },
+    {
+      "hanzi": "用",
+      "pinyin": "yòng",
+      "meanings": [
+        "to use"
+      ]
+    },
+    {
+      "hanzi": "开",
+      "pinyin": "kāi",
+      "meanings": [
+        "to open",
+        "to start",
+        "to drive"
+      ]
+    },
+    {
+      "hanzi": "关",
+      "pinyin": "guān",
+      "meanings": [
+        "to close",
+        "to turn off"
+      ]
+    },
+    {
+      "hanzi": "找",
+      "pinyin": "zhǎo",
+      "meanings": [
+        "to look for",
+        "to find"
+      ]
+    },
+    {
+      "hanzi": "等",
+      "pinyin": "děng",
+      "meanings": [
+        "to wait"
+      ]
+    },
+    {
+      "hanzi": "需要",
+      "pinyin": "xūyào",
+      "meanings": [
+        "need",
+        "require"
+      ]
+    },
+    {
+      "hanzi": "得",
+      "pinyin": "děi",
+      "meanings": [
+        "must",
+        "have to (spoken)"
+      ]
+    },
+    {
+      "hanzi": "应该",
+      "pinyin": "yīnggāi",
+      "meanings": [
+        "should",
+        "ought to"
+      ]
+    },
+    {
+      "hanzi": "不用",
+      "pinyin": "bú yòng",
+      "meanings": [
+        "don’t need to"
+      ]
+    },
+    {
+      "hanzi": "家人",
+      "pinyin": "jiārén",
+      "meanings": [
+        "family (members)"
+      ]
+    },
+    {
+      "hanzi": "爸爸",
+      "pinyin": "bàba",
+      "meanings": [
+        "dad"
+      ]
+    },
+    {
+      "hanzi": "妈妈",
+      "pinyin": "māma",
+      "meanings": [
+        "mom"
+      ]
+    },
+    {
+      "hanzi": "同学",
+      "pinyin": "tóngxué",
+      "meanings": [
+        "classmate"
+      ]
+    },
+    {
+      "hanzi": "房间",
+      "pinyin": "fángjiān",
+      "meanings": [
+        "room"
+      ]
+    },
+    {
+      "hanzi": "厨房",
+      "pinyin": "chúfáng",
+      "meanings": [
+        "kitchen"
+      ]
+    },
+    {
+      "hanzi": "餐厅",
+      "pinyin": "cāntīng",
+      "meanings": [
+        "restaurant"
+      ]
+    },
+    {
+      "hanzi": "电脑",
+      "pinyin": "diànnǎo",
+      "meanings": [
+        "computer"
+      ]
+    },
+    {
+      "hanzi": "照片",
+      "pinyin": "zhàopiàn",
+      "meanings": [
+        "photo"
+      ]
+    },
+    {
+      "hanzi": "充电器",
+      "pinyin": "chōngdiànqì",
+      "meanings": [
+        "charger"
+      ]
+    },
+    {
+      "hanzi": "了",
+      "pinyin": "le",
+      "meanings": [
+        "(particle) completed/change",
+        "past"
+      ]
+    },
+    {
+      "hanzi": "呢",
+      "pinyin": "ne",
+      "meanings": [
+        "(particle) “and you?”",
+        "ongoing state"
+      ]
+    },
+    {
+      "hanzi": "也",
+      "pinyin": "yě",
+      "meanings": [
+        "also",
+        "too"
+      ]
+    },
+    {
+      "hanzi": "都",
+      "pinyin": "dōu",
+      "meanings": [
+        "all",
+        "both"
+      ]
+    }
+  ]
+}

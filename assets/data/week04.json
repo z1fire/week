@@ -1,0 +1,382 @@
+{
+  "week": 4,
+  "title": "Week 4",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "他们",
+      "pinyin": "tāmen",
+      "meanings": [
+        "they",
+        "them (men/mixed group)"
+      ]
+    },
+    {
+      "hanzi": "她们",
+      "pinyin": "tāmen",
+      "meanings": [
+        "they",
+        "them (women)"
+      ]
+    },
+    {
+      "hanzi": "它们",
+      "pinyin": "tāmen",
+      "meanings": [
+        "they",
+        "them (things/animals)"
+      ]
+    },
+    {
+      "hanzi": "哪儿",
+      "pinyin": "nǎr",
+      "meanings": [
+        "where (colloquial)"
+      ]
+    },
+    {
+      "hanzi": "哪边",
+      "pinyin": "nǎbiān",
+      "meanings": [
+        "where",
+        "which side"
+      ]
+    },
+    {
+      "hanzi": "哪天",
+      "pinyin": "nǎ tiān",
+      "meanings": [
+        "which day",
+        "what day"
+      ]
+    },
+    {
+      "hanzi": "几",
+      "pinyin": "jǐ",
+      "meanings": [
+        "how many (small number)"
+      ]
+    },
+    {
+      "hanzi": "八",
+      "pinyin": "bā",
+      "meanings": [
+        "eight"
+      ]
+    },
+    {
+      "hanzi": "九",
+      "pinyin": "jiǔ",
+      "meanings": [
+        "nine"
+      ]
+    },
+    {
+      "hanzi": "十",
+      "pinyin": "shí",
+      "meanings": [
+        "ten"
+      ]
+    },
+    {
+      "hanzi": "百",
+      "pinyin": "bǎi",
+      "meanings": [
+        "hundred"
+      ]
+    },
+    {
+      "hanzi": "立刻",
+      "pinyin": "lìkè",
+      "meanings": [
+        "immediately"
+      ]
+    },
+    {
+      "hanzi": "一会儿",
+      "pinyin": "yíhuìr",
+      "meanings": [
+        "in a moment",
+        "a while"
+      ]
+    },
+    {
+      "hanzi": "还",
+      "pinyin": "hái",
+      "meanings": [
+        "still",
+        "yet"
+      ]
+    },
+    {
+      "hanzi": "再",
+      "pinyin": "zài",
+      "meanings": [
+        "again",
+        "once more"
+      ]
+    },
+    {
+      "hanzi": "进",
+      "pinyin": "jìn",
+      "meanings": [
+        "to enter"
+      ]
+    },
+    {
+      "hanzi": "出",
+      "pinyin": "chū",
+      "meanings": [
+        "to go out"
+      ]
+    },
+    {
+      "hanzi": "讲",
+      "pinyin": "jiǎng",
+      "meanings": [
+        "to talk",
+        "to explain"
+      ]
+    },
+    {
+      "hanzi": "不要",
+      "pinyin": "bú yào",
+      "meanings": [
+        "don’t want",
+        "don’t (imperative)"
+      ]
+    },
+    {
+      "hanzi": "想要",
+      "pinyin": "xiǎngyào",
+      "meanings": [
+        "want to",
+        "would like to"
+      ]
+    },
+    {
+      "hanzi": "必须",
+      "pinyin": "bìxū",
+      "meanings": [
+        "must",
+        "have to"
+      ]
+    },
+    {
+      "hanzi": "不该",
+      "pinyin": "bù gāi",
+      "meanings": [
+        "shouldn’t"
+      ]
+    },
+    {
+      "hanzi": "哥哥",
+      "pinyin": "gēge",
+      "meanings": [
+        "older brother"
+      ]
+    },
+    {
+      "hanzi": "弟弟",
+      "pinyin": "dìdi",
+      "meanings": [
+        "younger brother"
+      ]
+    },
+    {
+      "hanzi": "姐姐",
+      "pinyin": "jiějie",
+      "meanings": [
+        "older sister"
+      ]
+    },
+    {
+      "hanzi": "妹妹",
+      "pinyin": "mèimei",
+      "meanings": [
+        "younger sister"
+      ]
+    },
+    {
+      "hanzi": "床",
+      "pinyin": "chuáng",
+      "meanings": [
+        "bed"
+      ]
+    },
+    {
+      "hanzi": "厕所",
+      "pinyin": "cèsuǒ",
+      "meanings": [
+        "toilet",
+        "restroom"
+      ]
+    },
+    {
+      "hanzi": "洗手间",
+      "pinyin": "xǐshǒujiān",
+      "meanings": [
+        "bathroom",
+        "restroom"
+      ]
+    },
+    {
+      "hanzi": "教室",
+      "pinyin": "jiàoshì",
+      "meanings": [
+        "classroom"
+      ]
+    },
+    {
+      "hanzi": "公司",
+      "pinyin": "gōngsī",
+      "meanings": [
+        "company"
+      ]
+    },
+    {
+      "hanzi": "邮件",
+      "pinyin": "yóujiàn",
+      "meanings": [
+        "email",
+        "mail"
+      ]
+    },
+    {
+      "hanzi": "号码",
+      "pinyin": "hàomǎ",
+      "meanings": [
+        "number (phone/ID)"
+      ]
+    },
+    {
+      "hanzi": "信息",
+      "pinyin": "xìnxī",
+      "meanings": [
+        "information",
+        "message"
+      ]
+    },
+    {
+      "hanzi": "消息",
+      "pinyin": "xiāoxi",
+      "meanings": [
+        "message",
+        "news"
+      ]
+    },
+    {
+      "hanzi": "视频",
+      "pinyin": "shìpín",
+      "meanings": [
+        "video"
+      ]
+    },
+    {
+      "hanzi": "啤酒",
+      "pinyin": "píjiǔ",
+      "meanings": [
+        "beer"
+      ]
+    },
+    {
+      "hanzi": "酒",
+      "pinyin": "jiǔ",
+      "meanings": [
+        "alcohol",
+        "liquor"
+      ]
+    },
+    {
+      "hanzi": "饮料",
+      "pinyin": "yǐnliào",
+      "meanings": [
+        "drink",
+        "beverage"
+      ]
+    },
+    {
+      "hanzi": "饭",
+      "pinyin": "fàn",
+      "meanings": [
+        "meal",
+        "cooked rice"
+      ]
+    },
+    {
+      "hanzi": "米饭",
+      "pinyin": "mǐfàn",
+      "meanings": [
+        "cooked rice"
+      ]
+    },
+    {
+      "hanzi": "少",
+      "pinyin": "shǎo",
+      "meanings": [
+        "few",
+        "little"
+      ]
+    },
+    {
+      "hanzi": "新",
+      "pinyin": "xīn",
+      "meanings": [
+        "new"
+      ]
+    },
+    {
+      "hanzi": "旧",
+      "pinyin": "jiù",
+      "meanings": [
+        "old",
+        "used"
+      ]
+    },
+    {
+      "hanzi": "老",
+      "pinyin": "lǎo",
+      "meanings": [
+        "old",
+        "aged"
+      ]
+    },
+    {
+      "hanzi": "年轻",
+      "pinyin": "niánqīng",
+      "meanings": [
+        "young"
+      ]
+    },
+    {
+      "hanzi": "着",
+      "pinyin": "zhe",
+      "meanings": [
+        "(particle) ongoing",
+        "-ing"
+      ]
+    },
+    {
+      "hanzi": "地",
+      "pinyin": "de",
+      "meanings": [
+        "(particle) adverb marker"
+      ]
+    },
+    {
+      "hanzi": "把",
+      "pinyin": "bǎ",
+      "meanings": [
+        "(marker) ‘ba’ construction"
+      ]
+    },
+    {
+      "hanzi": "被",
+      "pinyin": "bèi",
+      "meanings": [
+        "(marker) passive",
+        "by"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,374 @@
+{
+  "week": 7,
+  "title": "Week 7",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "这里",
+      "pinyin": "zhèlǐ",
+      "meanings": [
+        "here"
+      ]
+    },
+    {
+      "hanzi": "那里",
+      "pinyin": "nàlǐ",
+      "meanings": [
+        "there"
+      ]
+    },
+    {
+      "hanzi": "这儿",
+      "pinyin": "zhèr",
+      "meanings": [
+        "here (colloquial)"
+      ]
+    },
+    {
+      "hanzi": "多高",
+      "pinyin": "duō gāo",
+      "meanings": [
+        "how tall/high"
+      ]
+    },
+    {
+      "hanzi": "多远",
+      "pinyin": "duō yuǎn",
+      "meanings": [
+        "how far"
+      ]
+    },
+    {
+      "hanzi": "多久",
+      "pinyin": "duō jiǔ",
+      "meanings": [
+        "how long (time)"
+      ]
+    },
+    {
+      "hanzi": "多长",
+      "pinyin": "duō cháng",
+      "meanings": [
+        "how long (length/duration)"
+      ]
+    },
+    {
+      "hanzi": "双",
+      "pinyin": "shuāng",
+      "meanings": [
+        "pair",
+        "double"
+      ]
+    },
+    {
+      "hanzi": "一对",
+      "pinyin": "yí duì",
+      "meanings": [
+        "a pair",
+        "a couple"
+      ]
+    },
+    {
+      "hanzi": "倍",
+      "pinyin": "bèi",
+      "meanings": [
+        "times",
+        "-fold"
+      ]
+    },
+    {
+      "hanzi": "全部",
+      "pinyin": "quánbù",
+      "meanings": [
+        "all",
+        "whole"
+      ]
+    },
+    {
+      "hanzi": "所有",
+      "pinyin": "suǒyǒu",
+      "meanings": [
+        "all",
+        "every"
+      ]
+    },
+    {
+      "hanzi": "昨天晚上",
+      "pinyin": "zuótiān wǎnshang",
+      "meanings": [
+        "last night"
+      ]
+    },
+    {
+      "hanzi": "白天",
+      "pinyin": "báitiān",
+      "meanings": [
+        "daytime"
+      ]
+    },
+    {
+      "hanzi": "周",
+      "pinyin": "zhōu",
+      "meanings": [
+        "week"
+      ]
+    },
+    {
+      "hanzi": "星期",
+      "pinyin": "xīngqī",
+      "meanings": [
+        "week",
+        "weekday"
+      ]
+    },
+    {
+      "hanzi": "记得",
+      "pinyin": "jìde",
+      "meanings": [
+        "to remember"
+      ]
+    },
+    {
+      "hanzi": "忘记",
+      "pinyin": "wàngjì",
+      "meanings": [
+        "to forget"
+      ]
+    },
+    {
+      "hanzi": "学",
+      "pinyin": "xué",
+      "meanings": [
+        "to learn",
+        "to study"
+      ]
+    },
+    {
+      "hanzi": "敢",
+      "pinyin": "gǎn",
+      "meanings": [
+        "dare to"
+      ]
+    },
+    {
+      "hanzi": "不敢",
+      "pinyin": "bù gǎn",
+      "meanings": [
+        "don’t dare to"
+      ]
+    },
+    {
+      "hanzi": "打算",
+      "pinyin": "dǎsuàn",
+      "meanings": [
+        "plan to",
+        "intend to"
+      ]
+    },
+    {
+      "hanzi": "准备",
+      "pinyin": "zhǔnbèi",
+      "meanings": [
+        "plan to",
+        "prepare to"
+      ]
+    },
+    {
+      "hanzi": "计划",
+      "pinyin": "jìhuà",
+      "meanings": [
+        "plan to"
+      ]
+    },
+    {
+      "hanzi": "老板",
+      "pinyin": "lǎobǎn",
+      "meanings": [
+        "boss",
+        "shop owner"
+      ]
+    },
+    {
+      "hanzi": "经理",
+      "pinyin": "jīnglǐ",
+      "meanings": [
+        "manager"
+      ]
+    },
+    {
+      "hanzi": "同伴",
+      "pinyin": "tóngbàn",
+      "meanings": [
+        "companion",
+        "partner"
+      ]
+    },
+    {
+      "hanzi": "顾客",
+      "pinyin": "gùkè",
+      "meanings": [
+        "customer"
+      ]
+    },
+    {
+      "hanzi": "城市",
+      "pinyin": "chéngshì",
+      "meanings": [
+        "city"
+      ]
+    },
+    {
+      "hanzi": "农村",
+      "pinyin": "nóngcūn",
+      "meanings": [
+        "countryside"
+      ]
+    },
+    {
+      "hanzi": "门口",
+      "pinyin": "ménkǒu",
+      "meanings": [
+        "entrance",
+        "doorway"
+      ]
+    },
+    {
+      "hanzi": "楼",
+      "pinyin": "lóu",
+      "meanings": [
+        "building",
+        "floor"
+      ]
+    },
+    {
+      "hanzi": "衣服",
+      "pinyin": "yīfu",
+      "meanings": [
+        "clothes"
+      ]
+    },
+    {
+      "hanzi": "裤子",
+      "pinyin": "kùzi",
+      "meanings": [
+        "pants",
+        "trousers"
+      ]
+    },
+    {
+      "hanzi": "鞋",
+      "pinyin": "xié",
+      "meanings": [
+        "shoes"
+      ]
+    },
+    {
+      "hanzi": "袜子",
+      "pinyin": "wàzi",
+      "meanings": [
+        "socks"
+      ]
+    },
+    {
+      "hanzi": "香蕉",
+      "pinyin": "xiāngjiāo",
+      "meanings": [
+        "banana"
+      ]
+    },
+    {
+      "hanzi": "橙子",
+      "pinyin": "chéngzi",
+      "meanings": [
+        "orange"
+      ]
+    },
+    {
+      "hanzi": "西瓜",
+      "pinyin": "xīguā",
+      "meanings": [
+        "watermelon"
+      ]
+    },
+    {
+      "hanzi": "葡萄",
+      "pinyin": "pútao",
+      "meanings": [
+        "grapes"
+      ]
+    },
+    {
+      "hanzi": "肉",
+      "pinyin": "ròu",
+      "meanings": [
+        "meat"
+      ]
+    },
+    {
+      "hanzi": "难看",
+      "pinyin": "nánkàn",
+      "meanings": [
+        "ugly",
+        "not good-looking"
+      ]
+    },
+    {
+      "hanzi": "干净",
+      "pinyin": "gānjìng",
+      "meanings": [
+        "clean"
+      ]
+    },
+    {
+      "hanzi": "脏",
+      "pinyin": "zāng",
+      "meanings": [
+        "dirty"
+      ]
+    },
+    {
+      "hanzi": "贵",
+      "pinyin": "guì",
+      "meanings": [
+        "expensive"
+      ]
+    },
+    {
+      "hanzi": "便宜",
+      "pinyin": "piányi",
+      "meanings": [
+        "cheap"
+      ]
+    },
+    {
+      "hanzi": "如果",
+      "pinyin": "rúguǒ",
+      "meanings": [
+        "if"
+      ]
+    },
+    {
+      "hanzi": "虽然",
+      "pinyin": "suīrán",
+      "meanings": [
+        "although"
+      ]
+    },
+    {
+      "hanzi": "然后",
+      "pinyin": "ránhòu",
+      "meanings": [
+        "then",
+        "afterwards"
+      ]
+    },
+    {
+      "hanzi": "而且",
+      "pinyin": "érqiě",
+      "meanings": [
+        "moreover",
+        "also"
+      ]
+    }
+  ]
+}

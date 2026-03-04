@@ -1,0 +1,373 @@
+{
+  "week": 5,
+  "title": "Week 5",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "本人",
+      "pinyin": "běnrén",
+      "meanings": [
+        "oneself",
+        "I/me (formal)"
+      ]
+    },
+    {
+      "hanzi": "彼此",
+      "pinyin": "bǐcǐ",
+      "meanings": [
+        "each other"
+      ]
+    },
+    {
+      "hanzi": "互相",
+      "pinyin": "hùxiāng",
+      "meanings": [
+        "each other",
+        "mutually"
+      ]
+    },
+    {
+      "hanzi": "几个",
+      "pinyin": "jǐ ge",
+      "meanings": [
+        "how many (items)"
+      ]
+    },
+    {
+      "hanzi": "多少钱",
+      "pinyin": "duōshao qián",
+      "meanings": [
+        "how much money",
+        "how much does it cost"
+      ]
+    },
+    {
+      "hanzi": "几号",
+      "pinyin": "jǐ hào",
+      "meanings": [
+        "what date (day of month)"
+      ]
+    },
+    {
+      "hanzi": "几月",
+      "pinyin": "jǐ yuè",
+      "meanings": [
+        "what month"
+      ]
+    },
+    {
+      "hanzi": "千",
+      "pinyin": "qiān",
+      "meanings": [
+        "thousand"
+      ]
+    },
+    {
+      "hanzi": "万",
+      "pinyin": "wàn",
+      "meanings": [
+        "ten thousand"
+      ]
+    },
+    {
+      "hanzi": "亿",
+      "pinyin": "yì",
+      "meanings": [
+        "hundred million"
+      ]
+    },
+    {
+      "hanzi": "第一",
+      "pinyin": "dìyī",
+      "meanings": [
+        "first"
+      ]
+    },
+    {
+      "hanzi": "先",
+      "pinyin": "xiān",
+      "meanings": [
+        "first",
+        "beforehand"
+      ]
+    },
+    {
+      "hanzi": "以前",
+      "pinyin": "yǐqián",
+      "meanings": [
+        "before",
+        "previously"
+      ]
+    },
+    {
+      "hanzi": "上午",
+      "pinyin": "shàngwǔ",
+      "meanings": [
+        "before noon"
+      ]
+    },
+    {
+      "hanzi": "中午",
+      "pinyin": "zhōngwǔ",
+      "meanings": [
+        "noon"
+      ]
+    },
+    {
+      "hanzi": "告诉",
+      "pinyin": "gàosu",
+      "meanings": [
+        "to tell",
+        "to inform"
+      ]
+    },
+    {
+      "hanzi": "问",
+      "pinyin": "wèn",
+      "meanings": [
+        "to ask"
+      ]
+    },
+    {
+      "hanzi": "回答",
+      "pinyin": "huídá",
+      "meanings": [
+        "to answer",
+        "to reply"
+      ]
+    },
+    {
+      "hanzi": "不必",
+      "pinyin": "bú bì",
+      "meanings": [
+        "no need to"
+      ]
+    },
+    {
+      "hanzi": "可以先",
+      "pinyin": "kěyǐ xiān",
+      "meanings": [
+        "can first… (common phrase)"
+      ]
+    },
+    {
+      "hanzi": "最好",
+      "pinyin": "zuìhǎo",
+      "meanings": [
+        "had better",
+        "best to"
+      ]
+    },
+    {
+      "hanzi": "希望",
+      "pinyin": "xīwàng",
+      "meanings": [
+        "hope (to)"
+      ]
+    },
+    {
+      "hanzi": "爷爷",
+      "pinyin": "yéye",
+      "meanings": [
+        "grandpa (paternal)"
+      ]
+    },
+    {
+      "hanzi": "奶奶",
+      "pinyin": "nǎinai",
+      "meanings": [
+        "grandma (paternal)"
+      ]
+    },
+    {
+      "hanzi": "外公",
+      "pinyin": "wàigōng",
+      "meanings": [
+        "grandpa (maternal)"
+      ]
+    },
+    {
+      "hanzi": "外婆",
+      "pinyin": "wàipó",
+      "meanings": [
+        "grandma (maternal)"
+      ]
+    },
+    {
+      "hanzi": "办公室",
+      "pinyin": "bàngōngshì",
+      "meanings": [
+        "office"
+      ]
+    },
+    {
+      "hanzi": "医院",
+      "pinyin": "yīyuàn",
+      "meanings": [
+        "hospital"
+      ]
+    },
+    {
+      "hanzi": "银行",
+      "pinyin": "yínháng",
+      "meanings": [
+        "bank"
+      ]
+    },
+    {
+      "hanzi": "超市",
+      "pinyin": "chāoshì",
+      "meanings": [
+        "supermarket"
+      ]
+    },
+    {
+      "hanzi": "市场",
+      "pinyin": "shìchǎng",
+      "meanings": [
+        "market"
+      ]
+    },
+    {
+      "hanzi": "耳机",
+      "pinyin": "ěrjī",
+      "meanings": [
+        "earphones",
+        "headset"
+      ]
+    },
+    {
+      "hanzi": "电池",
+      "pinyin": "diànchí",
+      "meanings": [
+        "battery"
+      ]
+    },
+    {
+      "hanzi": "包",
+      "pinyin": "bāo",
+      "meanings": [
+        "bag"
+      ]
+    },
+    {
+      "hanzi": "袋子",
+      "pinyin": "dàizi",
+      "meanings": [
+        "bag",
+        "sack"
+      ]
+    },
+    {
+      "hanzi": "钥匙",
+      "pinyin": "yàoshi",
+      "meanings": [
+        "key"
+      ]
+    },
+    {
+      "hanzi": "面条",
+      "pinyin": "miàntiáo",
+      "meanings": [
+        "noodles"
+      ]
+    },
+    {
+      "hanzi": "面包",
+      "pinyin": "miànbāo",
+      "meanings": [
+        "bread"
+      ]
+    },
+    {
+      "hanzi": "包子",
+      "pinyin": "bāozi",
+      "meanings": [
+        "steamed bun"
+      ]
+    },
+    {
+      "hanzi": "饺子",
+      "pinyin": "jiǎozi",
+      "meanings": [
+        "dumplings"
+      ]
+    },
+    {
+      "hanzi": "粥",
+      "pinyin": "zhōu",
+      "meanings": [
+        "porridge",
+        "congee"
+      ]
+    },
+    {
+      "hanzi": "高",
+      "pinyin": "gāo",
+      "meanings": [
+        "tall",
+        "high"
+      ]
+    },
+    {
+      "hanzi": "矮",
+      "pinyin": "ǎi",
+      "meanings": [
+        "short (height)"
+      ]
+    },
+    {
+      "hanzi": "长",
+      "pinyin": "cháng",
+      "meanings": [
+        "long"
+      ]
+    },
+    {
+      "hanzi": "短",
+      "pinyin": "duǎn",
+      "meanings": [
+        "short (length)"
+      ]
+    },
+    {
+      "hanzi": "快",
+      "pinyin": "kuài",
+      "meanings": [
+        "fast"
+      ]
+    },
+    {
+      "hanzi": "跟",
+      "pinyin": "gēn",
+      "meanings": [
+        "with",
+        "and",
+        "to follow (coverb)"
+      ]
+    },
+    {
+      "hanzi": "或",
+      "pinyin": "huò",
+      "meanings": [
+        "or"
+      ]
+    },
+    {
+      "hanzi": "或者",
+      "pinyin": "huòzhě",
+      "meanings": [
+        "or",
+        "either"
+      ]
+    },
+    {
+      "hanzi": "但是",
+      "pinyin": "dànshì",
+      "meanings": [
+        "but",
+        "however"
+      ]
+    }
+  ]
+}

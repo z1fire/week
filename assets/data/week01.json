@@ -1,0 +1,386 @@
+{
+  "week": 1,
+  "title": "Week 1",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "我",
+      "pinyin": "wǒ",
+      "meanings": [
+        "I",
+        "me"
+      ]
+    },
+    {
+      "hanzi": "你",
+      "pinyin": "nǐ",
+      "meanings": [
+        "you (singular)"
+      ]
+    },
+    {
+      "hanzi": "他",
+      "pinyin": "tā",
+      "meanings": [
+        "he",
+        "him"
+      ]
+    },
+    {
+      "hanzi": "她",
+      "pinyin": "tā",
+      "meanings": [
+        "she",
+        "her"
+      ]
+    },
+    {
+      "hanzi": "我们",
+      "pinyin": "wǒmen",
+      "meanings": [
+        "we",
+        "us"
+      ]
+    },
+    {
+      "hanzi": "这",
+      "pinyin": "zhè",
+      "meanings": [
+        "this"
+      ]
+    },
+    {
+      "hanzi": "那",
+      "pinyin": "nà",
+      "meanings": [
+        "that"
+      ]
+    },
+    {
+      "hanzi": "这个",
+      "pinyin": "zhège",
+      "meanings": [
+        "this one",
+        "this"
+      ]
+    },
+    {
+      "hanzi": "谁",
+      "pinyin": "shéi",
+      "meanings": [
+        "who"
+      ]
+    },
+    {
+      "hanzi": "什么",
+      "pinyin": "shénme",
+      "meanings": [
+        "what"
+      ]
+    },
+    {
+      "hanzi": "哪个",
+      "pinyin": "nǎge",
+      "meanings": [
+        "which one"
+      ]
+    },
+    {
+      "hanzi": "哪里",
+      "pinyin": "nǎlǐ",
+      "meanings": [
+        "where"
+      ]
+    },
+    {
+      "hanzi": "怎么",
+      "pinyin": "zěnme",
+      "meanings": [
+        "how",
+        "what to do"
+      ]
+    },
+    {
+      "hanzi": "为什么",
+      "pinyin": "wèishénme",
+      "meanings": [
+        "why"
+      ]
+    },
+    {
+      "hanzi": "一",
+      "pinyin": "yī",
+      "meanings": [
+        "one"
+      ]
+    },
+    {
+      "hanzi": "两",
+      "pinyin": "liǎng",
+      "meanings": [
+        "two (before classifier)"
+      ]
+    },
+    {
+      "hanzi": "很多",
+      "pinyin": "hěnduō",
+      "meanings": [
+        "many",
+        "a lot"
+      ]
+    },
+    {
+      "hanzi": "一点",
+      "pinyin": "yìdiǎn",
+      "meanings": [
+        "a little",
+        "a bit"
+      ]
+    },
+    {
+      "hanzi": "现在",
+      "pinyin": "xiànzài",
+      "meanings": [
+        "now"
+      ]
+    },
+    {
+      "hanzi": "今天",
+      "pinyin": "jīntiān",
+      "meanings": [
+        "today"
+      ]
+    },
+    {
+      "hanzi": "明天",
+      "pinyin": "míngtiān",
+      "meanings": [
+        "tomorrow"
+      ]
+    },
+    {
+      "hanzi": "昨天",
+      "pinyin": "zuótiān",
+      "meanings": [
+        "yesterday"
+      ]
+    },
+    {
+      "hanzi": "马上",
+      "pinyin": "mǎshàng",
+      "meanings": [
+        "right away",
+        "immediately"
+      ]
+    },
+    {
+      "hanzi": "最近",
+      "pinyin": "zuìjìn",
+      "meanings": [
+        "recently"
+      ]
+    },
+    {
+      "hanzi": "是",
+      "pinyin": "shì",
+      "meanings": [
+        "to be",
+        "is/are"
+      ]
+    },
+    {
+      "hanzi": "有",
+      "pinyin": "yǒu",
+      "meanings": [
+        "to have",
+        "there is/are"
+      ]
+    },
+    {
+      "hanzi": "做",
+      "pinyin": "zuò",
+      "meanings": [
+        "to do",
+        "to make"
+      ]
+    },
+    {
+      "hanzi": "去",
+      "pinyin": "qù",
+      "meanings": [
+        "to go"
+      ]
+    },
+    {
+      "hanzi": "来",
+      "pinyin": "lái",
+      "meanings": [
+        "to come"
+      ]
+    },
+    {
+      "hanzi": "看",
+      "pinyin": "kàn",
+      "meanings": [
+        "to look",
+        "to watch",
+        "to read"
+      ]
+    },
+    {
+      "hanzi": "说",
+      "pinyin": "shuō",
+      "meanings": [
+        "to speak",
+        "to say"
+      ]
+    },
+    {
+      "hanzi": "吃",
+      "pinyin": "chī",
+      "meanings": [
+        "to eat"
+      ]
+    },
+    {
+      "hanzi": "会",
+      "pinyin": "huì",
+      "meanings": [
+        "will",
+        "know how to (skill)"
+      ]
+    },
+    {
+      "hanzi": "能",
+      "pinyin": "néng",
+      "meanings": [
+        "can",
+        "be able to"
+      ]
+    },
+    {
+      "hanzi": "可以",
+      "pinyin": "kěyǐ",
+      "meanings": [
+        "may",
+        "be allowed to",
+        "can"
+      ]
+    },
+    {
+      "hanzi": "要",
+      "pinyin": "yào",
+      "meanings": [
+        "want",
+        "need to",
+        "going to"
+      ]
+    },
+    {
+      "hanzi": "人",
+      "pinyin": "rén",
+      "meanings": [
+        "person",
+        "people"
+      ]
+    },
+    {
+      "hanzi": "朋友",
+      "pinyin": "péngyou",
+      "meanings": [
+        "friend"
+      ]
+    },
+    {
+      "hanzi": "老师",
+      "pinyin": "lǎoshī",
+      "meanings": [
+        "teacher"
+      ]
+    },
+    {
+      "hanzi": "学生",
+      "pinyin": "xuésheng",
+      "meanings": [
+        "student"
+      ]
+    },
+    {
+      "hanzi": "家",
+      "pinyin": "jiā",
+      "meanings": [
+        "home",
+        "family"
+      ]
+    },
+    {
+      "hanzi": "学校",
+      "pinyin": "xuéxiào",
+      "meanings": [
+        "school"
+      ]
+    },
+    {
+      "hanzi": "商店",
+      "pinyin": "shāngdiàn",
+      "meanings": [
+        "shop",
+        "store"
+      ]
+    },
+    {
+      "hanzi": "钱",
+      "pinyin": "qián",
+      "meanings": [
+        "money"
+      ]
+    },
+    {
+      "hanzi": "手机",
+      "pinyin": "shǒujī",
+      "meanings": [
+        "mobile phone"
+      ]
+    },
+    {
+      "hanzi": "电话",
+      "pinyin": "diànhuà",
+      "meanings": [
+        "phone",
+        "telephone"
+      ]
+    },
+    {
+      "hanzi": "的",
+      "pinyin": "de",
+      "meanings": [
+        "(particle) ’s",
+        "linking modifier"
+      ]
+    },
+    {
+      "hanzi": "吗",
+      "pinyin": "ma",
+      "meanings": [
+        "(particle) yes/no question"
+      ]
+    },
+    {
+      "hanzi": "和",
+      "pinyin": "hé",
+      "meanings": [
+        "and",
+        "with"
+      ]
+    },
+    {
+      "hanzi": "在",
+      "pinyin": "zài",
+      "meanings": [
+        "at",
+        "in",
+        "(be) doing"
+      ]
+    }
+  ]
+}

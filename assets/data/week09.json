@@ -1,0 +1,383 @@
+{
+  "week": 9,
+  "title": "Week 9",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "这样",
+      "pinyin": "zhèyàng",
+      "meanings": [
+        "like this",
+        "this way"
+      ]
+    },
+    {
+      "hanzi": "那样",
+      "pinyin": "nàyàng",
+      "meanings": [
+        "like that",
+        "that way"
+      ]
+    },
+    {
+      "hanzi": "这么",
+      "pinyin": "zhème",
+      "meanings": [
+        "so",
+        "this much"
+      ]
+    },
+    {
+      "hanzi": "那么",
+      "pinyin": "nàme",
+      "meanings": [
+        "so",
+        "that much"
+      ]
+    },
+    {
+      "hanzi": "怎么会",
+      "pinyin": "zěnme huì",
+      "meanings": [
+        "how could it be",
+        "how come"
+      ]
+    },
+    {
+      "hanzi": "是不是",
+      "pinyin": "shì bu shì",
+      "meanings": [
+        "is it",
+        "whether"
+      ]
+    },
+    {
+      "hanzi": "对不对",
+      "pinyin": "duì bu duì",
+      "meanings": [
+        "right or not"
+      ]
+    },
+    {
+      "hanzi": "大量",
+      "pinyin": "dàliàng",
+      "meanings": [
+        "a large amount"
+      ]
+    },
+    {
+      "hanzi": "多数",
+      "pinyin": "duōshù",
+      "meanings": [
+        "most",
+        "majority"
+      ]
+    },
+    {
+      "hanzi": "大多数",
+      "pinyin": "dàduōshù",
+      "meanings": [
+        "the vast majority"
+      ]
+    },
+    {
+      "hanzi": "少数",
+      "pinyin": "shǎoshù",
+      "meanings": [
+        "minority",
+        "a few"
+      ]
+    },
+    {
+      "hanzi": "一些",
+      "pinyin": "yìxiē",
+      "meanings": [
+        "some",
+        "a number of"
+      ]
+    },
+    {
+      "hanzi": "月",
+      "pinyin": "yuè",
+      "meanings": [
+        "month"
+      ]
+    },
+    {
+      "hanzi": "本月",
+      "pinyin": "běnyuè",
+      "meanings": [
+        "this month"
+      ]
+    },
+    {
+      "hanzi": "上个月",
+      "pinyin": "shàng ge yuè",
+      "meanings": [
+        "last month"
+      ]
+    },
+    {
+      "hanzi": "卖",
+      "pinyin": "mài",
+      "meanings": [
+        "to sell"
+      ]
+    },
+    {
+      "hanzi": "带",
+      "pinyin": "dài",
+      "meanings": [
+        "to bring",
+        "to take",
+        "to wear"
+      ]
+    },
+    {
+      "hanzi": "拿",
+      "pinyin": "ná",
+      "meanings": [
+        "to take",
+        "to hold"
+      ]
+    },
+    {
+      "hanzi": "放",
+      "pinyin": "fàng",
+      "meanings": [
+        "to put",
+        "to place"
+      ]
+    },
+    {
+      "hanzi": "可能",
+      "pinyin": "kěnéng",
+      "meanings": [
+        "might",
+        "possible"
+      ]
+    },
+    {
+      "hanzi": "不可能",
+      "pinyin": "bù kěnéng",
+      "meanings": [
+        "impossible",
+        "can’t be"
+      ]
+    },
+    {
+      "hanzi": "一定",
+      "pinyin": "yídìng",
+      "meanings": [
+        "certainly",
+        "must (strong likelihood)"
+      ]
+    },
+    {
+      "hanzi": "肯定",
+      "pinyin": "kěndìng",
+      "meanings": [
+        "definitely",
+        "for sure"
+      ]
+    },
+    {
+      "hanzi": "当然",
+      "pinyin": "dāngrán",
+      "meanings": [
+        "of course"
+      ]
+    },
+    {
+      "hanzi": "领导",
+      "pinyin": "lǐngdǎo",
+      "meanings": [
+        "leader",
+        "supervisor"
+      ]
+    },
+    {
+      "hanzi": "先生",
+      "pinyin": "xiānsheng",
+      "meanings": [
+        "Mr.",
+        "sir"
+      ]
+    },
+    {
+      "hanzi": "女士",
+      "pinyin": "nǚshì",
+      "meanings": [
+        "Ms.",
+        "lady"
+      ]
+    },
+    {
+      "hanzi": "太太",
+      "pinyin": "tàitai",
+      "meanings": [
+        "wife",
+        "Mrs."
+      ]
+    },
+    {
+      "hanzi": "公交车",
+      "pinyin": "gōngjiāochē",
+      "meanings": [
+        "bus"
+      ]
+    },
+    {
+      "hanzi": "地铁",
+      "pinyin": "dìtiě",
+      "meanings": [
+        "subway",
+        "metro"
+      ]
+    },
+    {
+      "hanzi": "火车",
+      "pinyin": "huǒchē",
+      "meanings": [
+        "train"
+      ]
+    },
+    {
+      "hanzi": "飞机",
+      "pinyin": "fēijī",
+      "meanings": [
+        "airplane"
+      ]
+    },
+    {
+      "hanzi": "水杯",
+      "pinyin": "shuǐbēi",
+      "meanings": [
+        "water cup",
+        "tumbler"
+      ]
+    },
+    {
+      "hanzi": "瓶子",
+      "pinyin": "píngzi",
+      "meanings": [
+        "bottle"
+      ]
+    },
+    {
+      "hanzi": "盘子",
+      "pinyin": "pánzi",
+      "meanings": [
+        "plate"
+      ]
+    },
+    {
+      "hanzi": "碗",
+      "pinyin": "wǎn",
+      "meanings": [
+        "bowl"
+      ]
+    },
+    {
+      "hanzi": "鸡蛋",
+      "pinyin": "jīdàn",
+      "meanings": [
+        "egg"
+      ]
+    },
+    {
+      "hanzi": "豆腐",
+      "pinyin": "dòufu",
+      "meanings": [
+        "tofu"
+      ]
+    },
+    {
+      "hanzi": "米",
+      "pinyin": "mǐ",
+      "meanings": [
+        "rice (grain)"
+      ]
+    },
+    {
+      "hanzi": "面",
+      "pinyin": "miàn",
+      "meanings": [
+        "noodles/flour (context)"
+      ]
+    },
+    {
+      "hanzi": "盐",
+      "pinyin": "yán",
+      "meanings": [
+        "salt"
+      ]
+    },
+    {
+      "hanzi": "对",
+      "pinyin": "duì",
+      "meanings": [
+        "correct",
+        "right"
+      ]
+    },
+    {
+      "hanzi": "错",
+      "pinyin": "cuò",
+      "meanings": [
+        "wrong",
+        "incorrect"
+      ]
+    },
+    {
+      "hanzi": "简单",
+      "pinyin": "jiǎndān",
+      "meanings": [
+        "simple"
+      ]
+    },
+    {
+      "hanzi": "复杂",
+      "pinyin": "fùzá",
+      "meanings": [
+        "complex"
+      ]
+    },
+    {
+      "hanzi": "重要",
+      "pinyin": "zhòngyào",
+      "meanings": [
+        "important"
+      ]
+    },
+    {
+      "hanzi": "很",
+      "pinyin": "hěn",
+      "meanings": [
+        "very"
+      ]
+    },
+    {
+      "hanzi": "太",
+      "pinyin": "tài",
+      "meanings": [
+        "too",
+        "very"
+      ]
+    },
+    {
+      "hanzi": "更",
+      "pinyin": "gèng",
+      "meanings": [
+        "even more"
+      ]
+    },
+    {
+      "hanzi": "最",
+      "pinyin": "zuì",
+      "meanings": [
+        "most"
+      ]
+    }
+  ]
+}

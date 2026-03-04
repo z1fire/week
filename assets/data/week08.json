@@ -1,0 +1,374 @@
+{
+  "week": 8,
+  "title": "Week 8",
+  "youtube": "",
+  "words": [
+    {
+      "hanzi": "那儿",
+      "pinyin": "nàr",
+      "meanings": [
+        "there (colloquial)"
+      ]
+    },
+    {
+      "hanzi": "这边",
+      "pinyin": "zhèbiān",
+      "meanings": [
+        "over here",
+        "this side"
+      ]
+    },
+    {
+      "hanzi": "那边",
+      "pinyin": "nàbiān",
+      "meanings": [
+        "over there",
+        "that side"
+      ]
+    },
+    {
+      "hanzi": "多快",
+      "pinyin": "duō kuài",
+      "meanings": [
+        "how fast"
+      ]
+    },
+    {
+      "hanzi": "多慢",
+      "pinyin": "duō màn",
+      "meanings": [
+        "how slow"
+      ]
+    },
+    {
+      "hanzi": "怎么办",
+      "pinyin": "zěnme bàn",
+      "meanings": [
+        "what should (we) do"
+      ]
+    },
+    {
+      "hanzi": "为啥",
+      "pinyin": "wèishá",
+      "meanings": [
+        "why (colloquial)"
+      ]
+    },
+    {
+      "hanzi": "各",
+      "pinyin": "gè",
+      "meanings": [
+        "each",
+        "every"
+      ]
+    },
+    {
+      "hanzi": "任何",
+      "pinyin": "rènhé",
+      "meanings": [
+        "any"
+      ]
+    },
+    {
+      "hanzi": "许多",
+      "pinyin": "xǔduō",
+      "meanings": [
+        "many",
+        "a great many"
+      ]
+    },
+    {
+      "hanzi": "不少",
+      "pinyin": "bùshǎo",
+      "meanings": [
+        "quite a few",
+        "not few"
+      ]
+    },
+    {
+      "hanzi": "周末",
+      "pinyin": "zhōumò",
+      "meanings": [
+        "weekend"
+      ]
+    },
+    {
+      "hanzi": "上周",
+      "pinyin": "shàngzhōu",
+      "meanings": [
+        "last week"
+      ]
+    },
+    {
+      "hanzi": "这周",
+      "pinyin": "zhè zhōu",
+      "meanings": [
+        "this week"
+      ]
+    },
+    {
+      "hanzi": "下周",
+      "pinyin": "xiàzhōu",
+      "meanings": [
+        "next week"
+      ]
+    },
+    {
+      "hanzi": "教",
+      "pinyin": "jiāo",
+      "meanings": [
+        "to teach"
+      ]
+    },
+    {
+      "hanzi": "写",
+      "pinyin": "xiě",
+      "meanings": [
+        "to write"
+      ]
+    },
+    {
+      "hanzi": "读",
+      "pinyin": "dú",
+      "meanings": [
+        "to read"
+      ]
+    },
+    {
+      "hanzi": "决定",
+      "pinyin": "juédìng",
+      "meanings": [
+        "decide to"
+      ]
+    },
+    {
+      "hanzi": "选择",
+      "pinyin": "xuǎnzé",
+      "meanings": [
+        "choose to"
+      ]
+    },
+    {
+      "hanzi": "试",
+      "pinyin": "shì",
+      "meanings": [
+        "try to"
+      ]
+    },
+    {
+      "hanzi": "试试",
+      "pinyin": "shìshi",
+      "meanings": [
+        "give it a try"
+      ]
+    },
+    {
+      "hanzi": "客人",
+      "pinyin": "kèrén",
+      "meanings": [
+        "guest",
+        "visitor"
+      ]
+    },
+    {
+      "hanzi": "服务员",
+      "pinyin": "fúwùyuán",
+      "meanings": [
+        "server",
+        "attendant"
+      ]
+    },
+    {
+      "hanzi": "司机",
+      "pinyin": "sījī",
+      "meanings": [
+        "driver"
+      ]
+    },
+    {
+      "hanzi": "警察",
+      "pinyin": "jǐngchá",
+      "meanings": [
+        "police officer"
+      ]
+    },
+    {
+      "hanzi": "律师",
+      "pinyin": "lǜshī",
+      "meanings": [
+        "lawyer"
+      ]
+    },
+    {
+      "hanzi": "楼上",
+      "pinyin": "lóushàng",
+      "meanings": [
+        "upstairs"
+      ]
+    },
+    {
+      "hanzi": "楼下",
+      "pinyin": "lóuxià",
+      "meanings": [
+        "downstairs"
+      ]
+    },
+    {
+      "hanzi": "车",
+      "pinyin": "chē",
+      "meanings": [
+        "car",
+        "vehicle"
+      ]
+    },
+    {
+      "hanzi": "出租车",
+      "pinyin": "chūzūchē",
+      "meanings": [
+        "taxi"
+      ]
+    },
+    {
+      "hanzi": "帽子",
+      "pinyin": "màozi",
+      "meanings": [
+        "hat"
+      ]
+    },
+    {
+      "hanzi": "眼镜",
+      "pinyin": "yǎnjìng",
+      "meanings": [
+        "glasses"
+      ]
+    },
+    {
+      "hanzi": "手表",
+      "pinyin": "shǒubiǎo",
+      "meanings": [
+        "watch"
+      ]
+    },
+    {
+      "hanzi": "杯子",
+      "pinyin": "bēizi",
+      "meanings": [
+        "cup",
+        "glass"
+      ]
+    },
+    {
+      "hanzi": "牛肉",
+      "pinyin": "niúròu",
+      "meanings": [
+        "beef"
+      ]
+    },
+    {
+      "hanzi": "猪肉",
+      "pinyin": "zhūròu",
+      "meanings": [
+        "pork"
+      ]
+    },
+    {
+      "hanzi": "鸡肉",
+      "pinyin": "jīròu",
+      "meanings": [
+        "chicken"
+      ]
+    },
+    {
+      "hanzi": "鱼",
+      "pinyin": "yú",
+      "meanings": [
+        "fish"
+      ]
+    },
+    {
+      "hanzi": "虾",
+      "pinyin": "xiā",
+      "meanings": [
+        "shrimp"
+      ]
+    },
+    {
+      "hanzi": "忙",
+      "pinyin": "máng",
+      "meanings": [
+        "busy"
+      ]
+    },
+    {
+      "hanzi": "空",
+      "pinyin": "kōng",
+      "meanings": [
+        "free",
+        "empty"
+      ]
+    },
+    {
+      "hanzi": "累",
+      "pinyin": "lèi",
+      "meanings": [
+        "tired"
+      ]
+    },
+    {
+      "hanzi": "饿",
+      "pinyin": "è",
+      "meanings": [
+        "hungry"
+      ]
+    },
+    {
+      "hanzi": "渴",
+      "pinyin": "kě",
+      "meanings": [
+        "thirsty"
+      ]
+    },
+    {
+      "hanzi": "还是",
+      "pinyin": "háishi",
+      "meanings": [
+        "or (in questions)",
+        "still"
+      ]
+    },
+    {
+      "hanzi": "就",
+      "pinyin": "jiù",
+      "meanings": [
+        "then",
+        "right away",
+        "only"
+      ]
+    },
+    {
+      "hanzi": "才",
+      "pinyin": "cái",
+      "meanings": [
+        "only then",
+        "just"
+      ]
+    },
+    {
+      "hanzi": "只",
+      "pinyin": "zhǐ",
+      "meanings": [
+        "only",
+        "just"
+      ]
+    },
+    {
+      "hanzi": "又",
+      "pinyin": "yòu",
+      "meanings": [
+        "again",
+        "also",
+        "(and) then"
+      ]
+    }
+  ]
+}
