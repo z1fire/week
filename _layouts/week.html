@@ -61,30 +61,23 @@ layout: default
 </section>
 
 <section class="card">
-  <details open>
-    <summary class="summary">Study List (50 words)</summary>
-    <div id="studyTableWrap" class="mt"></div>
-  </details>
-</section>
-<section class="card">
-
   <h2>Flashcards</h2>
   <p class="muted small">Select which fields show on the front and back. Click the card to flip.</p>
 
   <div class="controls flash-controls">
-    <div class="flash-row">
-      <span>汉字</span>
-      <label><input type="checkbox" id="fcFrontHanzi"> Front</label>
+    <div class="flash-row" style="display:flex;align-items:center;margin-bottom:6px;">
+      <span style="min-width:70px;">汉字</span>
+      <label style="margin-left:auto;margin-right:8px;"><input type="checkbox" id="fcFrontHanzi"> Front</label>
       <label><input type="checkbox" id="fcBackHanzi"> Back</label>
     </div>
-    <div class="flash-row">
-      <span>Pinyin</span>
-      <label><input type="checkbox" id="fcFrontPinyin"> Front</label>
+    <div class="flash-row" style="display:flex;align-items:center;margin-bottom:6px;">
+      <span style="min-width:70px;">Pinyin</span>
+      <label style="margin-left:auto;margin-right:8px;"><input type="checkbox" id="fcFrontPinyin"> Front</label>
       <label><input type="checkbox" id="fcBackPinyin"> Back</label>
     </div>
-    <div class="flash-row">
-      <span>Meaning</span>
-      <label><input type="checkbox" id="fcFrontMeaning"> Front</label>
+    <div class="flash-row" style="display:flex;align-items:center;margin-bottom:6px;">
+      <span style="min-width:70px;">Meaning</span>
+      <label style="margin-left:auto;margin-right:8px;"><input type="checkbox" id="fcFrontMeaning"> Front</label>
       <label><input type="checkbox" id="fcBackMeaning"> Back</label>
     </div>
     <label class="check">
@@ -111,19 +104,25 @@ layout: default
   </div>
 </section>
 <section class="card">
-  <div class="reading-head">
-    <div>
-      <h2 style="margin:0;">Reading Study</h2>
-      <p class="muted small" style="margin:6px 0 0;">Hover over the Chinese to see pinyin + meaning.</p>
+  <details>
+    <summary class="summary">Study List (50 words)</summary>
+    <div id="studyTableWrap" class="mt"></div>
+  </details>
+</section>
+<section class="card">
+  <details>
+    <summary class="summary">Reading Study</summary>
+    <div class="reading-head">
+      <div>
+        <p class="muted small" style="margin:6px 0 0;">Hover over the Chinese to see pinyin + meaning.</p>
+      </div>
+      <label id="englishToggleWrap" class="check" style="margin:0;">
+        <input id="toggleEnglish" type="checkbox" />
+        Show English translations
+      </label>
     </div>
-
-    <label id="englishToggleWrap" class="check" style="margin:0;">
-      <input id="toggleEnglish" type="checkbox" />
-      Show English translations
-    </label>
-  </div>
-
-  <div id="readingText" class="reading-text"></div>
+    <div id="readingText" class="reading-text"></div>
+  </details>
 </section>
 
 <script>
