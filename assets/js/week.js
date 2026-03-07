@@ -1,12 +1,23 @@
 
+/* assets/js/week.js
+   NOTE: file must be saved as UTF-8 and MUST start with "((" (no stray "\" or BOM garbage).
+*/
 (() => {
   const $ = (id) => document.getElementById(id);
 
   const pad2 = (n) => String(n).padStart(2, "0");
 
-  // --- deterministic RNG helpers (seeded) ---
-  // We use a per-run random seed so each Start/Restart produces a new order,
-  // but the quiz is stable within that run.
+  // --- encoding-safe escape ---
+  function escapeHtml(s) {
+    return String(s)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  // --- seeded RNG (stable within a run) + per-run random seed (changes each Start/Restart) ---
   function xmur3(str) {
     let h = 1779033703 ^ str.length;
     for (let i = 0; i < str.length; i++) {
@@ -51,20 +62,14 @@
     if (typeof crypto !== "undefined" && crypto.getRandomValues) {
       const buf = new Uint32Array(4);
       crypto.getRandomValues(buf);
-      return Array.from(buf).map(x => x.toString(16).padStart(8, "0")).join("");
+      return Array.from(buf)
+        .map((x) => x.toString(16).padStart(8, "0"))
+        .join("");
     }
     return `${Date.now().toString(16)}-${Math.random().toString(16).slice(2)}`;
   }
 
-  function escapeHtml(s) {
-    return String(s)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
-
+  // --- fetch helpers ---
   async function fetchJson(url) {
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error(`Failed to load ${url} (${res.status})`);
@@ -84,66 +89,8 @@
       .map((s) => s.trim())
       .filter(Boolean);
   }
-  function newRunSeed() {
-  if (typeof crypto !== "undefined" && crypto.getRandomValues) {
-    const buf = new Uint32Array(4);
-    crypto.getRandomValues(buf);
-    return Array.from(buf).map(x => x.toString(16).padStart(8, "0")).join("");
-  }
-  return `${Date.now().toString(16)}-${Math.random().toString(16).slice(2)}`;
-}
 
-function seededShuffle(arr, rng) {
-  const a = arr.slice();
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(rng() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-// Small seeded RNG just for flashcards (stable within a run)
-function xmur3(str) {
-  let h = 1779033703 ^ str.length;
-  for (let i = 0; i < str.length; i++) {
-    h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
-    h = (h << 13) | (h >>> 19);
-  }
-  return function () {
-    h = Math.imul(h ^ (h >>> 16), 2246822507);
-    h = Math.imul(h ^ (h >>> 13), 3266489909);
-    return (h ^= h >>> 16) >>> 0;
-  };
-}
-
-function mulberry32(a) {
-  return function () {
-    let t = (a += 0x6d2b79f5);
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function makeRng(seedStr) {
-  const seed = xmur3(seedStr)();
-  return mulberry32(seed);
-}
-
-function pickMeaningStable(word, seedStr) {
-  const meanings = Array.isArray(word.meanings) ? word.meanings : [String(word.meanings || "")];
-  if (!meanings.length) return "";
-  if (meanings.length === 1) return meanings[0];
-  const rng = makeRng(seedStr);
-  return meanings[Math.floor(rng() * meanings.length)];
-}
-
-function formatFlashSide(word, which, seedStr) {
-  if (which === "hanzi") return word.hanzi || "";
-  if (which === "pinyin") return word.pinyin || "";
-  if (which === "meaning") return pickMeaningStable(word, seedStr);
-  return "";
-}
+  // --- UI builders ---
   function buildStudyTable(words) {
     const rows = words
       .map((w) => {
@@ -191,6 +138,7 @@ function formatFlashSide(word, which, seedStr) {
     }
   }
 
+  // --- data loading ---
   async function loadWeekData(week, baseurl) {
     const p = pad2(week);
     const dataUrl = `${baseurl}/assets/data/week${p}.json`;
@@ -218,48 +166,48 @@ function formatFlashSide(word, which, seedStr) {
       try {
         const d = await fetchJson(dataUrl);
         if (Array.isArray(d.words)) all.push(...d.words);
-      } catch {}
+      } catch {
+        // ignore missing weeks
+      }
     }
     return all;
   }
 
-  // Quiz state
+  // =========================
+  // QUIZ (multiple-choice)
+  // =========================
   let WORDS = [];
   let DISTRACTOR_POOL = [];
   let QUESTIONS = [];
   let idx = 0;
   let score = 0;
   let locked = false;
-  let BASE_SEED = "";
+  let QUIZ_SEED = "";
 
-  function setProgress() {
-    $("progressText").textContent = `Question ${idx + 1} / ${QUESTIONS.length}`;
-    $("scoreText").textContent = `Score: ${score}`;
-  }
-
-  function pickMeaning(meanings, seedStr) {
-    if (!meanings || meanings.length === 0) return "";
-    if (meanings.length === 1) return meanings[0];
+  function pickMeaningStable(word, seedStr) {
+    const meanings = Array.isArray(word.meanings) ? word.meanings : [String(word.meanings || "")];
+    const list = meanings.filter((m) => (m || "").trim());
+    if (!list.length) return "";
+    if (list.length === 1) return list[0];
     const rng = makeRng(seedStr);
-    return meanings[Math.floor(rng() * meanings.length)];
+    return list[Math.floor(rng() * list.length)];
   }
 
-  function makeQuestions(words, type, mode, n, seedStr) {
+  function makeQuestions(words, quizType, mode, n, seedStr) {
     const rngPick = makeRng(seedStr + "|pick");
 
+    // Per your requirement: even "All 50" should NOT stay in the same order.
+    // So every Start/Restart gets a new seed => new order.
     let picked;
     if (mode === "random") {
       picked = seededSample(words, n, rngPick);
     } else {
-      // ALL 50: shuffled each run (per your requirement)
       picked = seededShuffle(words, rngPick);
     }
 
     return picked.map((w, i) => {
-      if (type === "pinyin") return { prompt: w.pinyin, correct: w.hanzi };
-
-      const meanings = Array.isArray(w.meanings) ? w.meanings : [String(w.meanings || "")];
-      const meaning = pickMeaning(meanings, seedStr + `|m|${i}`);
+      if (quizType === "pinyin") return { prompt: w.pinyin, correct: w.hanzi };
+      const meaning = pickMeaningStable(w, seedStr + `|meaning|${i}`);
       return { prompt: meaning, correct: w.hanzi };
     });
   }
@@ -270,25 +218,33 @@ function formatFlashSide(word, which, seedStr) {
     return seededSample(options, k, rng);
   }
 
+  function setProgress() {
+    if ($("progressText")) $("progressText").textContent = `Question ${idx + 1} / ${QUESTIONS.length}`;
+    if ($("scoreText")) $("scoreText").textContent = `Score: ${score}`;
+  }
+
   function showQuestion() {
     locked = false;
-    $("feedback").textContent = "";
-    $("nextBtn").disabled = true;
+    if ($("feedback")) $("feedback").textContent = "";
+    if ($("nextBtn")) $("nextBtn").disabled = true;
 
     const q = QUESTIONS[idx];
-    $("prompt").textContent = q.prompt;
+    if ($("prompt")) $("prompt").textContent = q.prompt;
 
-    const qSeed = BASE_SEED + `|q|${idx}`;
+    // Stable options within this run for this question index
+    const qSeed = QUIZ_SEED + `|q|${idx}`;
     const distractors = pickDistractors(DISTRACTOR_POOL, q.correct, 3, qSeed + "|d");
     const choices = seededShuffle([q.correct, ...distractors], makeRng(qSeed + "|c"));
 
-    $("options").innerHTML = choices
-      .map((c) => `<button class="option" type="button" data-choice="${escapeHtml(c)}">${escapeHtml(c)}</button>`)
-      .join("");
+    if ($("options")) {
+      $("options").innerHTML = choices
+        .map((c) => `<button class="option" type="button" data-choice="${escapeHtml(c)}">${escapeHtml(c)}</button>`)
+        .join("");
 
-    $("options").querySelectorAll("button").forEach((btn) => {
-      btn.addEventListener("click", () => onAnswer(btn, q.correct));
-    });
+      $("options").querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", () => onAnswer(btn, q.correct));
+      });
+    }
 
     setProgress();
   }
@@ -300,40 +256,42 @@ function formatFlashSide(word, which, seedStr) {
     const chosen = btn.getAttribute("data-choice");
     const isCorrect = chosen === correct;
 
-    $("options").querySelectorAll("button").forEach((b) => {
-      const c = b.getAttribute("data-choice");
-      if (c === correct) b.classList.add("correct");
-      if (!isCorrect && b === btn) b.classList.add("wrong");
-      b.disabled = true;
-    });
+    if ($("options")) {
+      $("options").querySelectorAll("button").forEach((b) => {
+        const c = b.getAttribute("data-choice");
+        if (c === correct) b.classList.add("correct");
+        if (!isCorrect && b === btn) b.classList.add("wrong");
+        b.disabled = true;
+      });
+    }
 
     if (isCorrect) {
       score += 1;
-      $("feedback").textContent = "✅ Correct";
+      if ($("feedback")) $("feedback").textContent = "✅ Correct";
     } else {
-      $("feedback").textContent = `❌ Incorrect — correct answer: ${correct}`;
+      if ($("feedback")) $("feedback").textContent = `❌ Incorrect — correct answer: ${correct}`;
     }
 
-    $("nextBtn").disabled = false;
-    $("scoreText").textContent = `Score: ${score}`;
+    if ($("nextBtn")) $("nextBtn").disabled = false;
+    if ($("scoreText")) $("scoreText").textContent = `Score: ${score}`;
   }
 
   function finishQuiz() {
-    $("prompt").textContent = "Done!";
-    $("options").innerHTML = "";
-    $("feedback").textContent = `Final score: ${score} / ${QUESTIONS.length}`;
-    $("nextBtn").disabled = true;
-    $("progressText").textContent = "";
+    if ($("prompt")) $("prompt").textContent = "Done!";
+    if ($("options")) $("options").innerHTML = "";
+    if ($("feedback")) $("feedback").textContent = `Final score: ${score} / ${QUESTIONS.length}`;
+    if ($("nextBtn")) $("nextBtn").disabled = true;
+    if ($("progressText")) $("progressText").textContent = "";
   }
 
   async function startQuizFlow(week, baseurl) {
-    const quizType = $("quizType").value;
-    const mode = $("questionMode").value;
-    const includePrev = $("includePrev").checked;
+    const quizType = $("quizType")?.value || "pinyin";
+    const mode = $("questionMode")?.value || "all";
+    const includePrev = $("includePrev")?.checked || false;
 
     let n = WORDS.length;
     if (mode === "random") {
-      const raw = parseInt($("randomCount").value, 10);
+      const raw = parseInt($("randomCount")?.value || "20", 10);
       n = Number.isFinite(raw) ? Math.max(1, Math.min(raw, WORDS.length)) : 20;
     }
 
@@ -343,40 +301,127 @@ function formatFlashSide(word, which, seedStr) {
       DISTRACTOR_POOL = [...WORDS, ...prev];
     }
 
+    // NEW per-run seed: changes each Start/Restart => different "All 50" order each time
     const runSeed = newRunSeed();
-    BASE_SEED = `v3|week:${week}|type:${quizType}|mode:${mode}|n:${n}|prev:${includePrev}|run:${runSeed}`;
+    QUIZ_SEED = `quiz|week:${week}|type:${quizType}|mode:${mode}|n:${n}|prev:${includePrev}|run:${runSeed}`;
 
-    QUESTIONS = makeQuestions(WORDS, quizType, mode, n, BASE_SEED);
-
+    QUESTIONS = makeQuestions(WORDS, quizType, mode, n, QUIZ_SEED);
     idx = 0;
     score = 0;
 
-    $("quizArea").hidden = false;
+    if ($("quizArea")) $("quizArea").hidden = false;
     showQuestion();
   }
 
+  // =========================
+  // FLASHCARDS
+  // =========================
+  let FC_ORDER = [];
+  let fcIndex = 0;
+  let fcIsBack = false;
+  let fcSeed = "";
+
+  function formatFlashSide(word, which, seedStr) {
+    if (which === "hanzi") return word.hanzi || "";
+    if (which === "pinyin") return word.pinyin || "";
+    if (which === "meaning") return pickMeaningStable(word, seedStr);
+    return "";
+  }
+
+  function fcUpdateProgress() {
+    if ($("fcProgress")) $("fcProgress").textContent = `Card ${fcIndex + 1} / ${FC_ORDER.length}`;
+  }
+
+  function fcRender() {
+    if (!FC_ORDER.length) return;
+    const word = FC_ORDER[fcIndex];
+
+    const frontType = $("fcFront")?.value || "hanzi";
+    const backType = $("fcBack")?.value || "meaning";
+
+    const frontText = formatFlashSide(word, frontType, fcSeed + `|m|${fcIndex}|front`);
+    const backText = formatFlashSide(word, backType, fcSeed + `|m|${fcIndex}|back`);
+
+    const showText = fcIsBack ? backText : frontText;
+
+    const card = $("fcCard");
+    const face = $("fcFace");
+    if (face) {
+      face.innerHTML =
+        `<div class="flash-main">${escapeHtml(showText)}</div>` +
+        `<div class="flash-sub">${fcIsBack ? "Front" : "Back"}: click to flip</div>`;
+    }
+
+    if (card) card.classList.toggle("is-back", fcIsBack);
+
+    if ($("fcPrev")) $("fcPrev").disabled = fcIndex === 0;
+    if ($("fcNext")) $("fcNext").disabled = fcIndex === FC_ORDER.length - 1;
+
+    fcUpdateProgress();
+  }
+
+  function fcFlip() {
+    fcIsBack = !fcIsBack;
+    fcRender();
+  }
+
+  function fcGo(delta) {
+    const next = fcIndex + delta;
+    if (next < 0 || next >= FC_ORDER.length) return;
+    fcIndex = next;
+    fcIsBack = false; // always return to front when moving
+    fcRender();
+  }
+
+  function fcStart(week) {
+    if (!WORDS.length) return;
+
+    const shuffleOn = $("fcShuffle")?.checked || false;
+
+    // fresh per-run seed so order can change each time Start is pressed (if Shuffle enabled)
+    fcSeed = `flash|week:${week}|run:${newRunSeed()}`;
+
+    const rng = makeRng(fcSeed + "|order");
+    FC_ORDER = shuffleOn ? seededShuffle(WORDS, rng) : WORDS.slice();
+
+    fcIndex = 0;
+    fcIsBack = false;
+
+    if ($("fcArea")) $("fcArea").hidden = false;
+    fcRender();
+  }
+
+  // =========================
+  // INIT
+  // =========================
   document.addEventListener("DOMContentLoaded", async () => {
-    const { week, baseurl } = window.STUDY;
+    const { week, baseurl } = window.STUDY || { week: 1, baseurl: "" };
 
-    $("questionMode").addEventListener("change", () => {
-      $("randomCountWrap").style.display = $("questionMode").value === "random" ? "flex" : "none";
-    });
+    // quiz "Random N" input visibility
+    if ($("questionMode") && $("randomCountWrap")) {
+      $("questionMode").addEventListener("change", () => {
+        $("randomCountWrap").style.display = $("questionMode").value === "random" ? "flex" : "none";
+      });
+    }
 
+    // load data + reading
     try {
       const { data, zhText, enText } = await loadWeekData(week, baseurl);
 
-      $("weekTitle").textContent = data.title ? data.title : `Week ${week}`;
-      $("youtubeLink").href = data.youtube || "#";
+      if ($("weekTitle")) $("weekTitle").textContent = data.title ? data.title : `Week ${week}`;
+      if ($("youtubeLink")) $("youtubeLink").href = data.youtube || "#";
 
       WORDS = Array.isArray(data.words) ? data.words : [];
-      $("studyTableWrap").innerHTML = buildStudyTable(WORDS);
+      if ($("studyTableWrap")) $("studyTableWrap").innerHTML = buildStudyTable(WORDS);
 
-      $("readingText").innerHTML = renderReadingPairs(zhText, enText);
+      // reading block (pairs)
+      if ($("readingText")) $("readingText").innerHTML = renderReadingPairs(zhText, enText);
 
+      // english toggle only if we have English lines
       const hasEnglish = parseLines(enText).length > 0;
-      $("englishToggleWrap").style.display = hasEnglish ? "flex" : "none";
+      if ($("englishToggleWrap")) $("englishToggleWrap").style.display = hasEnglish ? "flex" : "none";
 
-      if (hasEnglish) {
+      if (hasEnglish && $("toggleEnglish")) {
         $("toggleEnglish").checked = false;
         $("toggleEnglish").addEventListener("change", () => {
           const show = $("toggleEnglish").checked;
@@ -387,12 +432,26 @@ function formatFlashSide(word, which, seedStr) {
       annotateReading();
     } catch (err) {
       console.error(err);
-      $("readingText").textContent = "Could not load this week’s files. Check assets/data and assets/readings.";
-      $("englishToggleWrap").style.display = "none";
+      if ($("readingText")) $("readingText").textContent = "Could not load this week’s files. Check assets/data and assets/readings.";
+      if ($("englishToggleWrap")) $("englishToggleWrap").style.display = "none";
     }
 
-    $("startQuiz").addEventListener("click", async () => startQuizFlow(week, baseurl));
-    $("nextBtn").addEventListener("click", () => (idx < QUESTIONS.length - 1 ? (idx++, showQuestion()) : finishQuiz()));
-    $("restartBtn").addEventListener("click", async () => startQuizFlow(week, baseurl));
+    // quiz wiring
+    if ($("startQuiz")) $("startQuiz").addEventListener("click", async () => startQuizFlow(week, baseurl));
+    if ($("nextBtn")) $("nextBtn").addEventListener("click", () => (idx < QUESTIONS.length - 1 ? (idx++, showQuestion()) : finishQuiz()));
+    if ($("restartBtn")) $("restartBtn").addEventListener("click", async () => startQuizFlow(week, baseurl));
+
+    // flashcards wiring (only if the elements exist)
+    if ($("fcStart")) $("fcStart").addEventListener("click", () => fcStart(week));
+    if ($("fcCard")) $("fcCard").addEventListener("click", fcFlip);
+    if ($("fcFlip")) $("fcFlip").addEventListener("click", fcFlip);
+    if ($("fcPrev")) $("fcPrev").addEventListener("click", () => fcGo(-1));
+    if ($("fcNext")) $("fcNext").addEventListener("click", () => fcGo(1));
+
+    if ($("fcFront")) $("fcFront").addEventListener("change", () => { fcIsBack = false; fcRender(); });
+    if ($("fcBack")) $("fcBack").addEventListener("change", () => { fcIsBack = false; fcRender(); });
+    if ($("fcShuffle")) $("fcShuffle").addEventListener("change", () => {
+      // don't auto-reorder mid-session; user can hit Start again
+    });
   });
 })();
