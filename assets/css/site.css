@@ -358,3 +358,50 @@ html[data-theme="light"] .reading-text{ background: rgba(10,20,40,0.03); }
   font-size: 0.98rem;
   font-weight: 600;
 }
+/* Flashcards */
+.flash-area{
+  margin-top: 12px;
+  border-top: 1px dashed var(--border);
+  padding-top: 14px;
+}
+
+.flashcard{
+  width: 100%;
+  min-height: 160px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+
+.flashcard:hover{
+  transform: translateY(-1px);
+  border-color: rgba(122,162,255,0.45);
+}
+
+.flash-face{
+  text-align: center;
+  font-weight: 900;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  letter-spacing: 0.2px;
+  line-height: 1.25;
+  white-space: pre-wrap;
+}
+
+.flash-sub{
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.flashcard.is-back{
+  border-color: rgba(78,229,154,0.55);
+  background: rgba(78,229,154,0.10);
+}
