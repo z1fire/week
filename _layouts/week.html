@@ -67,33 +67,30 @@ layout: default
   </details>
 </section>
 <section class="card">
+
   <h2>Flashcards</h2>
-  <p class="muted small">Choose what shows on the front/back. Click the card to flip.</p>
+  <p class="muted small">Select which fields show on the front and back. Click the card to flip.</p>
 
-  <div class="controls">
-    <label>
-      Front
-      <select id="fcFront">
-        <option value="hanzi">汉字</option>
-        <option value="pinyin">Pinyin</option>
-        <option value="meaning">Meaning</option>
-      </select>
-    </label>
-
-    <label>
-      Back
-      <select id="fcBack">
-        <option value="meaning">Meaning</option>
-        <option value="pinyin">Pinyin</option>
-        <option value="hanzi">汉字</option>
-      </select>
-    </label>
-
+  <div class="controls flash-controls">
+    <div class="flash-row">
+      <span>汉字</span>
+      <label><input type="checkbox" id="fcFrontHanzi"> Front</label>
+      <label><input type="checkbox" id="fcBackHanzi"> Back</label>
+    </div>
+    <div class="flash-row">
+      <span>Pinyin</span>
+      <label><input type="checkbox" id="fcFrontPinyin"> Front</label>
+      <label><input type="checkbox" id="fcBackPinyin"> Back</label>
+    </div>
+    <div class="flash-row">
+      <span>Meaning</span>
+      <label><input type="checkbox" id="fcFrontMeaning"> Front</label>
+      <label><input type="checkbox" id="fcBackMeaning"> Back</label>
+    </div>
     <label class="check">
       <input id="fcShuffle" type="checkbox" />
       Shuffle
     </label>
-
     <button id="fcStart" class="btn" type="button">Start</button>
   </div>
 

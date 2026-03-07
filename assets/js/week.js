@@ -336,20 +336,34 @@
     if (!FC_ORDER.length) return;
     const word = FC_ORDER[fcIndex];
 
-    const frontType = $("fcFront")?.value || "hanzi";
-    const backType = $("fcBack")?.value || "meaning";
+    // Gather selected fields for front/back
+    const frontFields = [];
+    if ($("fcFrontHanzi")?.checked) frontFields.push("hanzi");
+    if ($("fcFrontPinyin")?.checked) frontFields.push("pinyin");
+    if ($("fcFrontMeaning")?.checked) frontFields.push("meaning");
 
-    const frontText = formatFlashSide(word, frontType, fcSeed + `|m|${fcIndex}|front`);
-    const backText = formatFlashSide(word, backType, fcSeed + `|m|${fcIndex}|back`);
+    const backFields = [];
+    if ($("fcBackHanzi")?.checked) backFields.push("hanzi");
+    if ($("fcBackPinyin")?.checked) backFields.push("pinyin");
+    if ($("fcBackMeaning")?.checked) backFields.push("meaning");
 
-    const showText = fcIsBack ? backText : frontText;
+    // Render selected fields
+    function renderFields(fields, word, seedStr) {
+      return fields.map(f => {
+        if (f === "hanzi") return `<div class="flash-hanzi">${escapeHtml(word.hanzi || "")}</div>`;
+        if (f === "pinyin") return `<div class="flash-pinyin">${escapeHtml(word.pinyin || "")}</div>`;
+        if (f === "meaning") return `<div class="flash-meaning">${escapeHtml(pickMeaningStable(word, seedStr))}</div>`;
+        return "";
+      }).join("");
+    }
+
+    const showFields = fcIsBack ? backFields : frontFields;
+    const showHtml = renderFields(showFields, word, fcSeed + `|m|${fcIndex}|${fcIsBack ? "back" : "front"}`);
 
     const card = $("fcCard");
     const face = $("fcFace");
     if (face) {
-      face.innerHTML =
-        `<div class="flash-main">${escapeHtml(showText)}</div>` +
-        `<div class="flash-sub">${fcIsBack ? "Front" : "Back"}: click to flip</div>`;
+      face.innerHTML = `<div class="flash-main">${showHtml}</div>`;
     }
 
     if (card) card.classList.toggle("is-back", fcIsBack);
