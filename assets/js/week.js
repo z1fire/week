@@ -84,7 +84,66 @@
       .map((s) => s.trim())
       .filter(Boolean);
   }
+  function newRunSeed() {
+  if (typeof crypto !== "undefined" && crypto.getRandomValues) {
+    const buf = new Uint32Array(4);
+    crypto.getRandomValues(buf);
+    return Array.from(buf).map(x => x.toString(16).padStart(8, "0")).join("");
+  }
+  return `${Date.now().toString(16)}-${Math.random().toString(16).slice(2)}`;
+}
 
+function seededShuffle(arr, rng) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Small seeded RNG just for flashcards (stable within a run)
+function xmur3(str) {
+  let h = 1779033703 ^ str.length;
+  for (let i = 0; i < str.length; i++) {
+    h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+    h = (h << 13) | (h >>> 19);
+  }
+  return function () {
+    h = Math.imul(h ^ (h >>> 16), 2246822507);
+    h = Math.imul(h ^ (h >>> 13), 3266489909);
+    return (h ^= h >>> 16) >>> 0;
+  };
+}
+
+function mulberry32(a) {
+  return function () {
+    let t = (a += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function makeRng(seedStr) {
+  const seed = xmur3(seedStr)();
+  return mulberry32(seed);
+}
+
+function pickMeaningStable(word, seedStr) {
+  const meanings = Array.isArray(word.meanings) ? word.meanings : [String(word.meanings || "")];
+  if (!meanings.length) return "";
+  if (meanings.length === 1) return meanings[0];
+  const rng = makeRng(seedStr);
+  return meanings[Math.floor(rng() * meanings.length)];
+}
+
+function formatFlashSide(word, which, seedStr) {
+  if (which === "hanzi") return word.hanzi || "";
+  if (which === "pinyin") return word.pinyin || "";
+  if (which === "meaning") return pickMeaningStable(word, seedStr);
+  return "";
+}
   function buildStudyTable(words) {
     const rows = words
       .map((w) => {
