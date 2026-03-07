@@ -66,7 +66,53 @@ layout: default
     <div id="studyTableWrap" class="mt"></div>
   </details>
 </section>
+<section class="card">
+  <h2>Flashcards</h2>
+  <p class="muted small">Choose what shows on the front/back. Click the card to flip.</p>
 
+  <div class="controls">
+    <label>
+      Front
+      <select id="fcFront">
+        <option value="hanzi">汉字</option>
+        <option value="pinyin">Pinyin</option>
+        <option value="meaning">Meaning</option>
+      </select>
+    </label>
+
+    <label>
+      Back
+      <select id="fcBack">
+        <option value="meaning">Meaning</option>
+        <option value="pinyin">Pinyin</option>
+        <option value="hanzi">汉字</option>
+      </select>
+    </label>
+
+    <label class="check">
+      <input id="fcShuffle" type="checkbox" />
+      Shuffle
+    </label>
+
+    <button id="fcStart" class="btn" type="button">Start</button>
+  </div>
+
+  <div id="fcArea" class="flash-area" hidden>
+    <div class="quiz-top">
+      <div class="pill" id="fcProgress"></div>
+    </div>
+
+    <button id="fcCard" class="flashcard" type="button" aria-label="Flashcard (click to flip)">
+      <div class="flash-face" id="fcFace"></div>
+    </button>
+
+    <div class="nav-row">
+      <button id="fcPrev" class="btn ghost" type="button">◀ Prev</button>
+      <button id="fcFlip" class="btn" type="button">Flip</button>
+      <button id="fcNext" class="btn" type="button">Next ▶</button>
+    </div>
+  </div>
+</section>
 <section class="card">
   <div class="reading-head">
     <div>
