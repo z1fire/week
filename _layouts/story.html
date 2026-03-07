@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="page-head">
+  <div>
+    <h1 id="storyTitle">{{ page.title }}</h1>
+    <p class="muted">Hover over the Chinese to see pinyin + meaning.</p>
+  </div>
+  <a class="btn" href="{{ '/all/' | relative_url }}">All Stories</a>
+</div>
+
+<section class="card">
+  <div class="reading-head">
+    <div>
+      <p class="muted small" style="margin:6px 0 0;">Hover over the Chinese to see pinyin + meaning.</p>
+    </div>
+
+    <label id="storyEnglishToggleWrap" class="check" style="margin:0;">
+      <input id="storyToggleEnglish" type="checkbox" />
+      Show English translations
+    </label>
+  </div>
+
+  <div id="storyReading" class="reading-text"></div>
+</section>
+
+<script>
+  window.STORY = {
+    week: {{ page.week | jsonify }},
+    baseurl: {{ site.baseurl | jsonify }}
+  };
+</script>
+
+<script src="//mandarinspot.com/static/mandarinspot.min.js" charset="UTF-8"></script>
+<script src="{{ '/assets/js/story.js' | relative_url }}"></script>
