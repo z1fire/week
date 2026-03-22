@@ -90,16 +90,32 @@
       .filter(Boolean);
   }
 
+  // --- audio playback ---
+  function playAudio(hanzi, baseurl, week) {
+    const p = pad2(week);
+    const audioPath = `${baseurl}/assets/audio/week${p}/${encodeURIComponent(hanzi)}.wav`;
+    const audio = new Audio(audioPath);
+    audio.play().catch((err) => {
+      console.warn(`Could not play audio for "${hanzi}":`, err);
+    });
+  }
+
+  function createAudioButton(hanzi, baseurl, week) {
+    return `<button class="audio-btn" type="button" data-hanzi="${escapeHtml(hanzi)}" data-baseurl="${escapeHtml(baseurl)}" data-week="${week}" aria-label="Play pronunciation" title="Click to hear pronunciation">🔊</button>`;
+  }
+
   // --- UI builders ---
-  function buildStudyTable(words) {
+  function buildStudyTable(words, baseurl, week) {
     const rows = words
       .map((w) => {
         const meanings = Array.isArray(w.meanings) ? w.meanings.join("; ") : String(w.meanings || "");
+        const audioBtn = createAudioButton(w.hanzi, baseurl, week);
         return `
           <tr>
             <td class="hanzi">${escapeHtml(w.hanzi)}</td>
             <td>${escapeHtml(w.pinyin)}</td>
             <td>${escapeHtml(meanings)}</td>
+            <td class="audio-cell">${audioBtn}</td>
           </tr>
         `;
       })
@@ -108,7 +124,7 @@
     return `
       <table class="study-table">
         <thead>
-          <tr><th>汉字</th><th>Pinyin</th><th>Meanings</th></tr>
+          <tr><th>汉字</th><th>Pinyin</th><th>Meanings</th><th>Audio</th></tr>
         </thead>
         <tbody>${rows}</tbody>
       </table>
@@ -231,6 +247,11 @@
     const q = QUESTIONS[idx];
     if ($("prompt")) $("prompt").textContent = q.prompt;
 
+    // Add audio button for the correct answer (hanzi)
+    if ($("quizAudioBtn")) {
+      $("quizAudioBtn").innerHTML = createAudioButton(q.correct, window.STUDY?.baseurl || "", window.STUDY?.week || 1);
+    }
+
     // Stable options within this run for this question index
     const qSeed = QUIZ_SEED + `|q|${idx}`;
     const distractors = pickDistractors(DISTRACTOR_POOL, q.correct, 3, qSeed + "|d");
@@ -332,7 +353,7 @@
     if ($("fcProgress")) $("fcProgress").textContent = `Card ${fcIndex + 1} / ${FC_ORDER.length}`;
   }
 
-  function fcRender() {
+  function fcRender(baseurl, week) {
     if (!FC_ORDER.length) return;
     const word = FC_ORDER[fcIndex];
 
@@ -359,11 +380,12 @@
 
     const showFields = fcIsBack ? backFields : frontFields;
     const showHtml = renderFields(showFields, word, fcSeed + `|m|${fcIndex}|${fcIsBack ? "back" : "front"}`);
+    const audioBtn = createAudioButton(word.hanzi, baseurl, week);
 
     const card = $("fcCard");
     const face = $("fcFace");
     if (face) {
-      face.innerHTML = `<div class="flash-main">${showHtml}</div>`;
+      face.innerHTML = `<div class="flash-main">${showHtml}</div><div class="flash-audio">${audioBtn}</div>`;
     }
 
     if (card) card.classList.toggle("is-back", fcIsBack);
@@ -379,15 +401,15 @@
     fcRender();
   }
 
-  function fcGo(delta) {
+  function fcGo(delta, baseurl, week) {
     const next = fcIndex + delta;
     if (next < 0 || next >= FC_ORDER.length) return;
     fcIndex = next;
     fcIsBack = false; // always return to front when moving
-    fcRender();
+    fcRender(baseurl, week);
   }
 
-  function fcStart(week) {
+  function fcStart(week, baseurl) {
     if (!WORDS.length) return;
 
     const shuffleOn = $("fcShuffle")?.checked || false;
@@ -402,7 +424,7 @@
     fcIsBack = false;
 
     if ($("fcArea")) $("fcArea").hidden = false;
-    fcRender();
+    fcRender(baseurl, week);
   }
 
   // =========================
@@ -426,7 +448,7 @@
       if ($("youtubeLink")) $("youtubeLink").href = data.youtube || "#";
 
       WORDS = Array.isArray(data.words) ? data.words : [];
-      if ($("studyTableWrap")) $("studyTableWrap").innerHTML = buildStudyTable(WORDS);
+      if ($("studyTableWrap")) $("studyTableWrap").innerHTML = buildStudyTable(WORDS, baseurl, week);
 
       // reading block (pairs)
       if ($("readingText")) $("readingText").innerHTML = renderReadingPairs(zhText, enText);
@@ -456,16 +478,26 @@
     if ($("restartBtn")) $("restartBtn").addEventListener("click", async () => startQuizFlow(week, baseurl));
 
     // flashcards wiring (only if the elements exist)
-    if ($("fcStart")) $("fcStart").addEventListener("click", () => fcStart(week));
+    if ($("fcStart")) $("fcStart").addEventListener("click", () => fcStart(week, baseurl));
     if ($("fcCard")) $("fcCard").addEventListener("click", fcFlip);
     if ($("fcFlip")) $("fcFlip").addEventListener("click", fcFlip);
-    if ($("fcPrev")) $("fcPrev").addEventListener("click", () => fcGo(-1));
-    if ($("fcNext")) $("fcNext").addEventListener("click", () => fcGo(1));
+    if ($("fcPrev")) $("fcPrev").addEventListener("click", () => fcGo(-1, baseurl, week));
+    if ($("fcNext")) $("fcNext").addEventListener("click", () => fcGo(1, baseurl, week));
 
-    if ($("fcFront")) $("fcFront").addEventListener("change", () => { fcIsBack = false; fcRender(); });
-    if ($("fcBack")) $("fcBack").addEventListener("change", () => { fcIsBack = false; fcRender(); });
+    if ($("fcFront")) $("fcFront").addEventListener("change", () => { fcIsBack = false; fcRender(baseurl, week); });
+    if ($("fcBack")) $("fcBack").addEventListener("change", () => { fcIsBack = false; fcRender(baseurl, week); });
     if ($("fcShuffle")) $("fcShuffle").addEventListener("change", () => {
       // don't auto-reorder mid-session; user can hit Start again
+    });
+
+    // audio buttons
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("audio-btn")) {
+        const hanzi = e.target.getAttribute("data-hanzi");
+        const audioBaseurl = e.target.getAttribute("data-baseurl");
+        const audioWeek = parseInt(e.target.getAttribute("data-week"), 10);
+        playAudio(hanzi, audioBaseurl, audioWeek);
+      }
     });
   });
 })();
