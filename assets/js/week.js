@@ -93,11 +93,36 @@
   // --- audio playback ---
   function playAudio(hanzi, baseurl, week) {
     const p = pad2(week);
-    const audioPath = `${baseurl}/assets/audio/week${p}/${encodeURIComponent(hanzi)}.wav`;
-    const audio = new Audio(audioPath);
-    audio.play().catch((err) => {
-      console.warn(`Could not play audio for "${hanzi}":`, err);
-    });
+    const basePath = `${baseurl}/assets/audio/week${p}/${encodeURIComponent(hanzi)}`;
+    const sources = [".wav", ".mp3"];
+
+    let audio = null;
+    let resolved = false;
+
+    for (const ext of sources) {
+      const testPath = `${basePath}${ext}`;
+      const testAudio = new Audio(testPath);
+      testAudio.oncanplaythrough = () => {
+        if (!resolved) {
+          resolved = true;
+          testAudio.play().catch((err) => console.warn(`Play failed for ${testPath}:`, err));
+        }
+      };
+      testAudio.onerror = () => {
+        if (!resolved && ext === sources[sources.length - 1]) {
+          console.warn(`No audio available for "${hanzi}" at ${basePath}[_wav|_mp3]
+`);
+        }
+      };
+      if (!audio) audio = testAudio;
+    }
+
+    if (audio && !resolved) {
+      // fallback attempt with first extension if oncanplaythrough not fired quickly
+      audio.play().catch((err) => {
+        console.warn(`Could not play audio for "${hanzi}" (fallback):`, err);
+      });
+    }
   }
 
   function createAudioButton(hanzi, baseurl, week) {
