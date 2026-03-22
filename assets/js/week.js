@@ -179,6 +179,23 @@
     }
   }
 
+  // --- video loading ---
+  function loadWeekVideo(week, baseurl) {
+    const p = pad2(week);
+    const videoPath = `${baseurl}/assets/videos/week${p}.mp4`;
+    const videoEl = $("weekVideo");
+    const fallbackLink = $("videoFallbackLink");
+
+    if (videoEl) {
+      videoEl.src = videoPath;
+      videoEl.load(); // reload with new source
+    }
+
+    if (fallbackLink) {
+      fallbackLink.href = videoPath;
+    }
+  }
+
   // --- data loading ---
   async function loadWeekData(week, baseurl) {
     const p = pad2(week);
@@ -491,6 +508,9 @@
       }
 
       annotateReading();
+
+      // load video
+      loadWeekVideo(week, baseurl);
     } catch (err) {
       console.error(err);
       if ($("readingText")) $("readingText").textContent = "Could not load this week’s files. Check assets/data and assets/readings.";

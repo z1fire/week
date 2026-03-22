@@ -474,3 +474,22 @@ html[data-theme="light"] .reading-text{ background: rgba(10,20,40,0.03); }
 .audio-cell{
   text-align: center;
 }
+
+/* Video section */
+.video-container{
+  margin-top: 12px;
+}
+
+.week-video{
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: rgba(0,0,0,0.1);
+}
+
+.video-info{
+  margin-top: 8px;
+  text-align: center;
+}
