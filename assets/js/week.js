@@ -504,7 +504,10 @@
 
     // flashcards wiring (only if the elements exist)
     if ($("fcStart")) $("fcStart").addEventListener("click", () => fcStart(week, baseurl));
-    if ($("fcCard")) $("fcCard").addEventListener("click", fcFlip);
+    if ($("fcCard")) $("fcCard").addEventListener("click", (e) => {
+      if (e.target.closest('.audio-btn')) return; // avoid flip when audio button clicked
+      fcFlip();
+    });
     if ($("fcFlip")) $("fcFlip").addEventListener("click", fcFlip);
     if ($("fcPrev")) $("fcPrev").addEventListener("click", () => fcGo(-1, baseurl, week));
     if ($("fcNext")) $("fcNext").addEventListener("click", () => fcGo(1, baseurl, week));
