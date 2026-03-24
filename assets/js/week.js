@@ -293,16 +293,6 @@
     if ($("quizAudioBtn")) {
       const audioBtnHtml = createAudioButton(q.correct, window.STUDY?.baseurl || "", window.STUDY?.week || 1);
       $("quizAudioBtn").innerHTML = audioBtnHtml;
-      // Attach audio event listener to quiz button
-      const audioBtnEl = $("quizAudioBtn").querySelector('.audio-btn');
-      if (audioBtnEl) {
-        audioBtnEl.addEventListener('click', (e) => {
-          const hanzi = audioBtnEl.getAttribute("data-hanzi");
-          const audioBaseurl = audioBtnEl.getAttribute("data-baseurl");
-          const audioWeek = parseInt(audioBtnEl.getAttribute("data-week"), 10);
-          playAudio(hanzi, audioBaseurl, audioWeek);
-        });
-      }
     }
 
     // Stable options within this run for this question index
@@ -439,17 +429,6 @@
     const face = $("fcFace");
     if (face) {
       face.innerHTML = `<div class="flash-main">${showHtml}</div><div class="flash-audio">${audioBtn}</div>`;
-      // Attach audio event listener to the newly created button
-      const audioBtnEl = face.querySelector('.audio-btn');
-      if (audioBtnEl) {
-        audioBtnEl.addEventListener('click', (e) => {
-          e.stopPropagation(); // prevent flashcard flip
-          const hanzi = audioBtnEl.getAttribute("data-hanzi");
-          const audioBaseurl = audioBtnEl.getAttribute("data-baseurl");
-          const audioWeek = parseInt(audioBtnEl.getAttribute("data-week"), 10);
-          playAudio(hanzi, audioBaseurl, audioWeek);
-        });
-      }
     }
 
     if (card) card.classList.toggle("is-back", fcIsBack);
@@ -515,16 +494,6 @@
       if ($("studyTableWrap")) {
         const tableHtml = buildStudyTable(WORDS, baseurl, week);
         $("studyTableWrap").innerHTML = tableHtml;
-        // Attach audio event listeners to study table buttons
-        const audioBtns = $("studyTableWrap").querySelectorAll('.audio-btn');
-        audioBtns.forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            const hanzi = btn.getAttribute("data-hanzi");
-            const audioBaseurl = btn.getAttribute("data-baseurl");
-            const audioWeek = parseInt(btn.getAttribute("data-week"), 10);
-            playAudio(hanzi, audioBaseurl, audioWeek);
-          });
-        });
       }
 
       // reading block (pairs)
@@ -559,7 +528,22 @@
 
     // flashcards wiring (only if the elements exist)
     if ($("fcStart")) $("fcStart").addEventListener("click", () => fcStart(week, baseurl));
-    if ($("fcCard")) $("fcCard").addEventListener("click", fcFlip);
+    if ($("fcCard")) {
+      $("fcCard").addEventListener("click", (e) => {
+        // Handle audio button clicks
+        if (e.target.closest('.audio-btn')) {
+          e.stopPropagation();
+          const btn = e.target.closest('.audio-btn');
+          const hanzi = btn.getAttribute("data-hanzi");
+          const audioBaseurl = btn.getAttribute("data-baseurl");
+          const audioWeek = parseInt(btn.getAttribute("data-week"), 10);
+          playAudio(hanzi, audioBaseurl, audioWeek);
+          return;
+        }
+        // Otherwise, flip the card
+        fcFlip();
+      });
+    }
     if ($("fcFlip")) $("fcFlip").addEventListener("click", fcFlip);
     if ($("fcPrev")) $("fcPrev").addEventListener("click", () => fcGo(-1, baseurl, week));
     if ($("fcNext")) $("fcNext").addEventListener("click", () => fcGo(1, baseurl, week));
@@ -568,6 +552,17 @@
     if ($("fcBack")) $("fcBack").addEventListener("change", () => { fcIsBack = false; fcRender(baseurl, week); });
     if ($("fcShuffle")) $("fcShuffle").addEventListener("change", () => {
       // don't auto-reorder mid-session; user can hit Start again
+    });
+
+    // audio buttons - event delegation
+    document.addEventListener("click", (e) => {
+      if (e.target.closest('.audio-btn')) {
+        const btn = e.target.closest('.audio-btn');
+        const hanzi = btn.getAttribute("data-hanzi");
+        const audioBaseurl = btn.getAttribute("data-baseurl");
+        const audioWeek = parseInt(btn.getAttribute("data-week"), 10);
+        playAudio(hanzi, audioBaseurl, audioWeek);
+      }
     });
   });
 })();
