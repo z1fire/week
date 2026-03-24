@@ -439,9 +439,9 @@
     fcUpdateProgress();
   }
 
-  function fcFlip() {
+  function fcFlip(baseurl, week) {
     fcIsBack = !fcIsBack;
-    fcRender();
+    fcRender(baseurl, week);
   }
 
   function fcGo(delta, baseurl, week) {
@@ -541,10 +541,10 @@
           return;
         }
         // Otherwise, flip the card
-        fcFlip();
+        fcFlip(baseurl, week);
       });
     }
-    if ($("fcFlip")) $("fcFlip").addEventListener("click", fcFlip);
+    if ($("fcFlip")) $("fcFlip").addEventListener("click", () => fcFlip(baseurl, week));
     if ($("fcPrev")) $("fcPrev").addEventListener("click", () => fcGo(-1, baseurl, week));
     if ($("fcNext")) $("fcNext").addEventListener("click", () => fcGo(1, baseurl, week));
 
