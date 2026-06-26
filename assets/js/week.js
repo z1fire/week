@@ -1,13 +1,9 @@
 
-/* assets/js/week.js
-   NOTE: file must be saved as UTF-8 and MUST start with "((" (no stray "\" or BOM garbage).
-*/
+/* assets/js/week.js */
 (() => {
   const $ = (id) => document.getElementById(id);
-
   const pad2 = (n) => String(n).padStart(2, "0");
 
-  // --- encoding-safe escape ---
   function escapeHtml(s) {
     return String(s)
       .replaceAll("&", "&amp;")
@@ -17,7 +13,7 @@
       .replaceAll("'", "&#039;");
   }
 
-  // --- seeded RNG (stable within a run) + per-run random seed (changes each Start/Restart) ---
+  // --- seeded RNG ---
   function xmur3(str) {
     let h = 1779033703 ^ str.length;
     for (let i = 0; i < str.length; i++) {
@@ -62,9 +58,7 @@
     if (typeof crypto !== "undefined" && crypto.getRandomValues) {
       const buf = new Uint32Array(4);
       crypto.getRandomValues(buf);
-      return Array.from(buf)
-        .map((x) => x.toString(16).padStart(8, "0"))
-        .join("");
+      return Array.from(buf).map((x) => x.toString(16).padStart(8, "0")).join("");
     }
     return `${Date.now().toString(16)}-${Math.random().toString(16).slice(2)}`;
   }
@@ -90,87 +84,69 @@
       .filter(Boolean);
   }
 
-  // --- audio playback ---
+  // --- TTS (Web Speech API) ---
+  function speakChinese(text) {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.lang = "zh-CN";
+    utt.rate = 0.85;
+    window.speechSynthesis.speak(utt);
+  }
+  window._speakChinese = speakChinese;
+
+  // --- audio playback (file-based, falls back silently) ---
   function playAudio(hanzi, baseurl, week) {
     const p = pad2(week);
     const basePath = `${baseurl}/assets/audio/week${p}/${encodeURIComponent(hanzi)}`;
-    const sources = [".wav", ".mp3"];
-
-    let audio = null;
     let resolved = false;
-
-    for (const ext of sources) {
-      const testPath = `${basePath}${ext}`;
-      const testAudio = new Audio(testPath);
-      testAudio.oncanplaythrough = () => {
-        if (!resolved) {
-          resolved = true;
-          testAudio.play().catch((err) => console.warn(`Play failed for ${testPath}:`, err));
-        }
+    for (const ext of [".wav", ".mp3"]) {
+      const a = new Audio(`${basePath}${ext}`);
+      a.oncanplaythrough = () => {
+        if (!resolved) { resolved = true; a.play().catch(() => {}); }
       };
-      testAudio.onerror = () => {
-        if (!resolved && ext === sources[sources.length - 1]) {
-          console.warn(`No audio available for "${hanzi}" at ${basePath}[_wav|_mp3]
-`);
-        }
-      };
-      if (!audio) audio = testAudio;
-    }
-
-    if (audio && !resolved) {
-      // fallback attempt with first extension if oncanplaythrough not fired quickly
-      audio.play().catch((err) => {
-        console.warn(`Could not play audio for "${hanzi}" (fallback):`, err);
-      });
     }
   }
 
   function createAudioButton(hanzi, baseurl, week) {
-    return `<button class="audio-btn" type="button" data-hanzi="${escapeHtml(hanzi)}" data-baseurl="${escapeHtml(baseurl)}" data-week="${week}" aria-label="Play pronunciation" title="Click to hear pronunciation">🔊</button>`;
+    return `<button class="audio-btn" type="button" data-hanzi="${escapeHtml(hanzi)}" data-baseurl="${escapeHtml(baseurl)}" data-week="${week}" aria-label="Play pronunciation" title="Play pronunciation">🔊</button>`;
   }
+
+  // --- pinyin / text normalization for typing quiz ---
+  function normalizePinyin(s) {
+    return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, "").trim();
+  }
+
+  function normalizeText(s) { return s.toLowerCase().trim(); }
 
   // --- UI builders ---
   function buildStudyTable(words, baseurl, week) {
-    const rows = words
-      .map((w) => {
-        const meanings = Array.isArray(w.meanings) ? w.meanings.join("; ") : String(w.meanings || "");
-        const audioBtn = createAudioButton(w.hanzi, baseurl, week);
-        return `
-          <tr>
-            <td class="hanzi">${escapeHtml(w.hanzi)}</td>
-            <td>${escapeHtml(w.pinyin)}</td>
-            <td>${escapeHtml(meanings)}</td>
-            <td class="audio-cell">${audioBtn}</td>
-          </tr>
-        `;
-      })
-      .join("");
+    const rows = words.map((w) => {
+      const meanings = Array.isArray(w.meanings) ? w.meanings.join("; ") : String(w.meanings || "");
+      const mastery = window.Progress ? window.Progress.getWordMastery(w.hanzi) : 0;
+      const dots = "●".repeat(mastery) + "○".repeat(5 - mastery);
+      return `<tr>
+        <td class="hanzi">${escapeHtml(w.hanzi)}</td>
+        <td>${escapeHtml(w.pinyin)}</td>
+        <td>${escapeHtml(meanings)}</td>
+        <td class="audio-cell">${createAudioButton(w.hanzi, baseurl, week)}</td>
+        <td class="mastery-cell" title="Mastery ${mastery}/5"><span class="mastery-dots">${dots}</span></td>
+      </tr>`;
+    }).join("");
 
-    return `
-      <table class="study-table">
-        <thead>
-          <tr><th>汉字</th><th>Pinyin</th><th>Meanings</th><th>Audio</th></tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>
-    `;
+    return `<table class="study-table">
+      <thead><tr><th>汉字</th><th>Pinyin</th><th>Meanings</th><th>Audio</th><th>Mastery</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
   }
 
   function renderReadingPairs(zhText, enText) {
     const zh = parseLines(zhText);
     const en = parseLines(enText);
-
-    return zh
-      .map((z, i) => {
-        const maybeEn = en[i] ? `<div class="en" hidden>${escapeHtml(en[i])}</div>` : "";
-        return `
-          <div class="read-line">
-            <div class="zh">${escapeHtml(z)}</div>
-            ${maybeEn}
-          </div>
-        `;
-      })
-      .join("");
+    return zh.map((z, i) => {
+      const maybeEn = en[i] ? `<div class="en" hidden>${escapeHtml(en[i])}</div>` : "";
+      return `<div class="read-line"><div class="zh">${escapeHtml(z)}</div>${maybeEn}</div>`;
+    }).join("");
   }
 
   function annotateReading() {
@@ -179,68 +155,58 @@
     }
   }
 
-  // --- video loading ---
+  // --- video ---
   function loadWeekVideo(week, baseurl) {
     const p = pad2(week);
-    const videoPath = `${baseurl}/assets/videos/week${p}.mp4`;
-    const videoEl = $("weekVideo");
-    const fallbackLink = $("videoFallbackLink");
-
-    if (videoEl) {
-      videoEl.src = videoPath;
-      videoEl.load(); // reload with new source
-    }
-
-    if (fallbackLink) {
-      fallbackLink.href = videoPath;
-    }
+    const path = `${baseurl}/assets/videos/week${p}.mp4`;
+    if ($("weekVideo")) $("weekVideo").src = path;
+    if ($("videoFallbackLink")) $("videoFallbackLink").href = path;
   }
 
   // --- data loading ---
   async function loadWeekData(week, baseurl) {
     const p = pad2(week);
-    const dataUrl = `${baseurl}/assets/data/week${p}.json`;
-    const readingZhUrl = `${baseurl}/assets/readings/week${p}.txt`;
-    const readingEnUrl = `${baseurl}/assets/readings/week${p}_en.txt`;
-
-    const data = await fetchJson(dataUrl);
-    const zhText = await fetchText(readingZhUrl);
-
+    const data = await fetchJson(`${baseurl}/assets/data/week${p}.json`);
+    const zhText = await fetchText(`${baseurl}/assets/readings/week${p}.txt`);
     let enText = "";
-    try {
-      enText = await fetchText(readingEnUrl);
-    } catch {
-      enText = "";
-    }
-
+    try { enText = await fetchText(`${baseurl}/assets/readings/week${p}_en.txt`); } catch {}
     return { data, zhText, enText };
   }
 
   async function loadPrevWeeksWords(week, baseurl) {
     const all = [];
     for (let w = 1; w < week; w++) {
-      const p = pad2(w);
-      const dataUrl = `${baseurl}/assets/data/week${p}.json`;
       try {
-        const d = await fetchJson(dataUrl);
+        const d = await fetchJson(`${baseurl}/assets/data/week${pad2(w)}.json`);
         if (Array.isArray(d.words)) all.push(...d.words);
-      } catch {
-        // ignore missing weeks
-      }
+      } catch {}
     }
     return all;
   }
 
+  // --- stats badge ---
+  function updateWeekStatsBadge(week) {
+    const el = $("weekStatsBadge");
+    if (!el || !window.Progress) return;
+    const { mastered, total } = window.Progress.getWeekSummary(week);
+    const last = window.Progress.getWeekLastScore(week);
+    let text = `${mastered} / ${total} mastered`;
+    if (last) text += ` · Last quiz: ${last.pct}%`;
+    el.textContent = text;
+  }
+
   // =========================
-  // QUIZ (multiple-choice)
+  // QUIZ
   // =========================
   let WORDS = [];
   let DISTRACTOR_POOL = [];
   let QUESTIONS = [];
+  let WORD_RESULTS = [];
   let idx = 0;
   let score = 0;
   let locked = false;
   let QUIZ_SEED = "";
+  let CURRENT_QUIZ_TYPE = "pinyin";
 
   function pickMeaningStable(word, seedStr) {
     const meanings = Array.isArray(word.meanings) ? word.meanings : [String(word.meanings || "")];
@@ -253,32 +219,51 @@
 
   function makeQuestions(words, quizType, mode, n, seedStr) {
     const rngPick = makeRng(seedStr + "|pick");
-
-    // Per your requirement: even "All 50" should NOT stay in the same order.
-    // So every Start/Restart gets a new seed => new order.
-    let picked;
-    if (mode === "random") {
-      picked = seededSample(words, n, rngPick);
-    } else {
-      picked = seededShuffle(words, rngPick);
-    }
+    const picked = mode === "random"
+      ? seededSample(words, n, rngPick)
+      : seededShuffle(words, rngPick);
 
     return picked.map((w, i) => {
-      if (quizType === "pinyin") return { prompt: w.pinyin, correct: w.hanzi };
+      if (quizType === "pinyin") {
+        return { prompt: w.pinyin, correct: w.hanzi, word: w, subtype: "mc" };
+      }
+      if (quizType === "meaning") {
+        const meaning = pickMeaningStable(w, seedStr + `|meaning|${i}`);
+        return { prompt: meaning, correct: w.hanzi, word: w, subtype: "mc" };
+      }
+      if (quizType === "type-pinyin") {
+        return { prompt: w.hanzi, correct: w.pinyin, word: w, subtype: "type-pinyin" };
+      }
+      if (quizType === "type-meaning") {
+        const meanings = Array.isArray(w.meanings) ? w.meanings : [String(w.meanings || "")];
+        return { prompt: w.hanzi, correct: meanings[0], allCorrect: meanings, word: w, subtype: "type-meaning" };
+      }
+      if (quizType === "listening") {
+        return { prompt: w.hanzi, correct: w.hanzi, word: w, subtype: "listening" };
+      }
       const meaning = pickMeaningStable(w, seedStr + `|meaning|${i}`);
-      return { prompt: meaning, correct: w.hanzi };
+      return { prompt: meaning, correct: w.hanzi, word: w, subtype: "mc" };
     });
   }
 
   function pickDistractors(pool, correctHanzi, k, seedStr) {
     const options = pool.filter((w) => w.hanzi !== correctHanzi).map((w) => w.hanzi);
-    const rng = makeRng(seedStr);
-    return seededSample(options, k, rng);
+    return seededSample(options, k, makeRng(seedStr));
   }
 
   function setProgress() {
     if ($("progressText")) $("progressText").textContent = `Question ${idx + 1} / ${QUESTIONS.length}`;
     if ($("scoreText")) $("scoreText").textContent = `Score: ${score}`;
+  }
+
+  function renderMCOptions(choices, correct, hanziForAudio) {
+    if (!$("options")) return;
+    $("options").innerHTML = choices
+      .map((c) => `<button class="option" type="button" data-choice="${escapeHtml(c)}">${escapeHtml(c)}</button>`)
+      .join("");
+    $("options").querySelectorAll("button").forEach((btn) => {
+      btn.addEventListener("click", () => onMCAnswer(btn, correct, hanziForAudio));
+    });
   }
 
   function showQuestion() {
@@ -287,69 +272,140 @@
     if ($("nextBtn")) $("nextBtn").disabled = true;
 
     const q = QUESTIONS[idx];
-    if ($("prompt")) $("prompt").textContent = q.prompt;
+    const { subtype } = q;
+    const isTyping = subtype === "type-pinyin" || subtype === "type-meaning";
+    const isListening = subtype === "listening";
+    const { week, baseurl } = window.STUDY || { week: 1, baseurl: "" };
 
-    // Add audio button for the correct answer (hanzi)
-    if ($("quizAudioBtn")) {
-      const audioBtnHtml = createAudioButton(q.correct, window.STUDY?.baseurl || "", window.STUDY?.week || 1);
-      $("quizAudioBtn").innerHTML = audioBtnHtml;
+    if ($("options")) $("options").hidden = isTyping;
+    if ($("typingArea")) $("typingArea").hidden = !isTyping;
+    if ($("typingInput")) {
+      $("typingInput").value = "";
+      $("typingInput").classList.remove("typing-correct", "typing-wrong");
     }
 
-    // Stable options within this run for this question index
-    const qSeed = QUIZ_SEED + `|q|${idx}`;
-    const distractors = pickDistractors(DISTRACTOR_POOL, q.correct, 3, qSeed + "|d");
-    const choices = seededShuffle([q.correct, ...distractors], makeRng(qSeed + "|c"));
+    if (isTyping) {
+      if ($("prompt")) $("prompt").textContent = q.prompt;
+      if ($("quizAudioBtn")) {
+        $("quizAudioBtn").innerHTML = createAudioButton(q.word.hanzi, baseurl, week);
+      }
+      if ($("typingHint")) {
+        $("typingHint").textContent = subtype === "type-pinyin"
+          ? "Type the pinyin (tone marks optional):"
+          : "Type the English meaning:";
+      }
+      setTimeout(() => $("typingInput")?.focus(), 50);
 
-    if ($("options")) {
-      $("options").innerHTML = choices
-        .map((c) => `<button class="option" type="button" data-choice="${escapeHtml(c)}">${escapeHtml(c)}</button>`)
-        .join("");
+    } else if (isListening) {
+      if ($("prompt")) $("prompt").innerHTML = `<span class="listening-icon" title="Click to replay" role="button" tabindex="0">🔊</span>`;
+      if ($("quizAudioBtn")) {
+        $("quizAudioBtn").innerHTML = `<button class="btn ghost replay-btn" type="button">↩ Replay</button>`;
+        $("quizAudioBtn").querySelector(".replay-btn")
+          ?.addEventListener("click", () => speakChinese(q.prompt));
+        const icon = $("prompt")?.querySelector(".listening-icon");
+        if (icon) icon.addEventListener("click", () => speakChinese(q.prompt));
+      }
+      speakChinese(q.prompt);
+      const qSeed = QUIZ_SEED + `|q|${idx}`;
+      const distractors = pickDistractors(DISTRACTOR_POOL, q.correct, 3, qSeed + "|d");
+      const choices = seededShuffle([q.correct, ...distractors], makeRng(qSeed + "|c"));
+      renderMCOptions(choices, q.correct, q.word.hanzi);
 
-      $("options").querySelectorAll("button").forEach((btn) => {
-        btn.addEventListener("click", () => onAnswer(btn, q.correct));
-      });
+    } else {
+      if ($("prompt")) $("prompt").textContent = q.prompt;
+      if ($("quizAudioBtn")) {
+        $("quizAudioBtn").innerHTML = createAudioButton(q.correct, baseurl, week);
+      }
+      const qSeed = QUIZ_SEED + `|q|${idx}`;
+      const distractors = pickDistractors(DISTRACTOR_POOL, q.correct, 3, qSeed + "|d");
+      const choices = seededShuffle([q.correct, ...distractors], makeRng(qSeed + "|c"));
+      renderMCOptions(choices, q.correct, q.word.hanzi);
     }
 
     setProgress();
   }
 
-  function onAnswer(btn, correct) {
+  function onMCAnswer(btn, correct, hanzi) {
     if (locked) return;
     locked = true;
-
     const chosen = btn.getAttribute("data-choice");
     const isCorrect = chosen === correct;
+    WORD_RESULTS.push({ hanzi, correct: isCorrect });
 
     if ($("options")) {
       $("options").querySelectorAll("button").forEach((b) => {
-        const c = b.getAttribute("data-choice");
-        if (c === correct) b.classList.add("correct");
+        if (b.getAttribute("data-choice") === correct) b.classList.add("correct");
         if (!isCorrect && b === btn) b.classList.add("wrong");
         b.disabled = true;
       });
     }
 
-    if (isCorrect) {
-      score += 1;
-      if ($("feedback")) $("feedback").textContent = "✅ Correct";
-    } else {
-      if ($("feedback")) $("feedback").textContent = `❌ Incorrect — correct answer: ${correct}`;
-    }
+    if (isCorrect) { score += 1; if ($("feedback")) $("feedback").textContent = "✅ Correct"; }
+    else { if ($("feedback")) $("feedback").textContent = `❌ Incorrect — correct: ${correct}`; }
 
     if ($("nextBtn")) $("nextBtn").disabled = false;
     if ($("scoreText")) $("scoreText").textContent = `Score: ${score}`;
   }
 
+  function onTypingAnswer() {
+    if (locked) return;
+    const q = QUESTIONS[idx];
+    const input = $("typingInput");
+    if (!input) return;
+
+    let isCorrect = false;
+    if (q.subtype === "type-pinyin") {
+      isCorrect = normalizePinyin(input.value) === normalizePinyin(q.correct);
+    } else {
+      const all = Array.isArray(q.allCorrect) ? q.allCorrect : [q.correct];
+      isCorrect = all.some((m) => normalizeText(input.value) === normalizeText(m));
+    }
+
+    locked = true;
+    WORD_RESULTS.push({ hanzi: q.word.hanzi, correct: isCorrect });
+
+    if (isCorrect) {
+      score += 1;
+      if ($("feedback")) $("feedback").textContent = "✅ Correct!";
+      input.classList.add("typing-correct");
+    } else {
+      if ($("feedback")) $("feedback").textContent = `❌ Incorrect — correct: ${q.correct}`;
+      input.classList.add("typing-wrong");
+    }
+
+    if ($("scoreText")) $("scoreText").textContent = `Score: ${score}`;
+    if ($("nextBtn")) $("nextBtn").disabled = false;
+
+    setTimeout(() => {
+      if (!locked) return;
+      input.classList.remove("typing-correct", "typing-wrong");
+      if (idx < QUESTIONS.length - 1) { idx++; showQuestion(); } else { finishQuiz(); }
+    }, 1500);
+  }
+
+  function advanceQuiz() {
+    if (idx < QUESTIONS.length - 1) { idx++; showQuestion(); } else { finishQuiz(); }
+  }
+
   function finishQuiz() {
     if ($("prompt")) $("prompt").textContent = "Done!";
     if ($("options")) $("options").innerHTML = "";
+    if ($("typingArea")) $("typingArea").hidden = true;
+    if ($("quizAudioBtn")) $("quizAudioBtn").innerHTML = "";
     if ($("feedback")) $("feedback").textContent = `Final score: ${score} / ${QUESTIONS.length}`;
     if ($("nextBtn")) $("nextBtn").disabled = true;
     if ($("progressText")) $("progressText").textContent = "";
+
+    if (window.Progress) {
+      const { week } = window.STUDY || { week: 1 };
+      window.Progress.recordQuizResult(week, CURRENT_QUIZ_TYPE, score, QUESTIONS.length, WORD_RESULTS);
+      window.Progress.updateWeekSummary(week, WORDS);
+      updateWeekStatsBadge(week);
+    }
   }
 
   async function startQuizFlow(week, baseurl) {
-    const quizType = $("quizType")?.value || "pinyin";
+    CURRENT_QUIZ_TYPE = $("quizType")?.value || "pinyin";
     const mode = $("questionMode")?.value || "all";
     const includePrev = $("includePrev")?.checked || false;
 
@@ -365,11 +421,9 @@
       DISTRACTOR_POOL = [...WORDS, ...prev];
     }
 
-    // NEW per-run seed: changes each Start/Restart => different "All 50" order each time
-    const runSeed = newRunSeed();
-    QUIZ_SEED = `quiz|week:${week}|type:${quizType}|mode:${mode}|n:${n}|prev:${includePrev}|run:${runSeed}`;
-
-    QUESTIONS = makeQuestions(WORDS, quizType, mode, n, QUIZ_SEED);
+    QUIZ_SEED = `quiz|week:${week}|type:${CURRENT_QUIZ_TYPE}|mode:${mode}|n:${n}|prev:${includePrev}|run:${newRunSeed()}`;
+    QUESTIONS = makeQuestions(WORDS, CURRENT_QUIZ_TYPE, mode, n, QUIZ_SEED);
+    WORD_RESULTS = [];
     idx = 0;
     score = 0;
 
@@ -385,13 +439,6 @@
   let fcIsBack = false;
   let fcSeed = "";
 
-  function formatFlashSide(word, which, seedStr) {
-    if (which === "hanzi") return word.hanzi || "";
-    if (which === "pinyin") return word.pinyin || "";
-    if (which === "meaning") return pickMeaningStable(word, seedStr);
-    return "";
-  }
-
   function fcUpdateProgress() {
     if ($("fcProgress")) $("fcProgress").textContent = `Card ${fcIndex + 1} / ${FC_ORDER.length}`;
   }
@@ -400,74 +447,229 @@
     if (!FC_ORDER.length) return;
     const word = FC_ORDER[fcIndex];
 
-    // Gather selected fields for front/back
-    const frontFields = [];
-    if ($("fcFrontHanzi")?.checked) frontFields.push("hanzi");
-    if ($("fcFrontPinyin")?.checked) frontFields.push("pinyin");
-    if ($("fcFrontMeaning")?.checked) frontFields.push("meaning");
+    const frontFields = [
+      $("fcFrontHanzi")?.checked && "hanzi",
+      $("fcFrontPinyin")?.checked && "pinyin",
+      $("fcFrontMeaning")?.checked && "meaning",
+    ].filter(Boolean);
 
-    const backFields = [];
-    if ($("fcBackHanzi")?.checked) backFields.push("hanzi");
-    if ($("fcBackPinyin")?.checked) backFields.push("pinyin");
-    if ($("fcBackMeaning")?.checked) backFields.push("meaning");
+    const backFields = [
+      $("fcBackHanzi")?.checked && "hanzi",
+      $("fcBackPinyin")?.checked && "pinyin",
+      $("fcBackMeaning")?.checked && "meaning",
+    ].filter(Boolean);
 
-    // Render selected fields
-    function renderFields(fields, word, seedStr) {
-      return fields.map(f => {
+    function renderFields(fields) {
+      return fields.map((f) => {
         if (f === "hanzi") return `<div class="flash-hanzi">${escapeHtml(word.hanzi || "")}</div>`;
         if (f === "pinyin") return `<div class="flash-pinyin">${escapeHtml(word.pinyin || "")}</div>`;
-        if (f === "meaning") return `<div class="flash-meaning">${escapeHtml(pickMeaningStable(word, seedStr))}</div>`;
+        if (f === "meaning") return `<div class="flash-meaning">${escapeHtml(pickMeaningStable(word, fcSeed + `|m|${fcIndex}|${fcIsBack ? "back" : "front"}`))}</div>`;
         return "";
       }).join("");
     }
 
-    const showFields = fcIsBack ? backFields : frontFields;
-    const showHtml = renderFields(showFields, word, fcSeed + `|m|${fcIndex}|${fcIsBack ? "back" : "front"}`);
-    const audioBtn = createAudioButton(word.hanzi, baseurl, week);
-
-    const card = $("fcCard");
+    const showHtml = renderFields(fcIsBack ? backFields : frontFields);
     const face = $("fcFace");
     if (face) {
-      face.innerHTML = `<div class="flash-main">${showHtml}</div><div class="flash-audio">${audioBtn}</div>`;
+      face.innerHTML = `<div class="flash-main">${showHtml}</div><div class="flash-audio">${createAudioButton(word.hanzi, baseurl, week)}</div>`;
     }
 
+    const card = $("fcCard");
     if (card) card.classList.toggle("is-back", fcIsBack);
-
     if ($("fcPrev")) $("fcPrev").disabled = fcIndex === 0;
     if ($("fcNext")) $("fcNext").disabled = fcIndex === FC_ORDER.length - 1;
-
     fcUpdateProgress();
   }
 
-  function fcFlip(baseurl, week) {
-    fcIsBack = !fcIsBack;
-    fcRender(baseurl, week);
-  }
+  function fcFlip(baseurl, week) { fcIsBack = !fcIsBack; fcRender(baseurl, week); }
 
   function fcGo(delta, baseurl, week) {
     const next = fcIndex + delta;
     if (next < 0 || next >= FC_ORDER.length) return;
     fcIndex = next;
-    fcIsBack = false; // always return to front when moving
+    fcIsBack = false;
     fcRender(baseurl, week);
   }
 
   function fcStart(week, baseurl) {
     if (!WORDS.length) return;
-
-    const shuffleOn = $("fcShuffle")?.checked || false;
-
-    // fresh per-run seed so order can change each time Start is pressed (if Shuffle enabled)
     fcSeed = `flash|week:${week}|run:${newRunSeed()}`;
-
-    const rng = makeRng(fcSeed + "|order");
-    FC_ORDER = shuffleOn ? seededShuffle(WORDS, rng) : WORDS.slice();
-
+    FC_ORDER = $("fcShuffle")?.checked
+      ? seededShuffle(WORDS, makeRng(fcSeed + "|order"))
+      : WORDS.slice();
     fcIndex = 0;
     fcIsBack = false;
-
     if ($("fcArea")) $("fcArea").hidden = false;
     fcRender(baseurl, week);
+  }
+
+  // =========================
+  // WRITING TAB (HanziWriter)
+  // =========================
+  let WRITE_IDX = 0;
+  let hwWriters = [];
+  let hwLoaded = false;
+  let hwLoading = false;
+
+  function loadHanziWriter(cb) {
+    if (hwLoaded) { cb(); return; }
+    if (hwLoading) {
+      const poll = setInterval(() => { if (hwLoaded) { clearInterval(poll); cb(); } }, 100);
+      return;
+    }
+    hwLoading = true;
+    const s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js";
+    s.onload = () => { hwLoaded = true; cb(); };
+    s.onerror = () => console.error("HanziWriter failed to load");
+    document.head.appendChild(s);
+  }
+
+  function hwColors() {
+    const light = document.documentElement.getAttribute("data-theme") === "light";
+    return {
+      strokeColor:   light ? "#2d62ff" : "#7aa2ff",
+      radicalColor:  light ? "#0fa96a" : "#4ee59a",
+      outlineColor:  light ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.20)",
+      drawingColor:  light ? "#121a2b" : "#e9eefc",
+    };
+  }
+
+  function renderWritingWord(wordIdx) {
+    if (!WORDS.length) return;
+    WRITE_IDX = Math.max(0, Math.min(wordIdx, WORDS.length - 1));
+    const word = WORDS[WRITE_IDX];
+    const meanings = Array.isArray(word.meanings) ? word.meanings.join(", ") : word.meanings;
+
+    if ($("writeWordHanzi")) $("writeWordHanzi").textContent = word.hanzi;
+    if ($("writeWordPinyin")) $("writeWordPinyin").textContent = word.pinyin;
+    if ($("writeWordMeaning")) $("writeWordMeaning").textContent = meanings;
+    if ($("writeWordProgress")) $("writeWordProgress").textContent = `${WRITE_IDX + 1} / ${WORDS.length}`;
+    if ($("writePrev")) $("writePrev").disabled = WRITE_IDX === 0;
+    if ($("writeNext")) $("writeNext").disabled = WRITE_IDX === WORDS.length - 1;
+    if ($("writeFeedback")) $("writeFeedback").textContent = "";
+
+    const container = $("writeCharacters");
+    if (!container) return;
+
+    if (!hwLoaded) {
+      container.innerHTML = `<p class="muted small hw-placeholder">Click Animate or Practice to load stroke diagrams.</p>`;
+      hwWriters = [];
+      return;
+    }
+
+    hwWriters = [];
+    container.innerHTML = "";
+    const chars = [...word.hanzi];
+    const col = hwColors();
+
+    chars.forEach((char, i) => {
+      const div = document.createElement("div");
+      div.id = `hw-char-${i}`;
+      div.className = "hw-char-box";
+      container.appendChild(div);
+      try {
+        const writer = HanziWriter.create(`hw-char-${i}`, char, {
+          width: 200, height: 200, padding: 8,
+          showCharacter: true,
+          strokeColor:  col.strokeColor,
+          radicalColor: col.radicalColor,
+          outlineColor: col.outlineColor,
+          drawingColor: col.drawingColor,
+          strokeAnimationSpeed: 1,
+          delayBetweenStrokes: 200,
+          onLoadCharDataError: () => {
+            div.innerHTML = `<div class="hw-unsupported">${escapeHtml(char)}<br><small class="muted">Stroke data unavailable</small></div>`;
+            const entry = hwWriters.find((e) => e.div === div);
+            if (entry) entry.writer = null;
+          },
+        });
+        hwWriters.push({ writer, char, div });
+      } catch {
+        div.innerHTML = `<div class="hw-unsupported">${escapeHtml(char)}</div>`;
+        hwWriters.push({ writer: null, char, div });
+      }
+    });
+  }
+
+  function animateAllWriters() {
+    hwWriters.forEach(({ writer }) => {
+      if (writer) { writer.cancelQuiz(); writer.animateCharacter(); }
+    });
+  }
+
+  function quizCharsSequentially(list, i) {
+    if (i >= list.length) {
+      if ($("writeFeedback")) $("writeFeedback").textContent = "✅ All characters practiced!";
+      if (window.Progress) {
+        const { week } = window.STUDY || { week: 1 };
+        [...WORDS[WRITE_IDX].hanzi].forEach((c) => window.Progress.recordWritingPractice(c));
+        window.Progress.updateWeekSummary(week, WORDS);
+        updateWeekStatsBadge(week);
+      }
+      return;
+    }
+    const { writer, char } = list[i];
+    if ($("writeFeedback")) $("writeFeedback").textContent = `✏️ Tracing: ${char} (${i + 1}/${list.length})`;
+    if (!writer) { quizCharsSequentially(list, i + 1); return; }
+    writer.quiz({
+      onMistake: () => { if ($("writeFeedback")) $("writeFeedback").textContent = `✏️ Tracing ${char} — keep going!`; },
+      onCorrectStroke: () => {},
+      onComplete: (summary) => {
+        const m = summary.totalMistakes || 0;
+        if ($("writeFeedback")) $("writeFeedback").textContent = m === 0 ? `✅ ${char} — Perfect!` : `✅ ${char} — ${m} mistake${m !== 1 ? "s" : ""}`;
+        setTimeout(() => quizCharsSequentially(list, i + 1), 700);
+      },
+    });
+  }
+
+  function onWritingAction(callback) {
+    if (hwLoaded && WORDS.length) {
+      if (!$("writeCharacters")?.querySelector(".hw-char-box")) renderWritingWord(WRITE_IDX);
+      callback();
+    } else if (!hwLoaded && WORDS.length) {
+      loadHanziWriter(() => { renderWritingWord(WRITE_IDX); callback(); });
+    }
+  }
+
+  // =========================
+  // KEYBOARD SHORTCUTS
+  // =========================
+  function initKeyboardShortcuts(baseurl, week) {
+    document.addEventListener("keydown", (e) => {
+      const inText = e.target.matches('input[type="text"], input:not([type]), textarea');
+
+      // Quiz area shortcuts
+      if (!$("quizArea")?.hidden) {
+        if (inText) {
+          if (e.key === "Enter" && !$("typingArea")?.hidden) {
+            e.preventDefault();
+            onTypingAnswer();
+          }
+        } else {
+          if (e.key >= "1" && e.key <= "4") {
+            e.preventDefault();
+            const btns = $("options")?.querySelectorAll("button:not([disabled])");
+            btns?.[parseInt(e.key) - 1]?.click();
+          }
+          if (e.key === "Enter" && !$("nextBtn")?.disabled) {
+            e.preventDefault();
+            $("nextBtn")?.click();
+          }
+          if (e.key === "r" || e.key === "R") {
+            e.preventDefault();
+            document.querySelector(".audio-btn")?.click();
+          }
+        }
+      }
+
+      // Flashcard shortcuts
+      if (!$("fcArea")?.hidden && !inText) {
+        if (e.key === " " || e.key === "Enter") { e.preventDefault(); $("fcFlip")?.click(); }
+        if (e.key === "ArrowLeft")  { e.preventDefault(); $("fcPrev")?.click(); }
+        if (e.key === "ArrowRight") { e.preventDefault(); $("fcNext")?.click(); }
+      }
+    });
   }
 
   // =========================
@@ -476,33 +678,35 @@
   document.addEventListener("DOMContentLoaded", async () => {
     const { week, baseurl } = window.STUDY || { week: 1, baseurl: "" };
 
-    // quiz "Random N" input visibility
-    if ($("questionMode") && $("randomCountWrap")) {
-      $("questionMode").addEventListener("change", () => {
-        $("randomCountWrap").style.display = $("questionMode").value === "random" ? "flex" : "none";
-      });
+    // Hide listening option if TTS unavailable
+    if (!window.speechSynthesis) {
+      $("quizType")?.querySelector('option[value="listening"]')?.remove();
     }
 
-    // load data + reading
+    // Random N visibility
+    $("questionMode")?.addEventListener("change", () => {
+      if ($("randomCountWrap")) $("randomCountWrap").hidden = $("questionMode").value !== "random";
+    });
+
+    // Load data
     try {
       const { data, zhText, enText } = await loadWeekData(week, baseurl);
 
-      if ($("weekTitle")) $("weekTitle").textContent = data.title ? data.title : `Week ${week}`;
+      if ($("weekTitle")) $("weekTitle").textContent = data.title || `Week ${week}`;
       if ($("youtubeLink")) $("youtubeLink").href = data.youtube || "#";
 
       WORDS = Array.isArray(data.words) ? data.words : [];
-      if ($("studyTableWrap")) {
-        const tableHtml = buildStudyTable(WORDS, baseurl, week);
-        $("studyTableWrap").innerHTML = tableHtml;
+
+      if (window.Progress) {
+        window.Progress.updateWeekSummary(week, WORDS);
+        updateWeekStatsBadge(week);
       }
 
-      // reading block (pairs)
+      if ($("studyTableWrap")) $("studyTableWrap").innerHTML = buildStudyTable(WORDS, baseurl, week);
       if ($("readingText")) $("readingText").innerHTML = renderReadingPairs(zhText, enText);
 
-      // english toggle only if we have English lines
       const hasEnglish = parseLines(enText).length > 0;
-      if ($("englishToggleWrap")) $("englishToggleWrap").style.display = hasEnglish ? "flex" : "none";
-
+      if ($("englishToggleWrap")) $("englishToggleWrap").hidden = !hasEnglish;
       if (hasEnglish && $("toggleEnglish")) {
         $("toggleEnglish").checked = false;
         $("toggleEnglish").addEventListener("change", () => {
@@ -512,57 +716,63 @@
       }
 
       annotateReading();
-
-      // load video
       loadWeekVideo(week, baseurl);
+
+      // Pre-populate writing word info (text only; HW loads lazily)
+      if (WORDS.length) {
+        const w = WORDS[0];
+        if ($("writeWordHanzi"))   $("writeWordHanzi").textContent = w.hanzi;
+        if ($("writeWordPinyin"))  $("writeWordPinyin").textContent = w.pinyin;
+        if ($("writeWordMeaning")) $("writeWordMeaning").textContent = Array.isArray(w.meanings) ? w.meanings.join(", ") : w.meanings;
+        if ($("writeWordProgress")) $("writeWordProgress").textContent = `1 / ${WORDS.length}`;
+        if ($("writeNext")) $("writeNext").disabled = WORDS.length <= 1;
+      }
     } catch (err) {
       console.error(err);
-      if ($("readingText")) $("readingText").textContent = "Could not load this week’s files. Check assets/data and assets/readings.";
-      if ($("englishToggleWrap")) $("englishToggleWrap").style.display = "none";
+      if ($("readingText")) $("readingText").textContent = "Could not load this week's files. Check assets/data and assets/readings.";
+      if ($("englishToggleWrap")) $("englishToggleWrap").hidden = true;
     }
 
-    // quiz wiring
-    if ($("startQuiz")) $("startQuiz").addEventListener("click", async () => startQuizFlow(week, baseurl));
-    if ($("nextBtn")) $("nextBtn").addEventListener("click", () => (idx < QUESTIONS.length - 1 ? (idx++, showQuestion()) : finishQuiz()));
-    if ($("restartBtn")) $("restartBtn").addEventListener("click", async () => startQuizFlow(week, baseurl));
+    // Quiz wiring
+    $("startQuiz")?.addEventListener("click", () => startQuizFlow(week, baseurl));
+    $("nextBtn")?.addEventListener("click", advanceQuiz);
+    $("restartBtn")?.addEventListener("click", () => startQuizFlow(week, baseurl));
+    $("typingSubmit")?.addEventListener("click", onTypingAnswer);
 
-    // flashcards wiring (only if the elements exist)
-    if ($("fcStart")) $("fcStart").addEventListener("click", () => fcStart(week, baseurl));
-    if ($("fcCard")) {
-      $("fcCard").addEventListener("click", (e) => {
-        // Handle audio button clicks
-        if (e.target.closest('.audio-btn')) {
-          e.stopPropagation();
-          const btn = e.target.closest('.audio-btn');
-          const hanzi = btn.getAttribute("data-hanzi");
-          const audioBaseurl = btn.getAttribute("data-baseurl");
-          const audioWeek = parseInt(btn.getAttribute("data-week"), 10);
-          playAudio(hanzi, audioBaseurl, audioWeek);
-          return;
-        }
-        // Otherwise, flip the card
-        fcFlip(baseurl, week);
-      });
-    }
-    if ($("fcFlip")) $("fcFlip").addEventListener("click", () => fcFlip(baseurl, week));
-    if ($("fcPrev")) $("fcPrev").addEventListener("click", () => fcGo(-1, baseurl, week));
-    if ($("fcNext")) $("fcNext").addEventListener("click", () => fcGo(1, baseurl, week));
-
-    if ($("fcFront")) $("fcFront").addEventListener("change", () => { fcIsBack = false; fcRender(baseurl, week); });
-    if ($("fcBack")) $("fcBack").addEventListener("change", () => { fcIsBack = false; fcRender(baseurl, week); });
-    if ($("fcShuffle")) $("fcShuffle").addEventListener("change", () => {
-      // don't auto-reorder mid-session; user can hit Start again
+    // Flashcard wiring
+    $("fcStart")?.addEventListener("click", () => fcStart(week, baseurl));
+    $("fcCard")?.addEventListener("click", (e) => {
+      if (e.target.closest(".audio-btn")) { e.stopPropagation(); return; }
+      fcFlip(baseurl, week);
     });
+    $("fcFlip")?.addEventListener("click", () => fcFlip(baseurl, week));
+    $("fcPrev")?.addEventListener("click", () => fcGo(-1, baseurl, week));
+    $("fcNext")?.addEventListener("click", () => fcGo(1, baseurl, week));
 
-    // audio buttons - event delegation
-    document.addEventListener("click", (e) => {
-      if (e.target.closest('.audio-btn')) {
-        const btn = e.target.closest('.audio-btn');
-        const hanzi = btn.getAttribute("data-hanzi");
-        const audioBaseurl = btn.getAttribute("data-baseurl");
-        const audioWeek = parseInt(btn.getAttribute("data-week"), 10);
-        playAudio(hanzi, audioBaseurl, audioWeek);
+    // Writing tab wiring
+    $("writePrev")?.addEventListener("click", () => {
+      if (hwLoaded) renderWritingWord(WRITE_IDX - 1);
+      else { onWritingAction(() => {}); WRITE_IDX = Math.max(0, WRITE_IDX - 1); }
+    });
+    $("writeNext")?.addEventListener("click", () => {
+      if (hwLoaded) renderWritingWord(WRITE_IDX + 1);
+      else {
+        const nextIdx = Math.min(WORDS.length - 1, WRITE_IDX + 1);
+        onWritingAction(() => {}); WRITE_IDX = nextIdx;
       }
     });
+    $("writeAnimate")?.addEventListener("click",  () => onWritingAction(animateAllWriters));
+    $("writePractice")?.addEventListener("click", () => onWritingAction(() => quizCharsSequentially([...hwWriters], 0)));
+    $("writeShowChar")?.addEventListener("click", () => onWritingAction(() => hwWriters.forEach(({ writer }) => writer?.showCharacter())));
+
+    // Audio button delegation
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".audio-btn");
+      if (btn) {
+        playAudio(btn.dataset.hanzi, btn.dataset.baseurl, parseInt(btn.dataset.week, 10));
+      }
+    });
+
+    initKeyboardShortcuts(baseurl, week);
   });
 })();

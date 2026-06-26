@@ -493,3 +493,288 @@ html[data-theme="light"] .reading-text{ background: rgba(10,20,40,0.03); }
   margin-top: 8px;
   text-align: center;
 }
+
+/* =============================================
+   PROGRESS DASHBOARD (homepage)
+   ============================================= */
+.progress-dashboard{
+  margin-bottom: 18px;
+}
+
+.dash-stats{
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.dash-stat{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dash-val{
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.dash-label{
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* per-week progress bars */
+.week-progress-bars{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.wpb-row{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wpb-label{
+  min-width: 56px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.wpb-label:hover{ color: var(--accent); }
+
+.wpb-bar-wrap{
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+html[data-theme="light"] .wpb-bar-wrap{
+  background: rgba(10,20,40,0.08);
+}
+
+.wpb-bar{
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 600ms ease;
+  min-width: 0;
+}
+
+.wpb-count{
+  min-width: 72px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   WEEK STATS BADGE
+   ============================================= */
+.week-stats-badge{
+  margin: 2px 0 6px;
+  min-height: 1.1em;
+}
+
+/* =============================================
+   FLASH ROW (replaces inline styles)
+   ============================================= */
+.flash-row{
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.flash-row-label{
+  min-width: 70px;
+}
+
+.flash-lbl-right{
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+/* show randomCountWrap as flex when not hidden */
+#randomCountWrap{ display: flex; }
+
+/* =============================================
+   TYPING QUIZ
+   ============================================= */
+.typing-hint{
+  margin: 8px 0 6px;
+}
+
+.typing-row{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.typing-input{
+  flex: 1;
+  min-width: 180px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: rgba(0,0,0,0.10);
+  color: var(--text);
+  font-size: 1.1rem;
+  transition: border-color 150ms ease;
+}
+html[data-theme="light"] .typing-input{
+  background: rgba(10,20,40,0.03);
+}
+
+.typing-input:focus{
+  outline: none;
+  border-color: var(--accent);
+}
+
+.typing-input.typing-correct{
+  border-color: var(--ok);
+  background: rgba(78,229,154,0.10);
+}
+
+.typing-input.typing-wrong{
+  border-color: var(--danger);
+  background: rgba(255,107,107,0.10);
+}
+
+/* =============================================
+   LISTENING QUIZ
+   ============================================= */
+.listening-icon{
+  font-size: 3rem;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 120ms ease;
+}
+.listening-icon:hover{ transform: scale(1.10); }
+
+.replay-btn{
+  font-size: 0.9rem;
+}
+
+/* =============================================
+   WRITING TAB (HanziWriter)
+   ============================================= */
+.writing-nav{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.write-word-info{
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.write-hanzi{
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.write-pinyin{
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.write-meaning{
+  font-size: 0.9rem;
+}
+
+.write-word-progress{
+  font-size: 0.85rem;
+  margin-left: auto;
+}
+
+.write-characters{
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 220px;
+  align-items: center;
+}
+
+.hw-char-box{
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  overflow: hidden;
+}
+html[data-theme="light"] .hw-char-box{
+  background: rgba(10,20,40,0.02);
+}
+
+.hw-unsupported{
+  width: 200px;
+  height: 200px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--muted);
+}
+
+.hw-placeholder{
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.write-controls{ margin-top: 14px; }
+
+.write-feedback{ margin-top: 10px; }
+
+/* =============================================
+   READING (minor tweaks to avoid inline styles)
+   ============================================= */
+.reading-hint{ margin: 6px 0 0; }
+.reading-toggle{ margin: 0; }
+
+/* =============================================
+   QUIZ SHORTCUTS HINT
+   ============================================= */
+.quiz-shortcuts-hint{
+  margin-top: 8px;
+}
+
+/* =============================================
+   PREV / NEXT WEEK NAV BAR
+   ============================================= */
+.week-nav-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* =============================================
+   MASTERY DOTS in study table
+   ============================================= */
+.mastery-cell{
+  text-align: center;
+  white-space: nowrap;
+}
+
+.mastery-dots{
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: var(--accent);
+}

@@ -5,6 +5,7 @@ layout: default
 <div class="page-head">
   <div>
     <h1 id="weekTitle">Week {{ page.week }}</h1>
+    <div id="weekStatsBadge" class="week-stats-badge muted small"></div>
     <p class="muted">Pick a worksheet, choose how many questions, then start.</p>
   </div>
   <a id="youtubeLink" class="btn" href="#" target="_blank" rel="noopener">YouTube link</a>
@@ -19,6 +20,9 @@ layout: default
       <select id="quizType">
         <option value="pinyin">Match Pinyin → 汉字</option>
         <option value="meaning">Match Meaning → 汉字</option>
+        <option value="type-pinyin">Type Pinyin for 汉字</option>
+        <option value="type-meaning">Type Meaning for 汉字</option>
+        <option value="listening">Listening — Hear it, Pick 汉字</option>
       </select>
     </label>
 
@@ -30,7 +34,7 @@ layout: default
       </select>
     </label>
 
-    <label id="randomCountWrap" class="inline" style="display:none;">
+    <label id="randomCountWrap" class="inline" hidden>
       N
       <input id="randomCount" type="number" min="1" max="50" value="20" />
     </label>
@@ -53,34 +57,46 @@ layout: default
       <div class="prompt" id="prompt"></div>
       <div id="quizAudioBtn"></div>
     </div>
+
     <div class="options" id="options"></div>
+
+    <div id="typingArea" hidden>
+      <p id="typingHint" class="muted small typing-hint"></p>
+      <div class="typing-row">
+        <input id="typingInput" type="text" class="typing-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Type your answer…" />
+        <button id="typingSubmit" class="btn" type="button">Submit</button>
+      </div>
+    </div>
+
     <div class="feedback" id="feedback"></div>
 
     <div class="nav-row">
       <button id="nextBtn" class="btn" type="button" disabled>Next</button>
       <button id="restartBtn" class="btn ghost" type="button">Restart</button>
     </div>
+
+    <p class="muted small quiz-shortcuts-hint">Keys: <strong>1–4</strong> pick option · <strong>Enter</strong> advance</p>
   </div>
 </section>
 
 <section class="card">
   <h2>Flashcards</h2>
-  <p class="muted small">Select which fields show on the front and back. Click the card to flip.</p>
+  <p class="muted small">Select fields for front and back. Click card or press <strong>Space</strong> to flip · <strong>← →</strong> navigate.</p>
 
   <div class="controls flash-controls">
-    <div class="flash-row" style="display:flex;align-items:center;margin-bottom:6px;">
-      <span style="min-width:70px;">汉字</span>
-      <label style="margin-left:auto;margin-right:8px;"><input type="checkbox" id="fcFrontHanzi"> Front</label>
+    <div class="flash-row">
+      <span class="flash-row-label">汉字</span>
+      <label class="flash-lbl-right"><input type="checkbox" id="fcFrontHanzi"> Front</label>
       <label><input type="checkbox" id="fcBackHanzi"> Back</label>
     </div>
-    <div class="flash-row" style="display:flex;align-items:center;margin-bottom:6px;">
-      <span style="min-width:70px;">Pinyin</span>
-      <label style="margin-left:auto;margin-right:8px;"><input type="checkbox" id="fcFrontPinyin"> Front</label>
+    <div class="flash-row">
+      <span class="flash-row-label">Pinyin</span>
+      <label class="flash-lbl-right"><input type="checkbox" id="fcFrontPinyin"> Front</label>
       <label><input type="checkbox" id="fcBackPinyin"> Back</label>
     </div>
-    <div class="flash-row" style="display:flex;align-items:center;margin-bottom:6px;">
-      <span style="min-width:70px;">Meaning</span>
-      <label style="margin-left:auto;margin-right:8px;"><input type="checkbox" id="fcFrontMeaning"> Front</label>
+    <div class="flash-row">
+      <span class="flash-row-label">Meaning</span>
+      <label class="flash-lbl-right"><input type="checkbox" id="fcFrontMeaning"> Front</label>
       <label><input type="checkbox" id="fcBackMeaning"> Back</label>
     </div>
     <label class="check">
@@ -106,6 +122,35 @@ layout: default
     </div>
   </div>
 </section>
+
+<section class="card">
+  <h2>Writing Practice</h2>
+  <p class="muted small">Animated stroke order for each character. Animate to watch, Practice to trace.</p>
+
+  <div class="writing-nav">
+    <button id="writePrev" class="btn ghost" type="button" disabled>◀ Prev</button>
+    <div class="write-word-info">
+      <span id="writeWordHanzi" class="write-hanzi"></span>
+      <span id="writeWordPinyin" class="write-pinyin muted"></span>
+      <span id="writeWordMeaning" class="write-meaning muted small"></span>
+      <span id="writeWordProgress" class="write-word-progress muted small"></span>
+    </div>
+    <button id="writeNext" class="btn" type="button">Next ▶</button>
+  </div>
+
+  <div id="writeCharacters" class="write-characters">
+    <p class="muted small hw-placeholder">Click Animate or Practice to load stroke diagrams.</p>
+  </div>
+
+  <div class="nav-row write-controls">
+    <button id="writeAnimate" class="btn" type="button">▶ Animate</button>
+    <button id="writePractice" class="btn ghost" type="button">✏️ Practice</button>
+    <button id="writeShowChar" class="btn ghost" type="button">👁 Show</button>
+  </div>
+
+  <div id="writeFeedback" class="feedback write-feedback"></div>
+</section>
+
 <section class="card">
   <details>
     <summary class="summary">Study List (50 words)</summary>
@@ -117,9 +162,9 @@ layout: default
     <summary class="summary">Reading Study</summary>
     <div class="reading-head">
       <div>
-        <p class="muted small" style="margin:6px 0 0;">Hover over the Chinese to see pinyin + meaning.</p>
+        <p class="muted small reading-hint">Hover over the Chinese to see pinyin + meaning.</p>
       </div>
-      <label id="englishToggleWrap" class="check" style="margin:0;">
+      <label id="englishToggleWrap" class="check reading-toggle">
         <input id="toggleEnglish" type="checkbox" />
         Show English translations
       </label>
@@ -132,7 +177,7 @@ layout: default
     <summary class="summary">Video Lesson</summary>
     <div id="videoContainer" class="video-container">
       <video id="weekVideo" controls preload="metadata" class="week-video">
-        <p>Your browser does not support HTML5 video. 
+        <p>Your browser does not support HTML5 video.
            <a href="#" id="videoFallbackLink">Download the video</a> instead.</p>
       </video>
       <div class="video-info">
@@ -142,6 +187,22 @@ layout: default
   </details>
 </section>
 
+{% assign prevWeek = page.week | minus: 1 %}
+{% assign nextWeek = page.week | plus: 1 %}
+<div class="week-nav-bar">
+  {% if page.week > 1 %}
+  {% assign prevPath = '/week/' | append: prevWeek | append: '/' %}
+  <a href="{{ prevPath | relative_url }}" class="btn ghost">← Week {{ prevWeek }}</a>
+  {% else %}
+  <span></span>
+  {% endif %}
+
+  {% if page.week < 12 %}
+  {% assign nextPath = '/week/' | append: nextWeek | append: '/' %}
+  <a href="{{ nextPath | relative_url }}" class="btn">Week {{ nextWeek }} →</a>
+  {% endif %}
+</div>
+
 <script>
   window.STUDY = {
     week: {{ page.week | jsonify }},
@@ -149,5 +210,5 @@ layout: default
   };
 </script>
 
-<script src="//mandarinspot.com/static/mandarinspot.min.js" charset="UTF-8"></script>
+<script src="https://mandarinspot.com/static/mandarinspot.min.js" charset="UTF-8"></script>
 <script src="{{ '/assets/js/week.js' | relative_url }}"></script>
