@@ -689,6 +689,126 @@
   }
 
   // =========================
+  // WORKSHEET GENERATOR
+  // =========================
+  function tianGridSvg(s) {
+    const h = s / 2;
+    return `<rect x="0.5" y="0.5" width="${s - 1}" height="${s - 1}" stroke="#b0b0b0" stroke-width="0.8" fill="none"/>
+    <line x1="${h}" y1="0" x2="${h}" y2="${s}" stroke="#c8c8c8" stroke-width="0.5" stroke-dasharray="3,2"/>
+    <line x1="0" y1="${h}" x2="${s}" y2="${h}" stroke="#c8c8c8" stroke-width="0.5" stroke-dasharray="3,2"/>`;
+  }
+
+  function miGridSvg(s) {
+    const h = s / 2;
+    return tianGridSvg(s) + `
+    <line x1="0" y1="0" x2="${s}" y2="${s}" stroke="#c8c8c8" stroke-width="0.5" stroke-dasharray="3,2"/>
+    <line x1="${s}" y1="0" x2="0" y2="${s}" stroke="#c8c8c8" stroke-width="0.5" stroke-dasharray="3,2"/>`;
+  }
+
+  function generateWorksheet() {
+    if (!WORDS.length) return;
+
+    const wordCountVal = $("wsWordCount")?.value || "20";
+    const practiceBoxes = parseInt($("wsPracticeBoxes")?.value || "5", 10);
+    const traceBoxes    = parseInt($("wsTraceBoxes")?.value    || "2", 10);
+    const gridType      = $("wsGridType")?.value    || "tian";
+    const showPinyin    = $("wsShowPinyin")?.checked  ?? true;
+    const showMeaning   = $("wsShowMeaning")?.checked ?? true;
+
+    const words = WORDS.slice(0, parseInt(wordCountVal, 10));
+    const { week } = window.STUDY || { week: 1 };
+    const CELL = 72;
+    const gridSvg = gridType === "mi" ? miGridSvg(CELL) : tianGridSvg(CELL);
+
+    // Expand compound words to per-character rows
+    const entries = [];
+    words.forEach((w) => {
+      const chars  = [...w.hanzi];
+      const meaning = Array.isArray(w.meanings) ? w.meanings[0] : String(w.meanings || "");
+      if (chars.length === 1) {
+        entries.push({ char: chars[0], pinyin: w.pinyin, meaning, partOf: "" });
+      } else {
+        chars.forEach((c, i) => {
+          entries.push({ char: c, pinyin: w.pinyin, meaning, partOf: `${w.hanzi} ${i + 1}/${chars.length}` });
+        });
+      }
+    });
+
+    function boxSvg(char) {
+      const overlay = char
+        ? `<span class="ws-overlay ws-trace">${escapeHtml(char)}</span>`
+        : "";
+      return `<div class="ws-box"><svg xmlns="http://www.w3.org/2000/svg" width="${CELL}" height="${CELL}">${gridSvg}</svg>${overlay}</div>`;
+    }
+
+    function refBox(char) {
+      return `<div class="ws-box ws-ref"><svg xmlns="http://www.w3.org/2000/svg" width="${CELL}" height="${CELL}">${gridSvg}</svg><span class="ws-overlay ws-full">${escapeHtml(char)}</span></div>`;
+    }
+
+    const rows = entries.map((e) => {
+      const py = showPinyin  ? `<div class="ws-py">${escapeHtml(e.pinyin)}</div>`  : "";
+      const mn = showMeaning ? `<div class="ws-mn">${escapeHtml(e.meaning)}</div>` : "";
+      const pt = e.partOf    ? `<div class="ws-pt">${escapeHtml(e.partOf)}</div>`  : "";
+      const traces  = Array.from({ length: traceBoxes    }, () => boxSvg(e.char)).join("");
+      const empties = Array.from({ length: practiceBoxes }, () => boxSvg("")).join("");
+      return `<div class="ws-row">${refBox(e.char)}<div class="ws-info">${py}${mn}${pt}</div><div class="ws-boxes">${traces}${empties}</div></div>`;
+    }).join("");
+
+    const title = `Week ${week} — Handwriting Practice`;
+    const today = new Date().toLocaleDateString();
+    const charFonts = "'KaiTi','STKaiti','AR PL UKai CN','FZKai-Z03','Kaiti SC','BiauKai','SimSun',serif";
+    const fs = Math.round(CELL * 0.82);
+
+    const html = `<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>${escapeHtml(title)}</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,sans-serif;padding:15mm 14mm;color:#111;background:#fff;font-size:12px;}
+.no-print{display:flex;gap:8px;align-items:center;margin-bottom:14px;padding:10px 12px;background:#f5f5f5;border-radius:6px;border:1px solid #ddd;}
+.no-print button{padding:7px 16px;font-size:.95rem;cursor:pointer;border:1px solid #bbb;border-radius:4px;background:#fff;}
+.no-print button:hover{background:#e8e8e8;}
+.tip{color:#777;font-size:.8rem;margin-left:8px;}
+.ws-header{border-bottom:2px solid #111;padding-bottom:8px;margin-bottom:12px;}
+.ws-header h1{font-size:1.2rem;font-weight:800;margin-bottom:3px;}
+.ws-meta{color:#777;font-size:.78rem;}
+.ws-row{display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid #eee;break-inside:avoid;}
+.ws-box{position:relative;width:${CELL}px;height:${CELL}px;flex-shrink:0;}
+.ws-box svg{display:block;position:absolute;top:0;left:0;}
+.ws-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:${charFonts};font-size:${fs}px;line-height:1;pointer-events:none;user-select:none;}
+.ws-full{color:#111;}
+.ws-trace{color:rgba(0,0,0,.14);}
+.ws-info{width:84px;flex-shrink:0;line-height:1.45;}
+.ws-py{font-weight:700;color:#222;font-size:.82rem;}
+.ws-mn{color:#555;font-size:.78rem;}
+.ws-pt{color:#aaa;font-size:.70rem;}
+.ws-boxes{display:flex;gap:3px;flex:1;flex-wrap:wrap;}
+@media print{.no-print{display:none!important;}body{padding:10mm 12mm;}}
+</style>
+</head>
+<body>
+<div class="no-print">
+  <button onclick="window.print()">&#128424; Print</button>
+  <button onclick="window.close()">&#x2715; Close</button>
+  <span class="tip">Tip: set page margins to "Minimum" in print settings for best results.</span>
+</div>
+<div class="ws-header">
+  <h1>${escapeHtml(title)}</h1>
+  <div class="ws-meta">${entries.length} characters &middot; ${escapeHtml(today)} &middot; Mandarin Study Companion</div>
+</div>
+${rows}
+</body>
+</html>`;
+
+    const win = window.open("", "_blank");
+    if (!win) { alert("Please allow pop-ups for this site to generate the worksheet."); return; }
+    win.document.write(html);
+    win.document.close();
+  }
+
+  // =========================
   // KEYBOARD SHORTCUTS
   // =========================
   function initKeyboardShortcuts(baseurl, week) {
@@ -801,6 +921,9 @@
     $("fcFlip")?.addEventListener("click", () => fcFlip(baseurl, week));
     $("fcPrev")?.addEventListener("click", () => fcGo(-1, baseurl, week));
     $("fcNext")?.addEventListener("click", () => fcGo(1, baseurl, week));
+
+    // Worksheet wiring
+    $("wsGenerate")?.addEventListener("click", generateWorksheet);
 
     // Writing tab wiring
     $("writeAnimate")?.addEventListener("click",  animateCurrentChar);

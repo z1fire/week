@@ -155,6 +155,60 @@ layout: default
 </section>
 
 <section class="card">
+  <h2>Printable Worksheet</h2>
+  <p class="muted small">Generate a handwriting practice sheet for this week's vocabulary. Opens in a new tab — use your browser's print dialog.</p>
+
+  <div class="controls">
+    <label>
+      Words
+      <select id="wsWordCount">
+        <option value="10">First 10</option>
+        <option value="20" selected>First 20</option>
+        <option value="50">All 50</option>
+      </select>
+    </label>
+
+    <label>
+      Grid
+      <select id="wsGridType">
+        <option value="tian">田 field</option>
+        <option value="mi">米 rice</option>
+      </select>
+    </label>
+
+    <label>
+      Trace boxes
+      <select id="wsTraceBoxes">
+        <option value="1">1</option>
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+      </select>
+    </label>
+
+    <label>
+      Practice boxes
+      <select id="wsPracticeBoxes">
+        <option value="3">3</option>
+        <option value="5" selected>5</option>
+        <option value="8">8</option>
+      </select>
+    </label>
+
+    <label class="check">
+      <input type="checkbox" id="wsShowPinyin" checked>
+      Pinyin
+    </label>
+
+    <label class="check">
+      <input type="checkbox" id="wsShowMeaning" checked>
+      Meaning
+    </label>
+
+    <button id="wsGenerate" class="btn" type="button">📄 Print Worksheet</button>
+  </div>
+</section>
+
+<section class="card">
   <details>
     <summary class="summary">Study List (50 words)</summary>
     <div id="studyTableWrap" class="mt"></div>
