@@ -506,8 +506,9 @@
   // =========================
   // WRITING TAB (HanziWriter)
   // =========================
-  let WRITE_IDX = 0;
-  let hwWriters = [];
+  let WRITE_WORD_IDX = -1;
+  let WRITE_CHAR_IDX = 0;
+  let hwCurrentWriter = null;
   let hwLoaded = false;
   let hwLoading = false;
 
@@ -535,101 +536,156 @@
     };
   }
 
-  function renderWritingWord(wordIdx) {
-    if (!WORDS.length) return;
-    WRITE_IDX = Math.max(0, Math.min(wordIdx, WORDS.length - 1));
-    const word = WORDS[WRITE_IDX];
-    const meanings = Array.isArray(word.meanings) ? word.meanings.join(", ") : word.meanings;
+  function renderWordGrid() {
+    const container = $("writeWordGrid");
+    if (!container || !WORDS.length) return;
+    container.innerHTML = WORDS.map((w, i) => {
+      const tip = `${escapeHtml(w.pinyin)} · ${Array.isArray(w.meanings) ? escapeHtml(w.meanings[0]) : escapeHtml(String(w.meanings || ""))}`;
+      return `<button class="write-word-btn" type="button" data-widx="${i}" title="${tip}">${escapeHtml(w.hanzi)}</button>`;
+    }).join("");
+    container.querySelectorAll(".write-word-btn").forEach((btn) => {
+      btn.addEventListener("click", () => selectWriteWord(parseInt(btn.dataset.widx, 10)));
+    });
+  }
 
+  function selectWriteWord(wordIdx) {
+    WRITE_WORD_IDX = wordIdx;
+    WRITE_CHAR_IDX = 0;
+    const word = WORDS[wordIdx];
+    const chars = [...word.hanzi];
+
+    // Highlight selected grid button
+    document.querySelectorAll(".write-word-btn").forEach((btn, i) => {
+      btn.classList.toggle("active", i === wordIdx);
+    });
+
+    // Show the detail panel
+    if ($("writeSelected")) $("writeSelected").hidden = false;
+
+    // Update word info
     if ($("writeWordHanzi")) $("writeWordHanzi").textContent = word.hanzi;
     if ($("writeWordPinyin")) $("writeWordPinyin").textContent = word.pinyin;
-    if ($("writeWordMeaning")) $("writeWordMeaning").textContent = meanings;
-    if ($("writeWordProgress")) $("writeWordProgress").textContent = `${WRITE_IDX + 1} / ${WORDS.length}`;
-    if ($("writePrev")) $("writePrev").disabled = WRITE_IDX === 0;
-    if ($("writeNext")) $("writeNext").disabled = WRITE_IDX === WORDS.length - 1;
-    if ($("writeFeedback")) $("writeFeedback").textContent = "";
+    if ($("writeWordMeaning")) $("writeWordMeaning").textContent = Array.isArray(word.meanings) ? word.meanings.join(", ") : word.meanings;
 
-    const container = $("writeCharacters");
-    if (!container) return;
-
-    if (!hwLoaded) {
-      container.innerHTML = `<p class="muted small hw-placeholder">Click Animate or Practice to load stroke diagrams.</p>`;
-      hwWriters = [];
-      return;
+    // Render character tabs only for multi-char words
+    const tabsEl = $("writeCharTabs");
+    if (tabsEl) {
+      if (chars.length > 1) {
+        tabsEl.innerHTML = chars.map((c, i) =>
+          `<button class="write-char-tab${i === 0 ? " active" : ""}" type="button" data-cidx="${i}">${escapeHtml(c)}</button>`
+        ).join("");
+        tabsEl.querySelectorAll(".write-char-tab").forEach((tab) => {
+          tab.addEventListener("click", () => selectWriteChar(parseInt(tab.dataset.cidx, 10)));
+        });
+        tabsEl.hidden = false;
+      } else {
+        tabsEl.hidden = true;
+      }
     }
 
-    hwWriters = [];
-    container.innerHTML = "";
-    const chars = [...word.hanzi];
-    const col = hwColors();
+    if ($("writeFeedback")) $("writeFeedback").textContent = "";
+    resetWriteCanvas();
+  }
 
-    chars.forEach((char, i) => {
+  function selectWriteChar(charIdx) {
+    WRITE_CHAR_IDX = charIdx;
+    document.querySelectorAll(".write-char-tab").forEach((tab, i) => {
+      tab.classList.toggle("active", i === charIdx);
+    });
+    if ($("writeFeedback")) $("writeFeedback").textContent = "";
+    resetWriteCanvas();
+  }
+
+  function resetWriteCanvas() {
+    if (hwCurrentWriter) { try { hwCurrentWriter.cancelQuiz(); } catch {} hwCurrentWriter = null; }
+    const canvas = $("writeCharCanvas");
+    if (canvas) canvas.innerHTML = `<p class="muted small hw-placeholder">Click Animate or Practice to load stroke diagram.</p>`;
+  }
+
+  function currentWriteChar() {
+    if (WRITE_WORD_IDX < 0 || !WORDS.length) return null;
+    return [...WORDS[WRITE_WORD_IDX].hanzi][WRITE_CHAR_IDX] || null;
+  }
+
+  function createWriterForCurrentChar(callback) {
+    const char = currentWriteChar();
+    if (!char) return;
+
+    loadHanziWriter(() => {
+      if (hwCurrentWriter) { try { hwCurrentWriter.cancelQuiz(); } catch {} }
+
+      const canvas = $("writeCharCanvas");
+      if (!canvas) return;
+      canvas.innerHTML = "";
+
       const div = document.createElement("div");
-      div.id = `hw-char-${i}`;
-      div.className = "hw-char-box";
-      container.appendChild(div);
+      div.id = "hw-single";
+      canvas.appendChild(div);
+
+      const col = hwColors();
+      let writer;
       try {
-        const writer = HanziWriter.create(`hw-char-${i}`, char, {
-          width: 200, height: 200, padding: 8,
+        writer = HanziWriter.create("hw-single", char, {
+          width: 250, height: 250, padding: 8,
           showCharacter: true,
-          strokeColor:  col.strokeColor,
-          radicalColor: col.radicalColor,
-          outlineColor: col.outlineColor,
-          drawingColor: col.drawingColor,
+          strokeColor:   col.strokeColor,
+          radicalColor:  col.radicalColor,
+          outlineColor:  col.outlineColor,
+          drawingColor:  col.drawingColor,
           strokeAnimationSpeed: 1,
           delayBetweenStrokes: 200,
           onLoadCharDataError: () => {
             div.innerHTML = `<div class="hw-unsupported">${escapeHtml(char)}<br><small class="muted">Stroke data unavailable</small></div>`;
-            const entry = hwWriters.find((e) => e.div === div);
-            if (entry) entry.writer = null;
+            hwCurrentWriter = null;
           },
         });
-        hwWriters.push({ writer, char, div });
+        hwCurrentWriter = writer;
+        if (callback) callback(writer);
       } catch {
         div.innerHTML = `<div class="hw-unsupported">${escapeHtml(char)}</div>`;
-        hwWriters.push({ writer: null, char, div });
+        hwCurrentWriter = null;
       }
     });
   }
 
-  function animateAllWriters() {
-    hwWriters.forEach(({ writer }) => {
-      if (writer) { writer.cancelQuiz(); writer.animateCharacter(); }
-    });
+  function animateCurrentChar() {
+    if (WRITE_WORD_IDX < 0) return;
+    if (hwCurrentWriter) {
+      hwCurrentWriter.cancelQuiz();
+      hwCurrentWriter.animateCharacter();
+    } else {
+      createWriterForCurrentChar((w) => w.animateCharacter());
+    }
   }
 
-  function quizCharsSequentially(list, i) {
-    if (i >= list.length) {
-      if ($("writeFeedback")) $("writeFeedback").textContent = "✅ All characters practiced!";
-      if (window.Progress) {
-        const { week } = window.STUDY || { week: 1 };
-        [...WORDS[WRITE_IDX].hanzi].forEach((c) => window.Progress.recordWritingPractice(c));
-        window.Progress.updateWeekSummary(week, WORDS);
-        updateWeekStatsBadge(week);
-      }
-      return;
-    }
-    const { writer, char } = list[i];
-    if ($("writeFeedback")) $("writeFeedback").textContent = `✏️ Tracing: ${char} (${i + 1}/${list.length})`;
-    if (!writer) { quizCharsSequentially(list, i + 1); return; }
-    writer.quiz({
-      onMistake: () => { if ($("writeFeedback")) $("writeFeedback").textContent = `✏️ Tracing ${char} — keep going!`; },
-      onCorrectStroke: () => {},
-      onComplete: (summary) => {
-        const m = summary.totalMistakes || 0;
-        if ($("writeFeedback")) $("writeFeedback").textContent = m === 0 ? `✅ ${char} — Perfect!` : `✅ ${char} — ${m} mistake${m !== 1 ? "s" : ""}`;
-        setTimeout(() => quizCharsSequentially(list, i + 1), 700);
-      },
-    });
+  function practiceCurrentChar() {
+    const char = currentWriteChar();
+    if (!char) return;
+    const startQuiz = (writer) => {
+      if (!writer) return;
+      if ($("writeFeedback")) $("writeFeedback").textContent = `✏️ Trace each stroke of ${char}`;
+      writer.quiz({
+        onMistake: () => { if ($("writeFeedback")) $("writeFeedback").textContent = `✏️ Tracing ${char} — keep going!`; },
+        onCorrectStroke: () => {},
+        onComplete: (summary) => {
+          const m = summary.totalMistakes || 0;
+          if ($("writeFeedback")) $("writeFeedback").textContent = m === 0 ? `✅ ${char} — Perfect! No mistakes.` : `✅ ${char} done — ${m} mistake${m !== 1 ? "s" : ""}`;
+          if (window.Progress) {
+            const { week } = window.STUDY || { week: 1 };
+            window.Progress.recordWritingPractice(char);
+            window.Progress.updateWeekSummary(week, WORDS);
+            updateWeekStatsBadge(week);
+          }
+        },
+      });
+    };
+    if (hwCurrentWriter) { hwCurrentWriter.cancelQuiz(); startQuiz(hwCurrentWriter); }
+    else { createWriterForCurrentChar(startQuiz); }
   }
 
-  function onWritingAction(callback) {
-    if (hwLoaded && WORDS.length) {
-      if (!$("writeCharacters")?.querySelector(".hw-char-box")) renderWritingWord(WRITE_IDX);
-      callback();
-    } else if (!hwLoaded && WORDS.length) {
-      loadHanziWriter(() => { renderWritingWord(WRITE_IDX); callback(); });
-    }
+  function showCurrentChar() {
+    if (hwCurrentWriter) hwCurrentWriter.showCharacter();
+    else createWriterForCurrentChar((w) => w?.showCharacter());
   }
 
   // =========================
@@ -718,15 +774,12 @@
       annotateReading();
       loadWeekVideo(week, baseurl);
 
-      // Pre-populate writing word info (text only; HW loads lazily)
-      if (WORDS.length) {
-        const w = WORDS[0];
-        if ($("writeWordHanzi"))   $("writeWordHanzi").textContent = w.hanzi;
-        if ($("writeWordPinyin"))  $("writeWordPinyin").textContent = w.pinyin;
-        if ($("writeWordMeaning")) $("writeWordMeaning").textContent = Array.isArray(w.meanings) ? w.meanings.join(", ") : w.meanings;
-        if ($("writeWordProgress")) $("writeWordProgress").textContent = `1 / ${WORDS.length}`;
-        if ($("writeNext")) $("writeNext").disabled = WORDS.length <= 1;
-      }
+      // Hide YouTube button if no link configured
+      const ytLink = $("youtubeLink");
+      if (ytLink && (!data.youtube || data.youtube === "#")) ytLink.hidden = true;
+
+      // Populate writing word grid
+      renderWordGrid();
     } catch (err) {
       console.error(err);
       if ($("readingText")) $("readingText").textContent = "Could not load this week's files. Check assets/data and assets/readings.";
@@ -750,20 +803,15 @@
     $("fcNext")?.addEventListener("click", () => fcGo(1, baseurl, week));
 
     // Writing tab wiring
-    $("writePrev")?.addEventListener("click", () => {
-      if (hwLoaded) renderWritingWord(WRITE_IDX - 1);
-      else { onWritingAction(() => {}); WRITE_IDX = Math.max(0, WRITE_IDX - 1); }
+    $("writeAnimate")?.addEventListener("click",  animateCurrentChar);
+    $("writePractice")?.addEventListener("click", practiceCurrentChar);
+    $("writeShowChar")?.addEventListener("click", showCurrentChar);
+
+    // Hide video section if no video file loads
+    $("weekVideo")?.addEventListener("error", () => {
+      const section = $("weekVideo")?.closest("section");
+      if (section) section.hidden = true;
     });
-    $("writeNext")?.addEventListener("click", () => {
-      if (hwLoaded) renderWritingWord(WRITE_IDX + 1);
-      else {
-        const nextIdx = Math.min(WORDS.length - 1, WRITE_IDX + 1);
-        onWritingAction(() => {}); WRITE_IDX = nextIdx;
-      }
-    });
-    $("writeAnimate")?.addEventListener("click",  () => onWritingAction(animateAllWriters));
-    $("writePractice")?.addEventListener("click", () => onWritingAction(() => quizCharsSequentially([...hwWriters], 0)));
-    $("writeShowChar")?.addEventListener("click", () => onWritingAction(() => hwWriters.forEach(({ writer }) => writer?.showCharacter())));
 
     // Audio button delegation
     document.addEventListener("click", (e) => {

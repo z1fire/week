@@ -125,30 +125,33 @@ layout: default
 
 <section class="card">
   <h2>Writing Practice</h2>
-  <p class="muted small">Animated stroke order for each character. Animate to watch, Practice to trace.</p>
+  <p class="muted small">Pick any word from the grid, select a character, then Animate or Practice tracing.</p>
 
-  <div class="writing-nav">
-    <button id="writePrev" class="btn ghost" type="button" disabled>◀ Prev</button>
-    <div class="write-word-info">
+  <div id="writeWordGrid" class="write-word-grid">
+    <p class="muted small hw-placeholder">Loading words…</p>
+  </div>
+
+  <div id="writeSelected" class="write-selected" hidden>
+    <div class="write-selected-info">
       <span id="writeWordHanzi" class="write-hanzi"></span>
       <span id="writeWordPinyin" class="write-pinyin muted"></span>
       <span id="writeWordMeaning" class="write-meaning muted small"></span>
-      <span id="writeWordProgress" class="write-word-progress muted small"></span>
     </div>
-    <button id="writeNext" class="btn" type="button">Next ▶</button>
-  </div>
 
-  <div id="writeCharacters" class="write-characters">
-    <p class="muted small hw-placeholder">Click Animate or Practice to load stroke diagrams.</p>
-  </div>
+    <div id="writeCharTabs" class="write-char-tabs" hidden></div>
 
-  <div class="nav-row write-controls">
-    <button id="writeAnimate" class="btn" type="button">▶ Animate</button>
-    <button id="writePractice" class="btn ghost" type="button">✏️ Practice</button>
-    <button id="writeShowChar" class="btn ghost" type="button">👁 Show</button>
-  </div>
+    <div id="writeCharCanvas" class="write-char-canvas">
+      <p class="muted small hw-placeholder">Click Animate or Practice to load stroke diagram.</p>
+    </div>
 
-  <div id="writeFeedback" class="feedback write-feedback"></div>
+    <div class="nav-row write-controls">
+      <button id="writeAnimate" class="btn" type="button">▶ Animate</button>
+      <button id="writePractice" class="btn ghost" type="button">✏️ Practice</button>
+      <button id="writeShowChar" class="btn ghost" type="button">👁 Show</button>
+    </div>
+
+    <div id="writeFeedback" class="feedback write-feedback"></div>
+  </div>
 </section>
 
 <section class="card">
