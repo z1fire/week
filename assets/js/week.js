@@ -199,6 +199,7 @@
   // QUIZ
   // =========================
   let WORDS = [];
+  let READING_ZH = "";
   let DISTRACTOR_POOL = [];
   let QUESTIONS = [];
   let WORD_RESULTS = [];
@@ -217,7 +218,29 @@
     return list[Math.floor(rng() * list.length)];
   }
 
+  function makeFillBlankQuestions(words, zhText, seedStr) {
+    const sentences = parseLines(zhText).filter((s) => s.length >= 4);
+    const shuffled = seededShuffle(words, makeRng(seedStr + "|fb"));
+    const questions = [];
+    shuffled.forEach((w) => {
+      const sentence = sentences.find((s) => s.includes(w.hanzi));
+      if (!sentence) return;
+      questions.push({
+        prompt: sentence.replace(w.hanzi, "___"),
+        correct: w.hanzi,
+        word: w,
+        subtype: "fill-blank",
+      });
+    });
+    return questions;
+  }
+
   function makeQuestions(words, quizType, mode, n, seedStr) {
+    if (quizType === "fill-blank") {
+      const all = makeFillBlankQuestions(words, READING_ZH, seedStr);
+      return mode === "random" ? all.slice(0, n) : all;
+    }
+
     const rngPick = makeRng(seedStr + "|pick");
     const picked = mode === "random"
       ? seededSample(words, n, rngPick)
@@ -312,7 +335,15 @@
       renderMCOptions(choices, q.correct, q.word.hanzi);
 
     } else {
-      if ($("prompt")) $("prompt").textContent = q.prompt;
+      if ($("prompt")) {
+        if (q.subtype === "fill-blank") {
+          $("prompt").innerHTML = escapeHtml(q.prompt).replace(
+            "___", '<span class="fill-slot">___</span>'
+          );
+        } else {
+          $("prompt").textContent = q.prompt;
+        }
+      }
       if ($("quizAudioBtn")) {
         $("quizAudioBtn").innerHTML = createAudioButton(q.correct, baseurl, week);
       }
@@ -872,6 +903,7 @@ ${rows}
       if ($("youtubeLink")) $("youtubeLink").href = data.youtube || "#";
 
       WORDS = Array.isArray(data.words) ? data.words : [];
+      READING_ZH = zhText;
 
       if (window.Progress) {
         window.Progress.updateWeekSummary(week, WORDS);

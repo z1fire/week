@@ -647,6 +647,19 @@ html[data-theme="light"] .typing-input{
 }
 
 /* =============================================
+   FILL-IN-THE-BLANK QUIZ
+   ============================================= */
+.fill-slot{
+  display: inline-block;
+  min-width: 2em;
+  border-bottom: 2px solid var(--accent);
+  color: var(--accent);
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 0 2px;
+}
+
+/* =============================================
    LISTENING QUIZ
    ============================================= */
 .listening-icon{

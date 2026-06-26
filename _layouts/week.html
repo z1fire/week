@@ -6,23 +6,24 @@ layout: default
   <div>
     <h1 id="weekTitle">Week {{ page.week }}</h1>
     <div id="weekStatsBadge" class="week-stats-badge muted small"></div>
-    <p class="muted">Pick a worksheet, choose how many questions, then start.</p>
+    <p class="muted">Pick a quiz type, choose how many questions, then start.</p>
   </div>
   <a id="youtubeLink" class="btn" href="#" target="_blank" rel="noopener">YouTube link</a>
 </div>
 
 <section class="card">
-  <h2>Worksheets</h2>
+  <h2>Quizzes</h2>
 
   <div class="controls">
     <label>
-      Quiz
+      Quiz type
       <select id="quizType">
         <option value="pinyin">Match Pinyin → 汉字</option>
         <option value="meaning">Match Meaning → 汉字</option>
         <option value="type-pinyin">Type Pinyin for 汉字</option>
         <option value="type-meaning">Type Meaning for 汉字</option>
         <option value="listening">Listening — Hear it, Pick 汉字</option>
+        <option value="fill-blank">Fill in the Blank (reading)</option>
       </select>
     </label>
 

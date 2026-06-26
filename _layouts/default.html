@@ -45,6 +45,7 @@
 
       const saved = localStorage.getItem(key);
       if(saved) setTheme(saved);
+      else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
 
       if(btn){
         btn.addEventListener("click", function(){
