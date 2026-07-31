@@ -1,0 +1,18 @@
+{
+  "week": 12,
+  "points": [
+    {
+      "id": "synthesis-review",
+      "name": "不仅如此/无论如何 & full-course review",
+      "explain": "不仅如此 (\"not only that\") adds another point on top of what was just said. 无论如何 (\"no matter what\") means a conclusion holds regardless of circumstances. The rest of this week's sentences review patterns from across the course: 只要...就..., 因为...所以..., 虽然...但是..., and 既然...就....",
+      "sentences": [
+        { "zh": "他很努力不仅如此他也很聪明", "en": "He works hard; not only that, he's also smart.", "tokens": ["他", "很", "努力", "不仅如此", "他", "也", "很", "聪明"], "blank": { "index": 3, "word": "不仅如此" } },
+        { "zh": "无论如何我都要成功", "en": "No matter what, I must succeed.", "tokens": ["无论如何", "我", "都", "要", "成功"], "blank": { "index": 0, "word": "无论如何" } },
+        { "zh": "只要你努力就能实现梦想", "en": "As long as you work hard, you can realize your dream.", "tokens": ["只要", "你", "努力", "就", "能", "实现", "梦想"], "blank": { "index": 5, "word": "实现" } },
+        { "zh": "因为有希望所以不放弃", "en": "Because there is hope, [we] don't give up.", "tokens": ["因为", "有", "希望", "所以", "不", "放弃"], "blank": { "index": 5, "word": "放弃" } },
+        { "zh": "虽然困难但是我们不放弃", "en": "Although it's difficult, we don't give up.", "tokens": ["虽然", "困难", "但是", "我", "们", "不", "放弃"], "blank": { "index": 1, "word": "困难" } },
+        { "zh": "既然决定就要坚持", "en": "Since [we've] decided, [we] must persist.", "tokens": ["既然", "决定", "就", "要", "坚持"], "blank": { "index": 4, "word": "坚持" } }
+      ]
+    }
+  ]
+}

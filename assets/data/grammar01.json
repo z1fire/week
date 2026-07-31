@@ -1,0 +1,29 @@
+{
+  "week": 1,
+  "points": [
+    {
+      "id": "shi-ma",
+      "name": "是 statements & 吗 questions",
+      "explain": "是 links a subject to what it is: A + 是 + B (\"A is B\"). Add 吗 to the end of any statement to turn it into a yes/no question. Use 不 before 是 to make it negative.",
+      "sentences": [
+        { "zh": "这是书", "en": "This is a book.", "tokens": ["这", "是", "书"], "blank": { "index": 1, "word": "是" }, "transform": { "zh": "这是书吗", "en": "Is this a book?", "type": "statement-to-question" } },
+        { "zh": "那是水", "en": "That is water.", "tokens": ["那", "是", "水"], "blank": { "index": 1, "word": "是" }, "transform": { "zh": "那不是水", "en": "That is not water.", "type": "affirmative-to-negative" } },
+        { "zh": "你是谁", "en": "Who are you?", "tokens": ["你", "是", "谁"], "blank": { "index": 1, "word": "是" } },
+        { "zh": "这是钱", "en": "This is money.", "tokens": ["这", "是", "钱"], "blank": { "index": 1, "word": "是" }, "transform": { "zh": "这是钱吗", "en": "Is this money?", "type": "statement-to-question" } },
+        { "zh": "这是水吗", "en": "Is this water?", "tokens": ["这", "是", "水", "吗"], "blank": { "index": 3, "word": "吗" }, "transform": { "zh": "这是水", "en": "This is water.", "type": "question-to-statement" } }
+      ]
+    },
+    {
+      "id": "de-men",
+      "name": "的 possession & 们 plural",
+      "explain": "的 marks possession: A + 的 + B means \"A's B\". 们 attaches to pronouns (我/你/他/她) to make them plural: 我们, 你们, 他们.",
+      "sentences": [
+        { "zh": "这是我的书", "en": "This is my book.", "tokens": ["这", "是", "我", "的", "书"], "blank": { "index": 3, "word": "的" } },
+        { "zh": "那是你的水", "en": "That is your water.", "tokens": ["那", "是", "你", "的", "水"], "blank": { "index": 3, "word": "的" } },
+        { "zh": "他们是人", "en": "They are people.", "tokens": ["他", "们", "是", "人"], "blank": { "index": 1, "word": "们" } },
+        { "zh": "你们叫什么名字", "en": "What are your (plural) names?", "tokens": ["你", "们", "叫", "什么", "名字"], "blank": { "index": 1, "word": "们" } },
+        { "zh": "她的名字是什么", "en": "What is her name?", "tokens": ["她", "的", "名字", "是", "什么"], "blank": { "index": 1, "word": "的" } }
+      ]
+    }
+  ]
+}

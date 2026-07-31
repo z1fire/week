@@ -1,0 +1,17 @@
+{
+  "week": 4,
+  "points": [
+    {
+      "id": "progressive-degree-or",
+      "name": "正在 progressive, 更/最 degree, 或者 vs 还是",
+      "explain": "正在 before a verb shows an action is in progress right now. 更 (\"more\") and 最 (\"most\") go before an adjective to show degree. Use 或者 for \"or\" in statements, but 还是 for \"or\" inside a question.",
+      "sentences": [
+        { "zh": "他正在学习", "en": "He is studying (right now).", "tokens": ["他", "正在", "学习"], "blank": { "index": 1, "word": "正在" } },
+        { "zh": "我们正在一起跳舞", "en": "We are dancing together (right now).", "tokens": ["我", "们", "正在", "一起", "跳舞"], "blank": { "index": 2, "word": "正在" } },
+        { "zh": "这个更贵", "en": "This one is pricier.", "tokens": ["这", "个", "更", "贵"], "blank": { "index": 2, "word": "更" } },
+        { "zh": "那个最便宜", "en": "That one is the cheapest.", "tokens": ["那", "个", "最", "便宜"], "blank": { "index": 2, "word": "最" } },
+        { "zh": "你要咖啡或者茶", "en": "You want coffee or tea.", "tokens": ["你", "要", "咖啡", "或者", "茶"], "blank": { "index": 3, "word": "或者" }, "transform": { "zh": "你要咖啡还是茶", "en": "Do you want coffee or tea?", "type": "statement-or-to-question-or" } }
+      ]
+    }
+  ]
+}

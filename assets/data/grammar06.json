@@ -1,0 +1,17 @@
+{
+  "week": 6,
+  "points": [
+    {
+      "id": "correlative-conjunctions",
+      "name": "不仅...而且..., 只有...才..., 只要...就..., 还是...吧",
+      "explain": "These paired conjunctions link two clauses: 不仅 A 而且 B (\"not only A but also B\"), 只有 A 才 B (\"only if A, then B\"), 只要 A 就 B (\"as long as A, then B\"). 还是...吧 at the end of a sentence softens it into a suggestion (\"let's just... instead\").",
+      "sentences": [
+        { "zh": "他不仅聪明而且努力", "en": "He is not only smart but also hardworking.", "tokens": ["他", "不仅", "聪明", "而且", "努力"], "blank": { "index": 3, "word": "而且" } },
+        { "zh": "只有你去我才去", "en": "Only if you go will I go.", "tokens": ["只有", "你", "去", "我", "才", "去"], "blank": { "index": 4, "word": "才" } },
+        { "zh": "只要你去我就去", "en": "As long as you go, I'll go.", "tokens": ["只要", "你", "去", "我", "就", "去"], "blank": { "index": 4, "word": "就" } },
+        { "zh": "我们还是在家吧", "en": "Let's just stay home instead.", "tokens": ["我", "们", "还是", "在", "家", "吧"], "blank": { "index": 2, "word": "还是" } },
+        { "zh": "我们还是明天去吧", "en": "Let's go tomorrow instead.", "tokens": ["我", "们", "还是", "明天", "去", "吧"], "blank": { "index": 5, "word": "吧" } }
+      ]
+    }
+  ]
+}

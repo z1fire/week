@@ -1,0 +1,18 @@
+{
+  "week": 11,
+  "points": [
+    {
+      "id": "logical-connectors-review",
+      "name": "除非...才..., 不得不, 不可能, 只要/只有 review",
+      "explain": "除非 A 才 B means \"unless A, [only then] B\". 不得不 means \"have no choice but to\". 不可能 means \"it's impossible that...\". This week also reviews 只要...就... and 只有...才... from week 6.",
+      "sentences": [
+        { "zh": "除非你去我才去", "en": "Unless you go, I'll only go [then].", "tokens": ["除非", "你", "去", "我", "才", "去"], "blank": { "index": 0, "word": "除非" } },
+        { "zh": "他不得不去", "en": "He has no choice but to go.", "tokens": ["他", "不得不", "去"], "blank": { "index": 1, "word": "不得不" } },
+        { "zh": "这不可能是真的", "en": "This can't possibly be true.", "tokens": ["这", "不可能", "是", "真", "的"], "blank": { "index": 1, "word": "不可能" } },
+        { "zh": "只要你努力就能成功", "en": "As long as you work hard, you can succeed.", "tokens": ["只要", "你", "努力", "就", "能", "成功"], "blank": { "index": 0, "word": "只要" } },
+        { "zh": "只有你去才能成功", "en": "Only if you go can [it] succeed.", "tokens": ["只有", "你", "去", "才", "能", "成功"], "blank": { "index": 0, "word": "只有" } },
+        { "zh": "哪怕很忙他也去", "en": "Even if [he's] very busy, he still goes.", "tokens": ["哪怕", "很", "忙", "他", "也", "去"], "blank": { "index": 0, "word": "哪怕" } }
+      ]
+    }
+  ]
+}

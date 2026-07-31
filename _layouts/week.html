@@ -81,6 +81,65 @@ layout: default
 </section>
 
 <section class="card">
+  <h2>Grammar Practice</h2>
+  <p class="muted small">This week's sentence pattern, built from words you already know.</p>
+
+  <div id="gExplainWrap" class="grammar-explain"></div>
+
+  <div class="controls">
+    <label>
+      Exercise type
+      <select id="gType">
+        <option value="scramble">Sentence Scramble</option>
+        <option value="fillBlank">Fill in the Blank</option>
+        <option value="transform">Pattern Transformation</option>
+        <option value="translate">Translate (build in Chinese)</option>
+      </select>
+    </label>
+
+    <button id="gStart" class="btn" type="button">Start</button>
+  </div>
+
+  <div id="grammarArea" class="quiz-area" hidden>
+    <div class="quiz-top">
+      <div class="pill" id="gProgress"></div>
+      <div class="pill" id="gScoreText"></div>
+    </div>
+
+    <div class="prompt-area">
+      <div class="prompt" id="gPrompt"></div>
+    </div>
+
+    <div id="gWordBankArea" hidden>
+      <div id="gBuilt" class="gbuilt"></div>
+      <div id="gWordBank" class="gbank"></div>
+    </div>
+
+    <div class="options" id="gOptions" hidden></div>
+
+    <div id="gTypingArea" hidden>
+      <p class="muted small typing-hint">Type the transformed sentence:</p>
+      <div class="typing-row">
+        <input id="gTypingInput" type="text" class="typing-input" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Type your answer…" />
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button id="gCheckBtn" class="btn" type="button" disabled>Check</button>
+    </div>
+
+    <div class="feedback" id="gFeedback"></div>
+
+    <div class="nav-row">
+      <button id="gNextBtn" class="btn" type="button" disabled>Next</button>
+      <button id="gRestartBtn" class="btn ghost" type="button">Restart</button>
+    </div>
+
+    <p class="muted small quiz-shortcuts-hint">Keys: <strong>1–4</strong> pick option (fill-in-the-blank) · <strong>Enter</strong> check/advance</p>
+  </div>
+</section>
+
+<section class="card">
   <h2>Flashcards</h2>
   <p class="muted small">Select fields for front and back. Click card or press <strong>Space</strong> to flip · <strong>← →</strong> navigate.</p>
 
@@ -270,3 +329,4 @@ layout: default
 
 <script src="https://mandarinspot.com/static/mandarinspot.min.js" charset="UTF-8"></script>
 <script src="{{ '/assets/js/week.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/grammar.js' | relative_url }}"></script>

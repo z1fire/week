@@ -1,0 +1,18 @@
+{
+  "week": 8,
+  "points": [
+    {
+      "id": "modal-adverbs",
+      "name": "也许/甚至/尽管/恐怕/由于 — modal & evidential adverbs",
+      "explain": "These adverbs go before the verb to color how certain or emphatic a statement is: 也许 (\"maybe\"), 甚至 (\"even\"), 尽管 (\"despite/although\"), 恐怕 (\"I'm afraid that...\"), 由于 (\"due to\", like a more formal 因为).",
+      "sentences": [
+        { "zh": "他也许不来", "en": "He might not come.", "tokens": ["他", "也许", "不", "来"], "blank": { "index": 1, "word": "也许" } },
+        { "zh": "甚至他也不认识", "en": "Even he doesn't recognize [it].", "tokens": ["甚至", "他", "也", "不", "认识"], "blank": { "index": 0, "word": "甚至" } },
+        { "zh": "尽管很忙他也来", "en": "Despite being very busy, he still comes.", "tokens": ["尽管", "很", "忙", "他", "也", "来"], "blank": { "index": 0, "word": "尽管" } },
+        { "zh": "他恐怕不能来", "en": "I'm afraid he can't come.", "tokens": ["他", "恐怕", "不", "能", "来"], "blank": { "index": 1, "word": "恐怕" } },
+        { "zh": "由于天气不好我们不去", "en": "Due to bad weather, we won't go.", "tokens": ["由于", "天气", "不", "好", "我", "们", "不", "去"], "blank": { "index": 0, "word": "由于" } },
+        { "zh": "他至少认识五个人", "en": "He knows at least five people.", "tokens": ["他", "至少", "认识", "五", "个", "人"], "blank": { "index": 1, "word": "至少" } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "week": 5,
+  "points": [
+    {
+      "id": "opinion-intention",
+      "name": "觉得/认为 opinion, 打算/希望/决定 intention",
+      "explain": "觉得 and 认为 both introduce an opinion (\"[I] feel/think that...\") — just say the subject, then 觉得/认为, then the opinion. 打算, 希望, and 决定 go before a verb phrase to show intention: \"plan to\", \"hope to\", \"decide to\".",
+      "sentences": [
+        { "zh": "我觉得很好", "en": "I think it's very good.", "tokens": ["我", "觉得", "很", "好"], "blank": { "index": 1, "word": "觉得" }, "transform": { "zh": "我觉得不好", "en": "I don't think it's good.", "type": "affirmative-to-negative" } },
+        { "zh": "他认为很难", "en": "He thinks it's difficult.", "tokens": ["他", "认为", "很", "难"], "blank": { "index": 1, "word": "认为" } },
+        { "zh": "我打算去学校", "en": "I plan to go to school.", "tokens": ["我", "打算", "去", "学校"], "blank": { "index": 1, "word": "打算" } },
+        { "zh": "他希望能去中国", "en": "He hopes to be able to go to China.", "tokens": ["他", "希望", "能", "去", "中国"], "blank": { "index": 1, "word": "希望" } },
+        { "zh": "我决定去中国", "en": "I decided to go to China.", "tokens": ["我", "决定", "去", "中国"], "blank": { "index": 1, "word": "决定" } },
+        { "zh": "她觉得很高兴", "en": "She feels very happy.", "tokens": ["她", "觉得", "很", "高兴"], "blank": { "index": 1, "word": "觉得" } }
+      ]
+    }
+  ]
+}

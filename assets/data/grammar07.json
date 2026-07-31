@@ -1,0 +1,18 @@
+{
+  "week": 7,
+  "points": [
+    {
+      "id": "advanced-connectors",
+      "name": "既然...就..., 因此/于是, 无论...都...",
+      "explain": "既然 A 就 B means \"since A is the case, then B\". 因此 and 于是 both mean \"therefore/so\", introducing a result. 无论 A 都 B means \"no matter A, still B\" — it pairs naturally with 都 for \"regardless\".",
+      "sentences": [
+        { "zh": "既然你想去我们就去", "en": "Since you want to go, let's go.", "tokens": ["既然", "你", "想", "去", "我", "们", "就", "去"], "blank": { "index": 0, "word": "既然" } },
+        { "zh": "天气不好因此我们不去", "en": "The weather isn't good, therefore we won't go.", "tokens": ["天气", "不", "好", "因此", "我", "们", "不", "去"], "blank": { "index": 3, "word": "因此" } },
+        { "zh": "她很饿于是吃饭", "en": "She was hungry, so she ate.", "tokens": ["她", "很", "饿", "于是", "吃", "饭"], "blank": { "index": 3, "word": "于是" } },
+        { "zh": "无论你去不去我都去", "en": "Regardless of whether you go or not, I'll go.", "tokens": ["无论", "你", "去", "不", "去", "我", "都", "去"], "blank": { "index": 6, "word": "都" } },
+        { "zh": "即使很忙他也去", "en": "Even if [he's] very busy, he still goes.", "tokens": ["即使", "很", "忙", "他", "也", "去"], "blank": { "index": 0, "word": "即使" } },
+        { "zh": "虽然很忙然而他很高兴", "en": "Although [he's] very busy, however he is happy.", "tokens": ["虽然", "很", "忙", "然而", "他", "很", "高兴"], "blank": { "index": 3, "word": "然而" } }
+      ]
+    }
+  ]
+}

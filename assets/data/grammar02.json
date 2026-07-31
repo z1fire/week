@@ -1,0 +1,18 @@
+{
+  "week": 2,
+  "points": [
+    {
+      "id": "question-scope",
+      "name": "Question words & scope adverbs",
+      "explain": "谁的 asks \"whose\"; 几 asks \"how many\" for small countable amounts (with a measure word), 多少 asks \"how much/how many\" for larger or uncountable amounts. 都 (\"all\") and 也 (\"also\") are scope adverbs that go right before the verb. 在 states where something/someone is.",
+      "sentences": [
+        { "zh": "这是谁的书", "en": "Whose book is this?", "tokens": ["这", "是", "谁的", "书"], "blank": { "index": 2, "word": "谁的" } },
+        { "zh": "你有多少钱", "en": "How much money do you have?", "tokens": ["你", "有", "多少", "钱"], "blank": { "index": 2, "word": "多少" } },
+        { "zh": "你有几个苹果", "en": "How many apples do you have?", "tokens": ["你", "有", "几", "个", "苹果"], "blank": { "index": 2, "word": "几" } },
+        { "zh": "我们都是学生", "en": "We are all students.", "tokens": ["我", "们", "都", "是", "学生"], "blank": { "index": 2, "word": "都" } },
+        { "zh": "他也是老师", "en": "He is also a teacher.", "tokens": ["他", "也", "是", "老师"], "blank": { "index": 1, "word": "也" } },
+        { "zh": "妈妈在家", "en": "Mom is at home.", "tokens": ["妈妈", "在", "家"], "blank": { "index": 1, "word": "在" }, "transform": { "zh": "妈妈不在家", "en": "Mom is not at home.", "type": "affirmative-to-negative" } }
+      ]
+    }
+  ]
+}

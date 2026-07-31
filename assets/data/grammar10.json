@@ -1,0 +1,18 @@
+{
+  "week": 10,
+  "points": [
+    {
+      "id": "passive-causative",
+      "name": "被 passive, 使/让 causative, 连...也/都...",
+      "explain": "被 marks a passive sentence: Object + 被 + Doer + Verb (\"was [verb]ed by...\"). 使 and 让 both mean \"to make/let someone do something\": Someone + 使/让 + Person + Result. 连...也/都... means \"even...\", emphasizing an extreme case.",
+      "sentences": [
+        { "zh": "手机被他借", "en": "The phone was borrowed by him.", "tokens": ["手机", "被", "他", "借"], "blank": { "index": 1, "word": "被" } },
+        { "zh": "我被老师表扬", "en": "I was praised by the teacher.", "tokens": ["我", "被", "老师", "表扬"], "blank": { "index": 1, "word": "被" } },
+        { "zh": "老师让我们练习", "en": "The teacher has us practice.", "tokens": ["老师", "让", "我", "们", "练习"], "blank": { "index": 1, "word": "让" } },
+        { "zh": "咖啡使他很兴奋", "en": "Coffee makes him very excited.", "tokens": ["咖啡", "使", "他", "很", "兴奋"], "blank": { "index": 1, "word": "使" } },
+        { "zh": "连老师也不认识他", "en": "Even the teacher doesn't recognize him.", "tokens": ["连", "老师", "也", "不", "认识", "他"], "blank": { "index": 0, "word": "连" } },
+        { "zh": "虽然很忙却很高兴", "en": "Although [he's] very busy, yet he's happy.", "tokens": ["虽然", "很", "忙", "却", "很", "高兴"], "blank": { "index": 3, "word": "却" } }
+      ]
+    }
+  ]
+}

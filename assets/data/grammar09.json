@@ -1,0 +1,18 @@
+{
+  "week": 9,
+  "points": [
+    {
+      "id": "descriptive-state",
+      "name": "Descriptive state sentences",
+      "explain": "Describe how someone/something is with 很 + adjective (\"very...\"), or 觉得 + adjective for an emotional state (\"[I] feel...\"). Adjectives can be chained with 也 (\"...and also...\") to build a fuller description.",
+      "sentences": [
+        { "zh": "他很兴奋", "en": "He is very excited.", "tokens": ["他", "很", "兴奋"], "blank": { "index": 1, "word": "很" } },
+        { "zh": "这是一个好主意", "en": "This is a good idea.", "tokens": ["这", "是", "一", "个", "好", "主意"], "blank": { "index": 5, "word": "主意" } },
+        { "zh": "他觉得很骄傲", "en": "He feels very proud.", "tokens": ["他", "觉得", "很", "骄傲"], "blank": { "index": 3, "word": "骄傲" } },
+        { "zh": "我觉得很难过", "en": "I feel very sad.", "tokens": ["我", "觉得", "很", "难过"], "blank": { "index": 3, "word": "难过" }, "transform": { "zh": "我觉得不难过", "en": "I don't feel sad.", "type": "affirmative-to-negative" } },
+        { "zh": "他很聪明也很勇敢", "en": "He's smart, and also brave.", "tokens": ["他", "很", "聪明", "也", "很", "勇敢"], "blank": { "index": 3, "word": "也" } },
+        { "zh": "这个地方很脏", "en": "This place is very dirty.", "tokens": ["这", "个", "地方", "很", "脏"], "blank": { "index": 4, "word": "脏" } }
+      ]
+    }
+  ]
+}
