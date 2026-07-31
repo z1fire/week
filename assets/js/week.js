@@ -95,8 +95,12 @@
   }
   window._speakChinese = speakChinese;
 
-  // --- audio playback (file-based, falls back silently) ---
+  // --- audio playback: TTS primary (sounds better), recorded clip as fallback ---
   function playAudio(hanzi, baseurl, week) {
+    if (window.speechSynthesis) {
+      speakChinese(hanzi);
+      return;
+    }
     const p = pad2(week);
     const basePath = `${baseurl}/assets/audio/week${p}/${encodeURIComponent(hanzi)}`;
     const a = new Audio(`${basePath}.mp3`);
