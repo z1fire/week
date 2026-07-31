@@ -144,14 +144,35 @@
     const en = parseLines(enText);
     return zh.map((z, i) => {
       const maybeEn = en[i] ? `<div class="en" hidden>${escapeHtml(en[i])}</div>` : "";
-      return `<div class="read-line"><div class="zh">${escapeHtml(z)}</div>${maybeEn}</div>`;
+      return `<div class="read-line"><div class="zh-row"><div class="zh">${escapeHtml(z)}</div><button class="sentence-audio-btn" type="button" data-zh="${escapeHtml(z)}" title="Play line" aria-label="Play line">🔊</button></div>${maybeEn}</div>`;
     }).join("");
+  }
+
+  function wireReadingAudio(container) {
+    container?.querySelectorAll(".sentence-audio-btn").forEach((btn) => {
+      btn.addEventListener("click", () => speakChinese(btn.dataset.zh));
+    });
   }
 
   function annotateReading() {
     if (window.mandarinspot && typeof window.mandarinspot.annotate === "function") {
       window.mandarinspot.annotate("#readingText", { phonetic: "pinyin", inline: false, show: true });
     }
+  }
+
+  // --- hover-definitions on/off toggle (persisted across pages) ---
+  function initHoverDefsToggle(container, checkboxId) {
+    const KEY = "mandarin_hover_defs";
+    const cb = $(checkboxId || "toggleHoverDefs");
+    if (!cb || !container) return;
+    const enabled = localStorage.getItem(KEY) !== "off";
+    cb.checked = enabled;
+    container.classList.toggle("hover-defs-off", !enabled);
+    cb.addEventListener("change", () => {
+      const on = cb.checked;
+      container.classList.toggle("hover-defs-off", !on);
+      try { localStorage.setItem(KEY, on ? "on" : "off"); } catch {}
+    });
   }
 
   // --- video ---
@@ -916,6 +937,7 @@ ${rows}
 
       if ($("studyTableWrap")) $("studyTableWrap").innerHTML = buildStudyTable(WORDS, baseurl, week);
       if ($("readingText")) $("readingText").innerHTML = renderReadingPairs(zhText, enText);
+      wireReadingAudio($("readingText"));
 
       const hasEnglish = parseLines(enText).length > 0;
       if ($("englishToggleWrap")) $("englishToggleWrap").hidden = !hasEnglish;
@@ -927,6 +949,7 @@ ${rows}
         });
       }
 
+      initHoverDefsToggle($("readingText"));
       annotateReading();
       loadWeekVideo(week, baseurl);
 

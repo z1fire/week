@@ -357,6 +357,16 @@ html[data-theme="light"] input[type="number"]{
   flex-wrap: wrap;
 }
 
+.reading-toggles{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reading-text.hover-defs-off .zh{
+  pointer-events: none;
+}
+
 .reading-text{
   margin-top: 10px;
   padding: 14px;
@@ -371,6 +381,12 @@ html[data-theme="light"] .reading-text{ background: rgba(10,20,40,0.03); }
   border-bottom: 1px solid var(--border);
 }
 .read-line:last-child{ border-bottom: none; }
+
+.zh-row{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 .read-line .zh{
   font-size: 1.12rem;
@@ -1031,4 +1047,40 @@ html[data-theme="light"] .gbuilt{
   border-color: rgba(122,162,255,0.55);
   background: rgba(122,162,255,0.20);
   transform: scale(1.05);
+}
+
+/* =============================================
+   MANDARINSPOT POPUP — force one consistent dark
+   look instead of the library's auto light/dark
+   (it picks a theme per-hover based on background
+   brightness, which read as an inconsistent mix)
+   ============================================= */
+#mandarinspot-popup,
+#mandarinspot-popup[data-ms-theme="light"],
+#mandarinspot-popup[data-ms-theme="dark"]{
+  background: #10182e !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  color: #e9eefc !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45) !important;
+}
+#mandarinspot-popup #mandarinspot-header,
+#mandarinspot-popup[data-ms-theme="light"] #mandarinspot-header,
+#mandarinspot-popup[data-ms-theme="dark"] #mandarinspot-header{
+  color: #e9eefc !important;
+  border-bottom-color: rgba(255,255,255,0.18) !important;
+}
+#mandarinspot-popup .mandarinspot-entry-block,
+#mandarinspot-popup[data-ms-theme="light"] .mandarinspot-entry-block,
+#mandarinspot-popup[data-ms-theme="dark"] .mandarinspot-entry-block{
+  background: rgba(255,255,255,0.06) !important;
+}
+#mandarinspot-popup .mandarinspot-pinyin,
+#mandarinspot-popup[data-ms-theme="light"] .mandarinspot-pinyin,
+#mandarinspot-popup[data-ms-theme="dark"] .mandarinspot-pinyin{
+  color: #7aa2ff !important;
+}
+#mandarinspot-popup .mandarinspot-definitions,
+#mandarinspot-popup[data-ms-theme="light"] .mandarinspot-definitions,
+#mandarinspot-popup[data-ms-theme="dark"] .mandarinspot-definitions{
+  color: #e9eefc !important;
 }

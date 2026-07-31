@@ -31,17 +31,49 @@
       const maybeEn = en[i] ? `<div class="en" hidden>${escapeHtml(en[i])}</div>` : "";
       return `
         <div class="read-line">
-          <div class="zh">${escapeHtml(z)}</div>
+          <div class="zh-row">
+            <div class="zh">${escapeHtml(z)}</div>
+            <button class="sentence-audio-btn" type="button" data-zh="${escapeHtml(z)}" title="Play line" aria-label="Play line">🔊</button>
+          </div>
           ${maybeEn}
         </div>
       `;
     }).join("");
   }
 
+  function speakChinese(text) {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.lang = "zh-CN";
+    utt.rate = 0.85;
+    window.speechSynthesis.speak(utt);
+  }
+
+  function wireReadingAudio(container) {
+    container?.querySelectorAll(".sentence-audio-btn").forEach((btn) => {
+      btn.addEventListener("click", () => speakChinese(btn.dataset.zh));
+    });
+  }
+
   function annotate() {
     if (window.mandarinspot && typeof window.mandarinspot.annotate === "function") {
       window.mandarinspot.annotate("#storyReading", { phonetic: "pinyin", inline: false, show: true });
     }
+  }
+
+  function initHoverDefsToggle(container) {
+    const KEY = "mandarin_hover_defs";
+    const cb = $("storyToggleHoverDefs");
+    if (!cb || !container) return;
+    const enabled = localStorage.getItem(KEY) !== "off";
+    cb.checked = enabled;
+    container.classList.toggle("hover-defs-off", !enabled);
+    cb.addEventListener("change", () => {
+      const on = cb.checked;
+      container.classList.toggle("hover-defs-off", !on);
+      try { localStorage.setItem(KEY, on ? "on" : "off"); } catch {}
+    });
   }
 
   document.addEventListener("DOMContentLoaded", async () => {
@@ -63,6 +95,7 @@
       try { enText = await fetchText(enUrl); } catch { enText = ""; }
 
       $("storyReading").innerHTML = renderPairs(zhText, enText);
+      wireReadingAudio($("storyReading"));
 
       const hasEnglish = parseLines(enText).length > 0;
       $("storyEnglishToggleWrap").style.display = hasEnglish ? "flex" : "none";
@@ -75,6 +108,7 @@
         });
       }
 
+      initHoverDefsToggle($("storyReading"));
       annotate();
     } catch (e) {
       console.error(e);
