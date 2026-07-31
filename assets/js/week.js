@@ -947,7 +947,7 @@ ${rows}
     // Flashcard wiring
     $("fcStart")?.addEventListener("click", () => fcStart(week, baseurl));
     $("fcCard")?.addEventListener("click", (e) => {
-      if (e.target.closest(".audio-btn")) { e.stopPropagation(); return; }
+      if (e.target.closest(".audio-btn")) return;
       fcFlip(baseurl, week);
     });
     $("fcFlip")?.addEventListener("click", () => fcFlip(baseurl, week));
