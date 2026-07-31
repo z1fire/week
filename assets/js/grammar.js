@@ -75,8 +75,78 @@
 
   function annotateGrammar() {
     if (window.mandarinspot && typeof window.mandarinspot.annotate === "function") {
-      window.mandarinspot.annotate("#gZhContent", { phonetic: "pinyin", inline: false, show: true });
+      window.mandarinspot.annotate("#grammarSection", { phonetic: "pinyin", inline: false, show: true });
     }
+  }
+
+  // --- sentence audio: browser TTS primary, stitched real word-clips as fallback ---
+  let introWeekMapPromise = null;
+
+  async function loadIntroWeekMap() {
+    if (introWeekMapPromise) return introWeekMapPromise;
+    introWeekMapPromise = (async () => {
+      const map = {};
+      for (let w = 1; w <= WEEK; w++) {
+        try {
+          const wd = await fetchJson(`${BASEURL}/assets/data/week${pad2(w)}.json`);
+          (wd.words || []).forEach((word) => {
+            if (!(word.hanzi in map)) map[word.hanzi] = w;
+          });
+        } catch { /* ignore a missing week file */ }
+      }
+      return map;
+    })();
+    return introWeekMapPromise;
+  }
+
+  function playOneClip(url) {
+    return new Promise((resolve) => {
+      const a = new Audio(url);
+      let done = false;
+      const finish = () => { if (!done) { done = true; resolve(); } };
+      a.addEventListener("ended", finish);
+      a.addEventListener("error", finish);
+      a.play().catch(finish);
+    });
+  }
+
+  async function playSentenceStitched(tokens) {
+    const map = await loadIntroWeekMap();
+    for (const tok of tokens) {
+      const w = map[tok];
+      if (!w) continue; // grammar particle with no recorded word audio — skip
+      const url = `${BASEURL}/assets/audio/week${pad2(w)}/${encodeURIComponent(tok)}.mp3`;
+      await playOneClip(url);
+      await new Promise((r) => setTimeout(r, 90)); // small gap between words
+    }
+  }
+
+  function playSentenceAudio(tokens, zh) {
+    if (window.speechSynthesis && typeof window._speakChinese === "function") {
+      window._speakChinese(zh);
+    } else {
+      playSentenceStitched(tokens);
+    }
+  }
+
+  // Registry avoids losing token boundaries (compound words like 谁的/名字)
+  // that a naive char-split of the display string would break apart.
+  let audioRegistrySeq = 0;
+  const AUDIO_REGISTRY = {};
+
+  function sentenceAudioButton(tokens, zh) {
+    const id = audioRegistrySeq++;
+    AUDIO_REGISTRY[id] = { tokens, zh };
+    return `<button class="sentence-audio-btn" type="button" data-audio-id="${id}" title="Play sentence" aria-label="Play sentence">🔊</button>`;
+  }
+
+  function wireSentenceAudioButtons(root) {
+    root?.querySelectorAll(".sentence-audio-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const entry = AUDIO_REGISTRY[btn.dataset.audioId];
+        if (entry) playSentenceAudio(entry.tokens, entry.zh);
+      });
+    });
   }
 
   // Shared grammar-particle bank used as fill-in-the-blank distractors.
@@ -114,9 +184,10 @@
       return `<div class="grammar-point">
         <h3>${escapeHtml(pt.name)}</h3>
         <p class="muted small">${escapeHtml(pt.explain)}</p>
-        ${ex ? `<div class="grammar-example" id="gZhContent"><span class="zh">${escapeHtml(ex.zh)}</span><span class="en muted small">${escapeHtml(ex.en)}</span></div>` : ""}
+        ${ex ? `<div class="grammar-example"><span class="zh">${escapeHtml(ex.zh)}</span><span class="en muted small">${escapeHtml(ex.en)}</span>${sentenceAudioButton(ex.tokens, ex.zh)}</div>` : ""}
       </div>`;
     }).join("");
+    wireSentenceAudioButtons(wrap);
     annotateGrammar();
   }
 
@@ -234,7 +305,7 @@
 
     if (q.type === "fillBlank") {
       const display = q.tokens.map((t, i) => (i === q.blankIndex ? '<span class="fill-slot">___</span>' : escapeHtml(t))).join("");
-      if ($("gPrompt")) $("gPrompt").innerHTML = `<span id="gZhContent">${display}</span>`;
+      if ($("gPrompt")) $("gPrompt").innerHTML = `<span>${display}</span>`;
       if ($("gOptions")) {
         $("gOptions").innerHTML = q.choices
           .map((c) => `<button class="option" type="button" data-choice="${escapeHtml(c)}">${escapeHtml(c)}</button>`)
@@ -244,7 +315,7 @@
         });
       }
     } else if (q.type === "transform") {
-      if ($("gPrompt")) $("gPrompt").innerHTML = `<span id="gZhContent" class="zh">${escapeHtml(q.zh)}</span> <span class="muted small">(${escapeHtml(q.en)})</span>`;
+      if ($("gPrompt")) $("gPrompt").innerHTML = `<span class="zh">${escapeHtml(q.zh)}</span> <span class="muted small">(${escapeHtml(q.en)})</span>`;
       if ($("gTypingInput")) { $("gTypingInput").value = ""; $("gTypingInput").classList.remove("typing-correct", "typing-wrong"); }
       setTimeout(() => $("gTypingInput")?.focus(), 50);
     } else {
@@ -263,10 +334,16 @@
     annotateGrammar();
   }
 
-  function finishAndLock(isCorrect, correctDisplay) {
+  function finishAndLock(isCorrect, correctDisplay, correctTokens) {
     locked = true;
     if (isCorrect) { score += 1; if ($("gFeedback")) $("gFeedback").textContent = "✅ Correct"; }
     else { if ($("gFeedback")) $("gFeedback").textContent = `❌ Incorrect — correct: ${correctDisplay}`; }
+    if ($("gFeedback") && correctDisplay) {
+      const audioSpan = document.createElement("span");
+      audioSpan.innerHTML = sentenceAudioButton(correctTokens || [], correctDisplay);
+      $("gFeedback").appendChild(audioSpan);
+      wireSentenceAudioButtons(audioSpan);
+    }
     if ($("gNextBtn")) $("gNextBtn").disabled = false;
     setStatus();
   }
@@ -280,7 +357,7 @@
       if (!isCorrect && b === btn) b.classList.add("wrong");
       b.disabled = true;
     });
-    finishAndLock(isCorrect, q.correct);
+    finishAndLock(isCorrect, q.correct, q.tokens);
   }
 
   function onCheckBuilt() {
@@ -288,7 +365,7 @@
     const q = QUESTIONS[idx];
     if (!q || built.length !== q.tokens.length) return;
     const isCorrect = built.every((item, i) => item.tok === q.tokens[i]);
-    finishAndLock(isCorrect, q.tokens.join(""));
+    finishAndLock(isCorrect, q.tokens.join(""), q.tokens);
   }
 
   function onCheckTransform() {
@@ -298,7 +375,7 @@
     if (!q || !input) return;
     const isCorrect = normalizeZh(input.value) === q.correct;
     input.classList.add(isCorrect ? "typing-correct" : "typing-wrong");
-    finishAndLock(isCorrect, q.correctDisplay);
+    finishAndLock(isCorrect, q.correctDisplay, []);
   }
 
   function advance() {
