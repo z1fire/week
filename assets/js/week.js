@@ -99,13 +99,8 @@
   function playAudio(hanzi, baseurl, week) {
     const p = pad2(week);
     const basePath = `${baseurl}/assets/audio/week${p}/${encodeURIComponent(hanzi)}`;
-    let resolved = false;
-    for (const ext of [".wav", ".mp3"]) {
-      const a = new Audio(`${basePath}${ext}`);
-      a.oncanplaythrough = () => {
-        if (!resolved) { resolved = true; a.play().catch(() => {}); }
-      };
-    }
+    const a = new Audio(`${basePath}.mp3`);
+    a.play().catch(() => {});
   }
 
   function createAudioButton(hanzi, baseurl, week) {
@@ -326,7 +321,12 @@
         $("quizAudioBtn").querySelector(".replay-btn")
           ?.addEventListener("click", () => speakChinese(q.prompt));
         const icon = $("prompt")?.querySelector(".listening-icon");
-        if (icon) icon.addEventListener("click", () => speakChinese(q.prompt));
+        if (icon) {
+          icon.addEventListener("click", () => speakChinese(q.prompt));
+          icon.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); speakChinese(q.prompt); }
+          });
+        }
       }
       speakChinese(q.prompt);
       const qSeed = QUIZ_SEED + `|q|${idx}`;

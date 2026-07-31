@@ -97,3 +97,5 @@ const Progress = (() => {
     getWordMastery
   };
 })();
+
+window.Progress = Progress;

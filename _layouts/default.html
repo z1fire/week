@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ page.title }} · {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <script>
+    (function(){
+      var saved = localStorage.getItem("mandarin_theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -43,9 +52,8 @@
         localStorage.setItem(key, t);
       }
 
-      const saved = localStorage.getItem(key);
-      if(saved) setTheme(saved);
-      else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+      // data-theme was already applied pre-paint in <head>; just sync the toggle icon here.
+      if(btn) btn.textContent = (root.getAttribute("data-theme") === "dark") ? "☀️" : "🌙";
 
       if(btn){
         btn.addEventListener("click", function(){
