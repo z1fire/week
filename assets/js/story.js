@@ -56,24 +56,17 @@
     });
   }
 
+  // Site-wide toggle (header button in default.html) — governs every
+  // page's hover-definition popups, not just this page's reading section.
+  function hoverDefsEnabled() {
+    return localStorage.getItem("mandarin_hover_defs") !== "off";
+  }
+
   function annotate() {
+    if (!hoverDefsEnabled()) return;
     if (window.mandarinspot && typeof window.mandarinspot.annotate === "function") {
       window.mandarinspot.annotate("#storyReading", { phonetic: "pinyin", inline: false, show: true });
     }
-  }
-
-  function initHoverDefsToggle(container) {
-    const KEY = "mandarin_hover_defs";
-    const cb = $("storyToggleHoverDefs");
-    if (!cb || !container) return;
-    const enabled = localStorage.getItem(KEY) !== "off";
-    cb.checked = enabled;
-    container.classList.toggle("hover-defs-off", !enabled);
-    cb.addEventListener("change", () => {
-      const on = cb.checked;
-      container.classList.toggle("hover-defs-off", !on);
-      try { localStorage.setItem(KEY, on ? "on" : "off"); } catch {}
-    });
   }
 
   document.addEventListener("DOMContentLoaded", async () => {
@@ -108,7 +101,6 @@
         });
       }
 
-      initHoverDefsToggle($("storyReading"));
       annotate();
     } catch (e) {
       console.error(e);

@@ -154,25 +154,17 @@
     });
   }
 
+  // Site-wide toggle (header button in default.html) — governs every
+  // page's hover-definition popups, not just the current reading section.
+  function hoverDefsEnabled() {
+    return localStorage.getItem("mandarin_hover_defs") !== "off";
+  }
+
   function annotateReading() {
+    if (!hoverDefsEnabled()) return;
     if (window.mandarinspot && typeof window.mandarinspot.annotate === "function") {
       window.mandarinspot.annotate("#readingText", { phonetic: "pinyin", inline: false, show: true });
     }
-  }
-
-  // --- hover-definitions on/off toggle (persisted across pages) ---
-  function initHoverDefsToggle(container, checkboxId) {
-    const KEY = "mandarin_hover_defs";
-    const cb = $(checkboxId || "toggleHoverDefs");
-    if (!cb || !container) return;
-    const enabled = localStorage.getItem(KEY) !== "off";
-    cb.checked = enabled;
-    container.classList.toggle("hover-defs-off", !enabled);
-    cb.addEventListener("change", () => {
-      const on = cb.checked;
-      container.classList.toggle("hover-defs-off", !on);
-      try { localStorage.setItem(KEY, on ? "on" : "off"); } catch {}
-    });
   }
 
   // --- video ---
@@ -949,7 +941,6 @@ ${rows}
         });
       }
 
-      initHoverDefsToggle($("readingText"));
       annotateReading();
       loadWeekVideo(week, baseurl);
 

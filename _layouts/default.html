@@ -23,6 +23,7 @@
         <a href="{{ '/' | relative_url }}">Home</a>
         <a href="{{ '/week/1/' | relative_url }}">Start</a>
         <a href="{{ '/all/' | relative_url }}">All Weeks</a>
+        <button id="hoverDefsToggle" class="btn ghost" type="button" aria-label="Toggle hover definitions" title="Hover definitions: on">👁️</button>
         <button id="themeToggle" class="btn ghost" type="button" aria-label="Toggle theme">🌙</button>
       </nav>
     </div>
@@ -40,6 +41,25 @@
   </footer>
 
   <script src="{{ '/assets/js/progress.js' | relative_url }}"></script>
+  <script>
+    (function(){
+      const key = "mandarin_hover_defs";
+      const btn = document.getElementById("hoverDefsToggle");
+      if (!btn) return;
+
+      function render(on){
+        btn.textContent = on ? "👁️" : "🙈";
+        btn.title = "Hover definitions: " + (on ? "on" : "off");
+      }
+      render(localStorage.getItem(key) !== "off");
+
+      btn.addEventListener("click", function(){
+        const on = localStorage.getItem(key) !== "off";
+        localStorage.setItem(key, on ? "off" : "on");
+        location.reload();
+      });
+    })();
+  </script>
   <script>
     (function(){
       const key = "mandarin_theme";

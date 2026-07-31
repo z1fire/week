@@ -73,7 +73,14 @@
     return await res.json();
   }
 
+  // Site-wide toggle (header button in default.html) — governs every
+  // page's hover-definition popups, not just this section.
+  function hoverDefsEnabled() {
+    return localStorage.getItem("mandarin_hover_defs") !== "off";
+  }
+
   function annotateGrammar() {
+    if (!hoverDefsEnabled()) return;
     if (window.mandarinspot && typeof window.mandarinspot.annotate === "function") {
       window.mandarinspot.annotate("#grammarSection", { phonetic: "pinyin", inline: false, show: true });
     }

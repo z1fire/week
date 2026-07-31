@@ -357,16 +357,6 @@ html[data-theme="light"] input[type="number"]{
   flex-wrap: wrap;
 }
 
-.reading-toggles{
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.reading-text.hover-defs-off .zh{
-  pointer-events: none;
-}
-
 .reading-text{
   margin-top: 10px;
   padding: 14px;
